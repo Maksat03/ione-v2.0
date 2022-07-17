@@ -1,0 +1,81 @@
+.con{
+  height: 100vh;
+  overflow: hidden;
+}
+
+.download_btns{
+  display: flex;
+  width: 100%;
+}
+
+.download_btns img, .btn{
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.app_img{
+  text-align: center;
+  margin-top: 100px;
+}
+
+.app_img img{
+  width: 60%;
+}
+
+@media (max-width: 770px){
+  .download_form{
+    width: 60vh;
+  }
+
+  .app_img img{
+    width: 70%;
+  }
+}
+
+@media (max-width: 550px){
+  .download_form{
+    width: 50vh;
+  }
+
+  .app_img img{
+    width: 90%;
+  }
+}
+
+@media (max-width: 470px){
+  .download_form{
+    width: 35vh;
+  }
+
+  .download_btns{
+    display: block;
+  }
+
+  .btn{
+    margin-bottom: 10px;
+  }
+
+  .warning h2{
+    font-size: 22px;
+  }
+}
+
+@media (min-height: 1100px){
+  .download_form{
+    width: 40vh;
+  }
+
+  .download_btns{
+    display: block;
+  }
+
+  .btn{
+    margin-bottom: 10px;
+  }
+
+  .warning h2{
+    font-size: 24px;
+  }
+}

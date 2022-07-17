@@ -1,0 +1,198 @@
+body {
+  margin: 0px;
+  font-family: sans-serif;
+}
+
+.courses-line {
+  background-image: url(details/imgs/aboutCourse/liner.png);
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 400px;
+}
+
+.line-info {
+  position: absolute;
+  left: 15%;
+  top: 15%;
+  width: 700px;
+}
+
+.line-info p{
+  margin: 0;
+  font-size: 17px;
+}
+
+.video video{
+  height: 200px;
+  width: 350px;
+}
+
+.video {
+  position: absolute;
+  right: 15%;
+  top: 15%;
+}
+
+.video-2 {
+  display: none;
+}
+
+.certificate {
+  position: absolute;
+  left: 15%;
+  bottom: 20%;
+  display: flex;
+}
+
+.certificate img{
+  height: 30px;
+}
+
+.certificate p{
+  font-size: 11px;
+  margin: 0 10px;
+}
+
+.about {
+  display: flex;
+}
+
+.text {
+  margin-left: 15%;
+  position: relative;
+}
+
+.text h2{
+  font-size: 25px;
+  margin: 10px 0;
+}
+
+.text p {
+  width: 700px;
+  font-size: 17px;
+}
+
+.teacher {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.teacher p{
+  width: 590px;
+  font-size: 13px;
+  margin: 3px 0;
+}
+
+.coursePlan {
+  user-select: none;
+  margin-bottom: 20px;
+}
+
+.coursePlan p{
+  font-size: 25px;
+}
+
+summary{
+  font-size: 20px;
+  list-style: none;
+}
+
+summary:before{
+  content: "▼";
+  margin-right: 10px;
+  font-size: 15px;
+}
+
+details[open] summary:before {
+   content: "▲";
+}
+
+.plan p{
+  font-size: 20px;
+  margin: 5px;
+}
+
+.aboutCard{
+  width: 300px;
+  height: 370px;
+  border:none;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.1);
+  margin-right: auto;
+  margin-left: auto;
+  position: sticky;
+  top: 10px;
+}
+
+.courseName p{
+  font-weight: bold;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.aboutCard p{
+  font-size: 20px;
+  margin: 15px;
+}
+
+.buy {
+  text-align: center;
+}
+
+.buy h3 {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.buy {
+  display: flex;
+  width: 200px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.buy-type label{
+  font-size: 16px;
+}
+
+.buy-btn {
+  text-decoration: none;
+  background-color: orange;
+  color: white;
+  font-size: 23px;
+  padding: 10px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 80px;
+  left: 20px;
+  right: 20px;
+}
+
+.coupon-btn {
+  text-decoration: none;
+  background-color: #0098a6;
+  color: white;
+  font-size: 23px;
+  padding: 10px;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+}
+
+
+
+.author_photo {
+  height: 75px;
+  width: 75px;
+  border-radius: 50%;
+  border: none;
+  background-position: center;
+  background-size: cover;
+}
+
+
+

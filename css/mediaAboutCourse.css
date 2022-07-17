@@ -1,0 +1,650 @@
+@media (max-width: 1300px){
+
+  .price_list h2 {
+    margin: 0px;
+  }
+
+  .container1{
+    max-width: 970px;
+  }
+
+  .container2{
+    max-width: 970px;
+  }
+
+  .container3{
+    max-width: 970px;
+  }
+
+  .video {
+    margin: 50px 0px 80px 0px;
+  }
+
+  .line-info {
+    padding-left: 0px;
+  }
+
+  .line-info p{
+    padding-bottom: 50px;
+  }
+
+  .courseName p{
+    font-size: 35px;
+    padding-bottom: 0;
+  }
+
+  .certificate p{
+    font-size: 11px;
+    padding-bottom: 0;
+  }
+
+  .aboutCard p{
+    margin: 15px;
+    font-size: 18px;
+  }
+
+  .text {
+    max-width: 690px;
+    padding-right: 15px;
+  }
+
+  .commentsAmount p{
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 990px){
+
+  .container1{
+    max-width: 750px;
+  }
+
+  .container2{
+    max-width: 750px;
+  }
+
+  .container3{
+    max-width: 750px;
+  }
+
+  .video video{
+    height: 150px;
+  }
+
+  .line-info {
+    padding-right: 30px;
+  }
+
+  .courseName p{
+    font-size: 32px;
+  }
+
+  .text {
+    width: 480px;
+  }
+
+  .text h3{
+    margin-top: 0;
+  }
+
+  .aboutText p{
+    margin: 15px;
+  }
+
+  .buy-btn{
+    right: 15px;
+    left: 15px;
+    font-size: 21px;
+  }
+
+  .coupon-btn{
+    right: 15px;
+    left: 15px;
+    font-size: 21px;
+  }
+
+  summary{
+    font-size: 18px;
+  }
+
+  .plan p{
+    font-size: 18px;
+  }
+
+  .certificate_img{
+    height: 450px;
+  }
+
+  .certificate_container{
+    max-width: 650px;
+    height: 700;
+    border-radius: 15px;
+    top: 100px;
+    padding: 35px;
+  }
+}
+
+@media (max-width: 767px){
+
+  .nav{
+    height: 50px;
+  }
+
+  .iOneLogo img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .categories-dropdown{
+    display: none;
+  }
+
+  .nav-right{
+    display: none;
+  }
+
+  .dropdown{
+    display: none;
+  }
+
+  .container1{
+    max-width: 550px;
+    display: flex;
+    flex-direction: column;
+    padding-left: 0;
+  }
+
+  .container2{
+    max-width: 550px;
+    flex-direction: column;
+  }
+
+  .container3{
+    max-width: 550px;
+  }
+
+  .line-info{
+    order: 1;
+    padding: 0;
+  }
+
+  .line-info p{
+    padding: 0;
+  }
+
+  .authors {
+    margin-bottom: 10px;
+  }
+
+  .video {
+    text-align: center;
+    margin: 50px 0 30px 0;
+  }
+
+  .video video{
+    height: 250px;
+  }
+
+  .certificate {
+    margin-top: 10px;
+  }
+
+  .certificate a{
+    position: inherit;
+    width: 107px;
+  }
+
+  .text {
+    width: 550px;
+  }
+
+  .text h3{
+    margin-top: 10px;
+  }
+
+  .aboutCard {
+    margin: -50px 0 0 0;
+    width: 100%;
+    order: -1;
+    background-color: white;
+  }
+
+  .aboutText{
+    position: relative;
+  }
+
+  .buy{
+    display: block;
+  }
+
+  .price_list {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0px;
+    right: 15px;
+  }
+
+  .price {
+    display: flex;
+    flex-direction: row;
+    width: 520px;
+  }
+
+  .buy-btn {
+    padding-right: 98px;
+    padding-left: 98px;
+    width: 45%;
+    margin: 0 auto;
+    position: static;
+    display: inline;
+  }
+
+  .coupon-btn {
+    width: 45%;
+    margin: 0 auto;
+    position: static;
+  }
+
+  .certificate_img{
+    height: 350px;
+  }
+
+  .certificate_container{
+    max-width: 490px;
+    border-radius: 10px;
+    top: 200px;
+    padding: 25px;
+    transform: rotate(90deg);
+  }
+
+  .close_certificate {
+    height: 20px;
+    left: 5px;
+    top: 5px;
+  }
+
+  .close_certificate img {
+    height: 20px;
+  }
+
+  .scrollUp img {
+    height: 40px;
+    border: 1px solid black;
+  }
+
+  .commentsAmount p{
+    font-size: 14px;
+  }
+
+  .rating h3 {
+    font-size: 15px;
+  }
+
+  .rating img {
+    height: 16px;
+    margin-top: 2px;
+  }
+
+  .rating span{
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 5px;
+  }
+
+  .usersImg button{
+    height: 55px;
+    width: 55px;
+  }
+
+  .ratingCom p{
+    margin-top: 2px;
+  }
+
+  .contacts a {
+    height: 45px;
+  }
+
+  .contacts img {
+    height: 45px;
+  }
+
+  .app{
+    height: 45px;
+  }
+
+  .app a{
+    height: 45px;
+  }
+
+  .app img{
+    height: 45px;
+  }
+}
+
+@media (max-width: 560px){
+
+  .nav{
+    height: 50px;
+  }
+
+  .iOneLogo img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .container1{
+    max-width: 390px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container2{
+    max-width: 390px;
+  }
+
+  .container3{
+    max-width: 390px;
+  }
+
+  .video video{
+    height: 190px;
+  }
+
+  .line-info{
+    order: 1;
+  }
+
+  .video {
+    order: 0;
+  }
+
+  .courseName p{
+    font-size: 28px;
+  }
+
+  .text {
+    width: 385px;
+  }
+
+  .text h3{
+    font-size: 17px;
+  }
+
+  .price {
+    width: 360px;
+  }
+
+  .price_list h2{
+    font-size: 22px;
+  }
+
+  .price_list h3{
+    font-size: 16px;
+  }
+
+  .buy-btn {
+    width: 40%;
+    padding-left: 58px;
+    padding-right: 58px;
+  }
+
+  .coupon-btn {
+    width: 40%;
+  }
+
+  .buy-container {
+    max-width: 350px;
+    top: 200px;
+    padding: 25px 20px;
+  }
+
+  .coupon-container {
+    max-width: 350px;
+    top: 200px;
+    padding: 25px 20px;
+  }
+
+  .coupon-container h2{
+    margin: 10px 0;
+  }
+
+  .coupon-btn-container input{
+    margin-bottom: 0;
+  }
+
+  .certificate_img{
+    height: 290px;
+  }
+
+  .certificate_container{
+    max-width: 380px;
+    border-radius: 10px;
+    top: 100px;
+    padding: 25px;
+    transform: rotate(90deg);
+  }
+
+  .scrollUp img {
+    height: 30px;
+  }
+
+  .usersImg button {
+    height: 50px;
+    width: 50px;
+  }
+
+  .name p{
+    font-size: 14px;
+  }
+
+  .ratingCom p{
+    margin-top: 2px;
+    font-size: 14px;
+  }
+
+  .contacts a {
+    height: 40px;
+  }
+
+  .contacts img {
+    height: 40px;
+  }
+
+  .app{
+    height: 40px;
+  }
+
+  .app a{
+    height: 40px;
+  }
+
+  .app img{
+    height: 40px;
+  }
+
+
+}
+
+@media (max-width: 400px){
+
+  .nav{
+    height: 40px;
+  }
+
+  .iOneLogo img{
+    width: 50px;
+    height: 50px;
+  }
+
+  .container1{
+    max-width: 310px;
+  }
+
+  .container2{
+    max-width: 310px;
+  }
+
+  .container3{
+    max-width: 310px;
+  }
+
+  .line-info{
+    order: 1;
+  }
+
+  .video {
+    order: 0;
+  }
+
+  .video video{
+    height: 150px;
+  }
+
+  .line-info p{
+    font-size: 16px;
+  }
+
+  .courseName p{
+    font-size: 26px;
+  }
+
+  .certificate p{
+    font-size: 11px;
+  }
+
+  .authors a {
+    font-size: 15px;
+  }
+
+  .aboutText p{
+    font-size: 16px;
+  }
+
+  .aboutCard {
+    width: 310px;
+  }
+
+  .price {
+    width: 290px;
+  }
+
+  .price_list h2{
+    font-size: 17px;
+  }
+
+  .price_list h3{
+    font-size: 13px;
+  }
+
+  .buy-btn {
+    width: 40%;
+    font-size: 16px;
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+
+  .coupon-btn {
+    width: 40%;
+    font-size: 16px;
+  }
+
+  .text {
+    width: 310px;
+  }
+
+  .text h2{
+    font-size: 22px;
+  }
+
+  .text p{
+    font-size: 16px;
+  }
+
+  .buy-container {
+    max-width: 280px;
+    top: 100px;
+    border-radius: 8px;
+    padding: 20px 10px;
+  }
+
+  .buy-container h2{
+    font-size: 20px;
+  }
+
+  .coupon-container {
+    max-width: 280px;
+    top: 100px;
+    border-radius: 8px;
+    padding: 20px 10px;
+  }
+
+  .coupon-container h2{
+    font-size: 20px;
+  }
+
+  .certificate_img{
+    height: 220px;
+  }
+
+  .certificate_container{
+    max-width: 290px;
+    top: 130px;
+    left: -10px;
+    border-radius: 8px;
+    padding: 25px;
+    transform: rotate(90deg);
+  }
+
+  .scrollUp  {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .scrollUp img {
+    height: 25px;
+  }
+
+  .usersImg button{
+    height: 50px;
+    width: 50px;
+  }
+
+  .rating_form {
+    display: block;
+  }
+
+  .rating_form p{
+    margin: 0 5px 0 0;
+  }
+
+  .commentsAmount {
+    margin-top: 15px;
+  }
+
+
+
+  .contacts a {
+    height: 28px;
+    margin: 0px 10px;
+  }
+
+  .contacts img {
+    height: 28px;
+  }
+
+  .app {
+    height: 25px
+  }
+
+  .app a{
+    height: 25px;
+    margin: 0 5px;
+  }
+
+  .app img{
+    height: 25px;
+  }
+
+
+}

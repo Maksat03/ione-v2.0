@@ -1,0 +1,2174 @@
+@media (max-width: 1300px){
+
+  .why {
+    display: none;
+  }
+
+  .container1{
+    max-width: 910px;
+  }
+
+  .container2{
+    max-width: 970px;
+  }
+
+  .user_photo{
+    margin-top: 50px;
+    height: 180px;
+    width: 180px;
+  }
+
+  .line {
+    height: 320px;
+  }
+
+  .inf input{
+    height: 23px;
+    width: 190px;
+    font-size: 15px;
+  }
+
+  .change_data a {
+    font-size: 13px;
+  }
+
+  .change_passw a {
+    font-size: 13px;
+  }
+
+  .profileInf {
+    margin: 50px;
+    display: block;
+  }
+
+  .card {
+    width: 900px;
+    margin-right: 0px;
+  }
+
+  .card img{
+    height: 180px;
+  }
+
+  .cardInf{
+    width: 440px;
+  }
+
+  .change_btn{
+    width: 320px;
+  }
+
+  .coupon_title_p{
+    width: 190px;
+  }
+    .certificates_title_p{
+    width: 300px;
+  }
+
+  .coupon-status {
+    top: 4px;
+  }
+}
+
+@media (max-width: 990px){
+  .why {
+    display: none;
+  }
+
+  .container1{
+    max-width: 680px;
+  }
+
+  .container2{
+    max-width: 750px;
+  }
+
+  .user_photo{
+    margin-top: 60px;
+    margin-left: 0;
+    height: 140px;
+    width: 140px;
+  }
+
+  .line {
+    height: 280px;
+  }
+
+  .inf input{
+    height: 18px;
+    width: 170px;
+  }
+
+  .profileInf {
+    margin: 40px;
+    margin-right: 0;
+    margin-left: 10px;
+  }
+
+  .inf span{
+    font-size: 14px;
+  }
+
+  .inf a{
+    height: 25px;
+    width: 25px;
+  }
+
+  .change_btn{
+    width: 310px;
+  }
+
+  .line .change {
+    padding: 4px;
+    font-size: 13px;
+  }
+
+  .courses-categories button{
+    margin: 0 25px;
+    cursor: pointer;
+  }
+
+  .courses-categories button[value="1"]{
+    font-size: 18px;
+  }
+
+  .courses-categories button[value="0"]{
+    font-size: 18px;
+  }
+
+  .card {
+    width: 700px;
+    margin-right: 0px;
+  }
+
+  .card img{
+    height: 150px;
+  }
+
+  .authors a {
+    font-size: 11px;
+  }
+
+  .cardInf {
+    width:320px;
+  }
+
+  .cardInf h3{
+    font-size: 18px;
+  }
+
+  .cardInf span{
+    font-size: 15px;
+  }
+
+  .cardInf p{
+    font-size: 12px;
+    opacity: 1;
+  }
+
+  .cardInf-btn a{
+    padding: 3px 8px;
+    font-size: 15px;
+  }
+
+  .diagram {
+      width: 60px;
+      height:60px;
+  }
+
+  .diagram::before {
+      top:5px;
+      left:5px;
+      right:5px;
+      bottom:5px;
+  }
+
+  .diagram .text b {
+      font-size: 17px;
+  }
+
+  .progress-area p{
+    font-size: 15px;
+  }
+
+  .coupon{
+    padding: 25px 10px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  .certificates{
+    width: 350px;
+    height: 60px;
+    padding: 15px 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  .rating h3 {
+    font-size: 14px;
+  }
+
+  .price h3 {
+    font-size: 15px;
+  }
+.coupon{
+    padding: 25px 10px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  .certificates{
+    height: 60px;
+    width: 340px;
+    padding: 15px 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+    margin: 20px 5px;
+  }
+}
+
+@media (max-width: 767px){
+  .why {
+    display: none;
+  }
+
+  
+  .nav{
+    height: 50px;
+  }
+
+  .iOneLogo img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .categories-dropdown{
+    display: none;
+  }
+
+  .nav-right{
+    display: none;
+  }
+
+  .dropdown{
+    display: none;
+  }
+
+  .container1{
+    max-width: 510px;
+  }
+
+  .container2{
+    max-width: 560px;
+  }
+
+  .user_photo{
+    margin-top: 50px;
+    margin-left: 0;
+    height: 120px;
+    width: 120px;
+  }
+
+  .line {
+    height: 250px;
+  }
+
+  .inf input{
+    height: 14px;
+    width: 150px;
+  }
+
+  .profileInf {
+    margin: 35px;
+    margin-right: 0;
+    margin-left: 10px;
+    position: relative;
+  }
+
+  .edit a{
+    height: 20px;
+    width: 20px;
+    margin-left: 5px;
+    margin-top: -3px;
+  }
+
+  .inf {
+    padding: 8px;
+  }
+
+  .inf span{
+    font-size: 14px;
+  }
+
+  .inf a{
+    height: 25px;
+    width: 25px;
+  }
+
+  .change_btn{
+    width: 310px;
+    position: absolute;
+  }
+
+  .line .change {
+    padding: 4px;
+    font-size: 13px;
+  }
+
+  .courses-categories button{
+    margin: 0 15px;
+    cursor: pointer;
+  }
+
+  .courses-categories button[value="1"]{
+    font-size: 16px;
+  }
+
+  .courses-categories button[value="0"]{
+    font-size: 16px;
+  }
+
+  .card {
+    width: 540px;
+    margin: 10px 0;
+  }
+
+  .card img{
+    height: 120px;
+  }
+
+  .authors a {
+    font-size: 10px;
+  }
+
+  .cardInf {
+    width: 223px;
+    margin: 0px 10px;
+  }
+
+  .cardInf h3{
+    font-size: 16px;
+    margin: 3px 0px;
+  }
+
+  .cardInf span{
+    font-size: 13px;
+  }
+
+  .cardInf p{
+    font-size: 10px;
+    opacity: 1;
+  }
+
+  .cardInf-btn {
+    bottom: 6px;
+  }
+
+  .cardInf-btn a{
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+
+  .diagram {
+      width: 50px;
+      height: 50px;
+  }
+
+  .diagram::before {
+      top:4px;
+      left:4px;
+      right:4px;
+      bottom:4px;
+  }
+
+  .diagram .text b {
+      font-size: 14px;
+  }
+
+  .progress-area {
+    width: 80px;
+  }
+
+  .progress-area p{
+    font-size: 13px;
+    width: 80px;
+  }
+
+  .coupon{
+    padding: 30px 10px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  .certificates{
+    width: 350px;
+    height: 60px;
+    padding: 20px 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  .card .rating img{
+    height: 13px;
+    margin: 0;
+  }
+
+  .price h3 {
+    font-size: 15px;
+  }
+
+  .rating h3 {
+    font-size: 12px;
+    margin-top: 5px;
+    margin-right: 2px;
+  }
+
+
+
+  .contacts a {
+    height: 45px;
+  }
+
+  .contacts img {
+    height: 45px;
+  }
+
+  .app{
+    height: 45px;
+  }
+
+  .app a{
+    height: 45px;
+  }
+
+  .app img{
+    height: 45px;
+  }
+.coupons-line{
+    display: block;
+  }
+
+  .coupon{
+    padding: 30px 10px;
+    width: calc(100% - 30px);
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+    margin: 20px auto;
+  }
+
+  .coupon_title_p{
+    width: 350px;
+  }
+
+  .certificates-line{
+    display: block;
+  }
+
+  .certificates{
+    height: 60px;
+    padding: 20px 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+    width: calc(100% - 30px);
+  }
+
+  .certificates_title_p{
+    width: 400px;
+  }
+}
+
+@media (max-width: 560px){
+  .why {
+    display: none;
+  }
+
+  
+  .nav{
+    height: 50px;
+  }
+
+  .iOneLogo img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .container1{
+    width: 390px;
+  }
+
+  .container2{
+    width: 400px;
+  }
+
+  .user_photo{
+    margin-top: 30px;
+    margin-left: 0;
+    height: 90px;
+    width: 90px;
+  }
+
+  .line {
+    height: 170px;
+  }
+
+  .inf input{
+    height: 10px;
+    width: 90px;
+    font-size: 10px;
+  }
+
+  .profileInf {
+    margin: 5px;
+    margin-right: 0;
+    margin-left: 10px;
+    position: relative;
+  }
+
+  .inf {
+    padding-bottom: 0;
+  }
+
+  .inf span{
+    font-size: 10px;
+  }
+
+  .edit a{
+    height: 20px;
+    width: 20px;
+    margin-left: 5px;
+    margin-top: -2px;
+  }
+
+  .change_btn{
+    width: 250px;
+    position: absolute;
+    margin-top: 5px;
+  }
+
+  .line .change {
+    padding: 3px;
+    font-size: 10px;
+  }
+
+  .change-form-container {
+      max-width: 350px;
+  }
+
+  .info-form-container {
+      max-width: 350px;
+  }
+
+  .coupon-form-container {
+      max-width: 350px;
+  }
+
+  .form-field input{
+    width: 334px;
+  }
+
+  .reg_button{
+    height: 35px;
+  }
+
+  .courses-categories button{
+    margin: 0 10px;
+    cursor: pointer;
+  }
+
+  .courses-categories button[value="1"]{
+    font-size: 11.5px;
+  }
+
+  .courses-categories button[value="0"]{
+    font-size: 11.5px;
+  }
+
+  .card {
+    width: 390px;
+    margin-right: 0px;
+  }
+
+  .card img{
+    height: 80px;
+  }
+
+  .cardInf{
+    margin: 0 10px;
+    width: 180px;
+    line-height: 12px;
+  }
+
+  .cardInf h3{
+    font-size: 12px;
+    margin: 0px;
+  }
+
+  .cardInf span{
+    -webkit-line-clamp: 2; /* number of lines to show */
+    font-size: 11px;
+  }
+
+  .authors a{
+    font-size: 8px;
+    opacity: 0.7;
+  }
+
+  .cardInf p{
+    font-size: 8px;
+    opacity: 1;
+  }
+
+  .cardInf-btn {
+    left: 10px;
+  }
+
+  .cardInf-btn a{
+    padding: 2px 6px;
+    font-size: 9px;
+    border-radius: 5px;
+  }
+
+  .diagram {
+      width: 40px;
+      height: 40px;
+  }
+
+  .diagram::before {
+      top:3px;
+      left:3px;
+      right:3px;
+      bottom:3px;
+  }
+
+  .diagram .text b {
+      font-size: 12px;
+  }
+
+  .progress-area {
+    width: 60px;
+    height: 60px;
+  }
+
+  .progress-area p{
+    font-size: 10px;
+    width: 60px;
+  }
+
+  
+  .coupon{
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+    padding-top: 25px;
+  }
+
+  .coupon-title h3{
+    font-size: 10px;
+    margin: 2px 0;
+  }
+
+  .coupon_title_p{
+    width: 150px;
+  }
+
+  .coupon-info h3{
+    font-size: 10px;
+    margin: 2px 0;
+  }
+
+  .show-coupon {
+    bottom: 5px;
+  }
+
+  .show-coupon a{
+    font-size: 9px;
+  }
+
+  .coupon-status h2{
+    margin: 0;
+    font-size: 10px;
+    color: red;
+  }
+
+  .coupon-num{
+    position: absolute;
+    top: -5px;
+    left: -5px;
+  }
+
+  .coupon-num h3{
+    margin: 0;
+    font-size: 15px;
+    color: white;
+    padding: 0 7px;
+    border-radius: 50%;
+    background-color: #FF5403;
+  }
+
+  .certificates{
+    width: 350px;
+    height: 40px;
+    padding: 10px 10px 20px 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  .certificates-title h3{
+    font-size: 10px;
+  }
+
+  .certificates_title_p{
+    width: 130px;
+  }
+
+  .show-certificates {
+    bottom: 5px;
+  }
+
+  .show-certificates span{
+    font-size: 9px;
+  }
+
+  .show-certificates a{
+    font-size: 9px;
+  }
+
+  .certificates-num h3{
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+
+  .rating h3 {
+    font-size: 10px;
+    margin-right: 2px;
+  }
+
+  .card .rating img {
+    height: 10px;
+  }
+
+  .rating p {
+    margin-left: 1px;
+    margin-top: 0.5px;
+  }
+
+  .rating h3 {
+    margin-top: 0.5px;
+  }
+
+  .price h3 {
+    font-size: 10px;
+  }
+
+  .contacts a {
+    height: 40px;
+  }
+
+  .contacts img {
+    height: 40px;
+  }
+
+  .app{
+    height: 40px;
+  }
+
+  .app a{
+    height: 40px;
+  }
+
+  .app img{
+    height: 40px;
+  }
+.coupon_title_p{
+    width: 250px;
+  }
+
+.certificates_title_p{
+    width: 300px;
+  }
+
+
+}
+
+@media (max-width: 400px){
+  .why {
+    display: none;
+  }
+
+  
+  .nav{
+    height: 40px;
+  }
+
+  .iOneLogo img{
+    width: 50px;
+    height: 50px;
+  }
+
+  .container1{
+    max-width: 300px;
+    display: block;
+  }
+
+  .container2{
+    max-width: 320px;
+  }
+
+  .user_photo_img{
+    margin-top: 10px;
+    height: 80px;
+    width: 100%;
+  }
+
+  .user_photo {
+    margin-top: 0;
+    width: 80px;
+    height: 80px;
+    margin-left: 110px;
+    margin-right: 110px;
+  }
+
+  .line {
+    height: 230px;
+  }
+
+  .inf input{
+    height: 10px;
+    width: 115px;
+    font-size: 10px;
+  }
+
+  .main_information{
+    display: flex;
+    width: 100%;
+  }
+
+  .inf {
+    padding: 0;
+  }
+
+  .inf span{
+    font-size: 10px;
+  }
+
+  .edit a{
+    height: 20px;
+    width: 20px;
+    margin-left: 5px;
+    margin-top: -2px;
+  }
+
+  .change_btn_form{
+    width: 290px;
+    position: relative;
+  }
+
+  .change_btn{
+    width: 290px;
+    position: absolute;
+  }
+
+  .change_passw{
+    position: absolute;
+    left: 0;
+  }
+
+  .change_data{
+    position: absolute;
+    right: 9px;
+  }
+
+  .line .change {
+    padding: 3px;
+    font-size: 10px;
+    margin: 0;
+  }
+
+  .change-form-container {
+    top: 150px;
+    max-width: 270px;
+    padding: 30px 20px 30px 20px;
+    border-radius: 10px;
+  }
+
+  .info-form-container {
+    top: 150px;
+    max-width: 270px;
+    padding: 30px 20px 30px 20px;
+    border-radius: 10px;
+  }
+
+  .coupon-form-container {
+    top: 150px;
+    max-width: 270px;
+    padding: 10px 15px 30px 15px;
+    border-radius: 10px;
+  }
+
+  .form-field input{
+    width: 254px;
+  }
+
+  .form-photo input{
+    font-size: 16px;
+  }
+
+  .close {
+    height: 20px;
+    top: 5px;
+    right: 5px;
+  }
+
+  .close img {
+    height: 20px;
+  }
+
+  .reg_button{
+    height: 30px;
+  }
+
+  .courses-categories button{
+    margin: 0 5px;
+  }
+
+  .courses-categories button[value="1"]{
+    font-size: 11px;
+    padding: 0px 2px 1px 2px;
+  }
+
+  .courses-categories button[value="0"]{
+    font-size: 11px;
+    padding: 0px 2px 1px 2px;
+  }
+
+  .card {
+    width: 320px;
+    margin-right: 0px;
+  }
+
+  .card img{
+    height: 70px;
+  }
+
+  .cardInf{
+    margin: 0 10px;
+    width: 120px;
+  }
+
+  .cardInf h3{
+    font-size: 10px;
+    margin: 0px;
+  }
+
+  .authors a{
+    font-size: 7px;
+    opacity: 0.7;
+  }
+
+  .cardInf p{
+    font-size: 7px;
+    opacity: 1;
+    margin-top: -2px;
+  }
+
+  .cardInf-btn {
+    display: block;
+    position: absolute;
+    bottom: 4px;
+  }
+
+  .cardInf-btn a{
+    padding: 1px 5px;
+    font-size: 9px;
+    border-radius: 5px;
+  }
+
+  .diagram {
+      width: 30px;
+      height: 30px;
+      margin-top: 3px;
+  }
+
+  .diagram::before {
+      top:2px;
+      left:2px;
+      right:2px;
+      bottom:2px;
+  }
+
+  .diagram .text b {
+      font-size: 9px;
+  }
+
+  .progress-area {
+    width: 50px;
+  }
+
+  .progress-area p{
+    font-size: 8px;
+    width: 50px;
+  }
+
+  .progress-area .text div{
+    height: 25px;
+  }
+
+  .coupon{
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+    padding-top: 25px;
+    padding: 20px 10px 25px 10px;
+  }
+
+  .coupon-title h3{
+    font-size: 9px;
+    margin: 2px 0;
+  }
+
+  .coupon_title_p{
+    width: 100px;
+  }
+
+  .coupon-info h3{
+    font-size: 9px;
+    margin: 2px 0;
+  }
+
+  .show-coupon {
+    bottom: 5px;
+  }
+
+  .show-coupon a{
+    font-size: 9px;
+  }
+
+  .coupon-status h2{
+    margin: 0;
+    font-size: 9px;
+    color: red;
+  }
+
+  .coupon-num{
+    position: absolute;
+    top: -5px;
+    left: -5px;
+  }
+
+  .coupon-num h3{
+    margin: 0;
+    font-size: 10px;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 50%;
+    background-color: #FF5403;
+  }
+
+  .certificates{
+    padding: 10px 10px 30px 10px;
+    height: 25px;
+  }
+
+  .certificates-title h3{
+    font-size: 9px;
+  }
+
+  .certificates_title_p{
+    width: 100px;
+  }
+
+  .show-certificates span{
+    font-size: 8px;
+  }
+
+  .show-certificates a{
+    font-size: 8px;
+    padding-top: 2px;
+  }
+
+  .certificates-num h3{
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+
+  .card .rating img  {
+    margin-left: 1px;
+  }
+
+  .rating h3 {
+    font-size: 10px;
+    margin-top: 0px;
+  }
+
+  .rating p {
+    margin-left: 1px;
+  }
+
+  .price h3 {
+    font-size: 10px;
+    margin-top: 0px;
+  }
+
+
+
+  .contacts a {
+    height: 28px;
+    margin: 0px 10px;
+  }
+
+  .contacts img {
+    height: 28px;
+  }
+
+  .app {
+    height: 25px
+  }
+
+  .app a{
+    height: 25px;
+    margin: 0 5px;
+  }
+
+  .app img{
+    height: 25px;
+  }
+
+.coupon_title_p{
+    width: 180px;
+  }
+
+.certificates_title_p{
+    width: 250px;
+  }
+
+}
+
+
+
+
+
+/*@media (max-width: 1300px){
+
+  .container1{
+    max-width: 910px;
+  }
+
+  .container2{
+    max-width: 970px;
+  }
+
+  .user_photo{
+    margin-top: 50px;
+    height: 180px;
+    width: 180px;
+  }
+
+  .line {
+    height: 320px;
+  }
+
+  .line input{
+    height: 23px;
+    width: 190px;
+    font-size: 15px;
+  }
+
+  .change_data a {
+    font-size: 13px;
+  }
+
+  .change_passw a {
+    font-size: 13px;
+  }
+
+  .profileInf {
+    margin: 50px;
+    display: block;
+  }
+
+  .card {
+    width: 900px;
+    margin-right: 0px;
+  }
+
+  .card img{
+    height: 180px;
+  }
+
+  .cardInf{
+    width: 440px;
+  }
+
+  .change_btn{
+    width: 320px;
+  }
+
+  .coupon_title_p{
+    width: 190px;
+  }
+
+  .certificates_title_p{
+    width: 190px;
+  }
+}
+
+@media (max-width: 990px){
+
+  .container1{
+    max-width: 680px;
+  }
+
+  .container2{
+    max-width: 750px;
+  }
+
+  .user_photo{
+    margin-top: 60px;
+    margin-left: 0;
+    height: 140px;
+    width: 140px;
+  }
+
+  .line {
+    height: 280px;
+  }
+
+  .line input{
+    height: 18px;
+    width: 170px;
+  }
+
+  .profileInf {
+    margin: 40px;
+    margin-right: 0;
+    margin-left: 10px;
+  }
+
+  .inf span{
+    font-size: 14px;
+  }
+
+  .inf a{
+    height: 25px;
+    width: 25px;
+  }
+
+  .change_btn{
+    width: 310px;
+  }
+
+  .line .change {
+    padding: 4px;
+    font-size: 13px;
+  }
+
+  .courses-categories button{
+    margin: 0 25px;
+    cursor: pointer;
+  }
+
+  .courses-categories button[value="1"]{
+    font-size: 18px;
+  }
+
+  .courses-categories button[value="0"]{
+    font-size: 18px;
+  }
+
+  .card {
+    width: 700px;
+    margin-right: 0px;
+  }
+
+  .card img{
+    height: 150px;
+  }
+
+  .authors a {
+    font-size: 11px;
+  }
+
+  .cardInf {
+    width:320px;
+  }
+
+  .cardInf h3{
+    font-size: 18px;
+  }
+
+  .cardInf span{
+    font-size: 15px;
+  }
+
+  .cardInf p{
+    font-size: 12px;
+    opacity: 1;
+  }
+
+  .cardInf-btn a{
+    padding: 3px 8px;
+    font-size: 15px;
+  }
+
+  .diagram {
+      width: 60px;
+      height:60px;
+  }
+
+  .diagram::before {
+      top:5px;
+      left:5px;
+      right:5px;
+      bottom:5px;
+  }
+
+  .diagram .text b {
+      font-size: 17px;
+  }
+
+  .progress-area p{
+    font-size: 15px;
+  }
+
+  .coupon{
+    padding: 25px 10px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  .certificates{
+    width: 350px;
+    height: 60px;
+    padding: 15px 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  .rating h3 {
+    font-size: 14px;
+  }
+
+  .price h3 {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 767px){
+
+  .nav{
+    height: 50px;
+  }
+
+  .iOneLogo img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .categories-dropdown{
+    display: none;
+  }
+
+  .nav-right{
+    display: none;
+  }
+
+  .dropdown{
+    display: none;
+  }
+
+  .container1{
+    max-width: 510px;
+  }
+
+  .container2{
+    max-width: 560px;
+  }
+
+  .user_photo{
+    margin-top: 50px;
+    margin-left: 0;
+    height: 120px;
+    width: 120px;
+  }
+
+  .line {
+    height: 250px;
+  }
+
+  .line input{
+    height: 14px;
+    width: 150px;
+  }
+
+  .profileInf {
+    margin: 35px;
+    margin-right: 0;
+    margin-left: 10px;
+    position: relative;
+  }
+
+  .edit a{
+    height: 20px;
+    width: 20px;
+    margin-left: 5px;
+    margin-top: -3px;
+  }
+
+  .inf {
+    padding: 8px;
+  }
+
+  .inf span{
+    font-size: 14px;
+  }
+
+  .inf a{
+    height: 25px;
+    width: 25px;
+  }
+
+  .change_btn{
+    width: 310px;
+    position: absolute;
+  }
+
+  .line .change {
+    padding: 4px;
+    font-size: 13px;
+  }
+
+  .courses-categories button{
+    margin: 0 15px;
+    cursor: pointer;
+  }
+
+  .courses-categories button[value="1"]{
+    font-size: 16px;
+  }
+
+  .courses-categories button[value="0"]{
+    font-size: 16px;
+  }
+
+  .card {
+    width: 540px;
+    margin: 10px 0;
+  }
+
+  .card img{
+    height: 120px;
+  }
+
+  .authors a {
+    font-size: 10px;
+  }
+
+  .cardInf {
+    width: 223px;
+    margin: 0px 10px;
+  }
+
+  .cardInf h3{
+    font-size: 16px;
+    margin: 3px 0px;
+  }
+
+  .cardInf span{
+    font-size: 13px;
+  }
+
+  .cardInf p{
+    font-size: 10px;
+    opacity: 1;
+  }
+
+  .cardInf-btn {
+    bottom: 6px;
+  }
+
+  .cardInf-btn a{
+    padding: 2px 6px;
+    font-size: 12px;
+    border-radius: 8px;
+  }
+
+  .diagram {
+      width: 50px;
+      height: 50px;
+  }
+
+  .diagram::before {
+      top:4px;
+      left:4px;
+      right:4px;
+      bottom:4px;
+  }
+
+  .diagram .text b {
+      font-size: 14px;
+  }
+
+  .progress-area {
+    width: 80px;
+  }
+
+  .progress-area p{
+    font-size: 13px;
+    width: 80px;
+  }
+
+  .coupon{
+    padding: 30px 10px;
+    width: 350px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  .certificates{
+    width: 350px;
+    height: 60px;
+    padding: 20px 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  .card .rating img{
+    height: 13px;
+    margin: 0;
+  }
+
+  .price h3 {
+    font-size: 15px;
+  }
+
+  .rating h3 {
+    font-size: 12px;
+    margin-top: 5px;
+    margin-right: 2px;
+  }
+
+
+  .contacts a {
+    height: 45px;
+  }
+
+  .contacts img {
+    height: 45px;
+  }
+
+  .app{
+    height: 45px;
+  }
+
+  .app a{
+    height: 45px;
+  }
+
+  .app img{
+    height: 45px;
+  }
+}
+
+@media (max-width: 560px){
+
+  .nav{
+    height: 50px;
+  }
+
+  .iOneLogo img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .container1{
+    width: 390px;
+  }
+
+  .container2{
+    width: 400px;
+  }
+
+  .user_photo{
+    margin-top: 30px;
+    margin-left: 0;
+    height: 90px;
+    width: 90px;
+  }
+
+  .line {
+    height: 170px;
+  }
+
+  .line input{
+    height: 10px;
+    width: 90px;
+    font-size: 10px;
+  }
+
+  .profileInf {
+    margin: 5px;
+    margin-right: 0;
+    margin-left: 10px;
+    position: relative;
+  }
+
+  .inf {
+    padding-bottom: 0;
+  }
+
+  .inf span{
+    font-size: 10px;
+  }
+
+  .edit a{
+    height: 20px;
+    width: 20px;
+    margin-left: 5px;
+    margin-top: -2px;
+  }
+
+  .change_btn{
+    width: 250px;
+    position: absolute;
+    margin-top: 5px;
+  }
+
+  .line .change {
+    padding: 3px;
+    font-size: 10px;
+  }
+
+  .courses-categories button{
+    margin: 0 10px;
+    cursor: pointer;
+  }
+
+  .courses-categories button[value="1"]{
+    font-size: 11.5px;
+  }
+
+  .courses-categories button[value="0"]{
+    font-size: 11.5px;
+  }
+
+  .card {
+    width: 390px;
+    margin-right: 0px;
+  }
+
+  .card img{
+    height: 80px;
+  }
+
+  .cardInf{
+    margin: 0 10px;
+    width: 180px;
+  }
+
+  .cardInf h3{
+    font-size: 12px;
+    margin: 0px;
+  }
+
+  .cardInf span{
+    font-size: 9px;
+  }
+
+  .authors a{
+    font-size: 6.5px;
+    opacity: 0.7;
+  }
+
+  .cardInf p{
+    font-size: 7px;
+    opacity: 1;
+  }
+
+  .cardInf-btn {
+    left: 10px;
+  }
+
+  .cardInf-btn a{
+    padding: 2px 6px;
+    font-size: 9px;
+    border-radius: 5px;
+  }
+
+  .diagram {
+      width: 40px;
+      height: 40px;
+  }
+
+  .diagram::before {
+      top:3px;
+      left:3px;
+      right:3px;
+      bottom:3px;
+  }
+
+  .diagram .text b {
+      font-size: 12px;
+  }
+
+  .progress-area {
+    width: 60px;
+    height: 60px;
+  }
+
+  .progress-area p{
+    font-size: 10px;
+    width: 60px;
+  }
+
+  .coupons-line{
+    display: flex;
+  }
+
+  .coupon{
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+    padding-top: 25px;
+  }
+
+  .coupon-title h3{
+    font-size: 10px;
+    margin: 2px 0;
+  }
+
+  .coupon_title_p{
+    width: 150px;
+  }
+
+  .coupon-info h3{
+    font-size: 10px;
+    margin: 2px 0;
+  }
+
+  .show-coupon {
+    bottom: 5px;
+  }
+
+  .show-coupon a{
+    font-size: 9px;
+  }
+
+  .coupon-status h2{
+    margin: 0;
+    font-size: 10px;
+    color: red;
+  }
+
+  .coupon-num{
+    position: absolute;
+    top: -5px;
+    left: -5px;
+  }
+
+  .coupon-num h3{
+    margin: 0;
+    font-size: 15px;
+    color: white;
+    padding: 0 7px;
+    border-radius: 50%;
+    background-color: #FF5403;
+  }
+
+  .certificates{
+    width: 350px;
+    height: 40px;
+    padding: 10px 10px 20px 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+  }
+
+  .certificates-title h3{
+    font-size: 10px;
+  }
+
+  .certificates_title_p{
+    width: 130px;
+  }
+
+  .show-certificates {
+    bottom: 5px;
+  }
+
+  .show-certificates span{
+    font-size: 9px;
+  }
+
+  .show-certificates a{
+    font-size: 9px;
+  }
+
+  .certificates-num h3{
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+
+  .rating h3 {
+    font-size: 10px;
+    margin-right: 2px;
+  }
+
+  .card .rating img {
+    height: 10px;
+  }
+
+  .rating p {
+    margin-left: 1px;
+    margin-top: 0.5px;
+  }
+
+  .rating h3 {
+    margin-top: 0.5px;
+  }
+
+  .price h3 {
+    font-size: 10px;
+  }
+
+  .contacts a {
+    height: 40px;
+  }
+
+  .contacts img {
+    height: 40px;
+  }
+
+  .app{
+    height: 40px;
+  }
+
+  .app a{
+    height: 40px;
+  }
+
+  .app img{
+    height: 40px;
+  }
+
+
+}
+
+@media (max-width: 400px){
+
+  .nav{
+    height: 40px;
+  }
+
+  .iOneLogo img{
+    width: 50px;
+    height: 50px;
+  }
+
+  .container1{
+    max-width: 300px;
+    display: block;
+  }
+
+  .container2{
+    max-width: 320px;
+  }
+
+  .user_photo_img{
+    margin-top: 10px;
+    height: 80px;
+    width: 100%;
+  }
+
+  .user_photo {
+    margin-top: 0;
+    width: 80px;
+    height: 80px;
+    margin-left: 110px;
+    margin-right: 110px;
+  }
+
+  .line {
+    height: 230px;
+  }
+
+  .line input{
+    height: 10px;
+    width: 115px;
+    font-size: 10px;
+  }
+
+  .main_information{
+    display: flex;
+    width: 100%;
+  }
+
+  .inf {
+    padding: 0;
+  }
+
+  .inf span{
+    font-size: 10px;
+  }
+
+  .edit a{
+    height: 20px;
+    width: 20px;
+    margin-left: 5px;
+    margin-top: -2px;
+  }
+
+  .change_btn_form{
+    width: 290px;
+    position: relative;
+  }
+
+  .change_btn{
+    width: 290px;
+    position: absolute;
+  }
+
+  .change_passw{
+    position: absolute;
+    left: 0;
+  }
+
+  .change_data{
+    position: absolute;
+    right: 9px;
+  }
+
+  .line .change {
+    padding: 3px;
+    font-size: 10px;
+    margin: 0;
+  }
+
+  .courses-categories button{
+    margin: 0 5px;
+  }
+
+  .courses-categories button[value="1"]{
+    font-size: 11px;
+    padding: 0px 2px 1px 2px;
+  }
+
+  .courses-categories button[value="0"]{
+    font-size: 11px;
+    padding: 0px 2px 1px 2px;
+  }
+
+  .card {
+    width: 320px;
+    margin-right: 0px;
+  }
+
+  .card img{
+    height: 70px;
+  }
+
+  .cardInf{
+    margin: 0 10px;
+    width: 120px;
+  }
+
+  .cardInf h3{
+    font-size: 10px;
+    margin: 0px;
+  }
+
+  .authors a{
+    font-size: 7px;
+    opacity: 0.7;
+  }
+
+  .cardInf p{
+    font-size: 7px;
+    opacity: 1;
+  }
+
+  .cardInf-btn {
+    display: block;
+    position: absolute;
+    bottom: 4px;
+  }
+
+  .cardInf-btn a{
+    padding: 1px 5px;
+    font-size: 9px;
+    border-radius: 5px;
+  }
+
+  .diagram {
+      width: 30px;
+      height: 30px;
+      margin-top: 3px;
+  }
+
+  .diagram::before {
+      top:2px;
+      left:2px;
+      right:2px;
+      bottom:2px;
+  }
+
+  .diagram .text b {
+      font-size: 9px;
+  }
+
+  .progress-area {
+    width: 50px;
+  }
+
+  .progress-area p{
+    font-size: 8px;
+    width: 50px;
+  }
+
+  .progress-area .text div{
+    height: 25px;
+  }
+
+  .coupons-line{
+    display: flex;
+  }
+
+  .coupon{
+    border-radius: 10px;
+    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+    position: relative;
+    padding-top: 25px;
+    padding: 20px 10px 25px 10px;
+  }
+
+  .coupon-title h3{
+    font-size: 9px;
+    margin: 2px 0;
+  }
+
+  .coupon_title_p{
+    width: 100px;
+  }
+
+  .coupon-info h3{
+    font-size: 9px;
+    margin: 2px 0;
+  }
+
+  .show-coupon {
+    bottom: 5px;
+  }
+
+  .show-coupon a{
+    font-size: 9px;
+  }
+
+  .coupon-status h2{
+    margin: 0;
+    font-size: 9px;
+    color: red;
+  }
+
+  .coupon-num{
+    position: absolute;
+    top: -5px;
+    left: -5px;
+  }
+
+  .coupon-num h3{
+    margin: 0;
+    font-size: 10px;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 50%;
+    background-color: #FF5403;
+  }
+
+  .certificates{
+    padding: 10px 10px 30px 10px;
+    height: 25px;
+  }
+
+  .certificates-title h3{
+    font-size: 9px;
+  }
+
+  .certificates_title_p{
+    width: 100px;
+  }
+
+  .show-certificates span{
+    font-size: 8px;
+  }
+
+  .show-certificates a{
+    font-size: 8px;
+    padding-top: 2px;
+  }
+
+  .certificates-num h3{
+    font-size: 10px;
+    padding: 2px 6px;
+  }
+
+  .card .rating img  {
+    margin-left: 1px;
+  }
+
+  .rating h3 {
+    font-size: 10px;
+    margin-top: 0px;
+  }
+
+  .rating p {
+    margin-left: 1px;
+  }
+
+  .price h3 {
+    font-size: 10px;
+    margin-top: 0px;
+  }
+
+
+  .contacts a {
+    height: 28px;
+    margin: 0px 10px;
+  }
+
+  .contacts img {
+    height: 28px;
+  }
+
+  .app {
+    height: 25px
+  }
+
+  .app a{
+    height: 25px;
+    margin: 0 5px;
+  }
+
+  .app img{
+    height: 25px;
+  }
+
+}
+*/

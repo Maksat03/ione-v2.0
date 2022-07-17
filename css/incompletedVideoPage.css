@@ -1,0 +1,199 @@
+body {
+  margin: 0px;
+  font-family: "Geometria";
+}
+
+.container {
+  max-width: 1250px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.title {
+  text-align: center;
+  margin: 40px;
+}
+
+.title p {
+    width: fit-content;
+    margin: auto;
+  border-radius: 15px;
+  background-color: orange;
+  padding: 10px 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.video {
+  text-align: center;
+  margin: 0px 0px 30px 0px;
+}
+
+.video video {
+    width: -webkit-fill-available;
+  border-radius: 10px;
+}
+
+.prev_next_btns {
+  margin: 50px 0;
+}
+
+.prev_next_btns a{
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: orange;
+  font-weight: bold;
+}
+
+.things {
+  display: flex;
+  overflow: auto;
+  height: 130px;
+}
+
+.things::-webkit-scrollbar {
+  width: 15px;
+}
+
+.things::-webkit-scrollbar-track {
+  background: #EFEFEF;
+  border-radius: 15px;
+}
+
+.things::-webkit-scrollbar-thumb {
+  background: #C8C6C6;
+  border-radius: 15px;
+  border: 3px solid #EFEFEF;
+  cursor: pointer;
+}
+
+.things a {
+  margin: 0px 50px 0px 0px;
+  display: flex;
+  background-color: #0098a6;
+  text-decoration: none;
+  color: black;
+  border-radius: 10px;
+  width: 400px;
+}
+
+.things img {
+  height: 90px;
+  margin: 10px 20px;
+}
+
+.thing img {
+  border-radius: 10px;
+}
+
+.thingInfo {
+  position: relative;
+}
+
+.thingInfo h2{
+  margin: 10px 0 0 0;
+}
+
+.thingInfo p{
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+.last-thing img {
+  border-radius: 10px;
+}
+
+.last-thing a{
+  margin-right: 0px;
+}
+
+.thing-buy {
+  display: flex;
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+}
+
+.thing-buy h4{
+  margin: 0;
+  color: white;
+}
+
+.thing-buy h6{
+  margin: 0;
+  margin-left: 5px;
+  text-decoration: line-through;
+  opacity: 0.7;
+}
+
+.lessonsNum {
+  display: flex;
+  overflow: auto;
+}
+
+.lessonsNum::-webkit-scrollbar {
+  width: 15px;
+}
+
+.lessonsNum::-webkit-scrollbar-track {
+  background: #EFEFEF;
+  border-radius: 15px;
+}
+
+.lessonsNum::-webkit-scrollbar-thumb {
+  background: #C8C6C6;
+  border-radius: 15px;
+  border: 3px solid #EFEFEF;
+  cursor: pointer;
+}
+
+.lesson {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.prev_btn{
+  position: absolute;
+  left: 0px;
+  bottom: -10px
+}
+
+.next_btn{
+  position: absolute;
+  right: 0px;
+  bottom: -10px
+}
+
+.lesson button p{
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+.lesson button {
+  height: 100%;
+  width: 150px;
+  background-color: orange;
+  margin-right: 25px;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  border: none;
+}
+
+.locked button:hover{
+  background-image: url(details/imgs/videoPage/locked.png);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: grey;
+  transition: 300ms;
+}
+
+.text {
+  margin: 3% 0%;
+  font-size: 18px;
+  font-weight: bold;
+}

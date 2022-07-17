@@ -1,0 +1,146 @@
+body {
+  margin: 0px;
+  font-family: sans-serif;
+}
+
+.library-line {
+  background-image: url(details/imgs/Library/line.png);
+  background-position: top;
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: relative;
+  height: 650px;
+}
+
+.library-container {
+  width: 700px;
+  position: absolute;
+  left: 15%;
+  top: 30%;
+  z-index: 1;
+}
+
+.text {
+  width: 700px;
+}
+
+.text h2 {
+  font-size: 30px;
+}
+
+.text p {
+  font-size: 20px;
+}
+
+input[type="submit"]{
+  height: 30px; /* Высота кнопки */
+  border: none; /* Убираем рамку */
+  background: no-repeat 50% 50%; /* Параметры фона */
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  background-color: white;
+  border-radius: 3px;
+}
+
+input[type="search"]{
+  height: 30px;
+  border: none;
+  outline: none; /* Убираем свечение в Chrome и Safari */
+  -webkit-appearance: none; /* Убираем рамку в Chrome и Safari */
+  width: 400px; /* Ширина поля */
+  border-radius: 3px;
+  vertical-align: middle; /* Выравнивание по середине */
+}
+
+.library-categories {
+  margin: 50px;
+  margin-left: 10%;
+}
+
+.library-categories button{
+  margin: 0 30px;
+  cursor: pointer;
+}
+
+.library-categories button[value="1"]{
+  font-size: 20px;
+  color: brown;
+  background: none;
+  border: none;
+  border-bottom: 2px solid brown;
+}
+
+.library-categories button[value="0"]{
+  font-size: 20px;
+  color: #0098a6;
+  background: none;
+  border: none;
+}
+
+.sections {
+  display: flex;
+  margin-left: 2%;
+}
+
+.filter_section {
+  width: 200px;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter {
+  margin-top: 5px;
+  display: flex;
+}
+
+.filters {
+  width: 100px;
+}
+
+.booksLine{
+  margin: 50px 0;
+  display: flex;
+  overflow: hidden;
+  width: 1600px;
+}
+
+.bookCard {
+  width: 150px;
+  position: relative;
+  margin-right: 50px;
+}
+
+.bookImg img{
+  height: 200px;
+  width: 150px;
+}
+
+.bookInfo {
+  position: relative;
+}
+
+.bookInfo p {
+  font-weight: bold;
+  margin: 0;
+}
+
+.bookInfo span {
+  font-size: 12px;
+}
+
+.select button {
+  background-image: url(details/imgs/Library/like.png);
+  background-size: cover;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 5px 5px 20px 20px;
+  border: none;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  bottom: 3px;
+  right: 0;
+}

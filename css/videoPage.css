@@ -1,0 +1,167 @@
+body {
+  margin: 0px;
+  font-family: "Geometria";
+}
+
+.container {
+  max-width: 1250px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
+
+.path{
+  display: flex;
+}
+
+.arrow{
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.title {
+  margin: 30px 0px 8px 0px;
+  font-family: sans-serif;
+  font-weight: normal;
+}
+
+.link_comm {
+  margin-bottom: 20px;
+}
+
+.link_comm a{
+  text-decoration: none;
+  color: #0098a6 ;
+}
+
+.main_block{
+  display: flex;
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.video {
+  margin: 0px 0px 30px 0px;
+}
+
+.video video {
+  width: 800px;
+}
+
+.lessos_block_name{
+  padding: 0 6px;
+  border-bottom: 0.5px solid;
+}
+
+.lessons_block1 {
+  overflow: auto;
+  max-height: 455px;
+  width: 350px;
+  position: sticky;
+  top: 10px;
+  bottom: 10px;
+  margin-left: 25px;
+  border: 1px solid gray;
+}
+
+.lessons_block2 {
+  overflow: auto;
+  max-height: 455px;
+  background-color: white;
+  top: 10px;
+  margin-left: auto;
+  box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+.lessons_block1::-webkit-scrollbar {
+  width: 5px;
+}
+
+.lessons_block1::-webkit-scrollbar-thumb {
+  background: #C8C6C6;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.lessons_block2::-webkit-scrollbar {
+  width: 5px;
+}
+
+.lessons_block2::-webkit-scrollbar-thumb {
+  background: #C8C6C6;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.first_lesson img {
+  margin-left: 15px;
+}
+
+.lesson {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.lesson button p {
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 65%;
+}
+
+.lesson button p, .lesson button h3{
+  margin: 15.6px 0 15.6px 5px;
+  font-size: 15.6px;
+}
+
+.lesson button {
+  display: flex;
+  width: 100%;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  border-bottom: 0.5px solid;
+  background: none;
+  cursor: pointer;
+}
+
+.first_lesson button {
+  border-top: 0.5px solid;
+  border-bottom: 2px solid;
+}
+
+.lessons_block2{
+  display: none;
+}
+
+.text {
+  margin: 3% 0;
+  font-size: 18px;
+  width: 800px;
+}
+
+.video_play_icons {
+  width: 25px; margin: auto 0px auto 10px;
+  content:url("details/imgs/videoPage/play.png");
+}
+
+.path {
+  font-size: 18px;
+  font-family: monospace;
+  color: gray;
+}
+
+.path a {
+  color: skyblue; text-decoration: none;
+  margin: 0px 5px;
+}
+
+.path a:hover {
+  text-decoration: underline;
+}
+
+.first_lesson div {
+  width: 8px; background-color: #3290cf; height: 52px; position: absolute;
+  border-bottom: 1px solid black;
+}

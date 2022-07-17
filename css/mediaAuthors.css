@@ -1,0 +1,221 @@
+@media (max-width: 890px){
+  .nav{
+    height: 50px;
+  }
+
+  .iOneLogo img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .categories-dropdown{
+    display: none;
+  }
+
+  .nav-right{
+    display: none;
+  }
+
+  .register-buttons {
+    display: none;
+  }
+
+  .dropdown{
+    display: none;
+  }
+
+  .container{
+    max-width: 540px;
+  }
+
+  .author_info_block h2{
+    font-size: 22px;
+  }
+
+  .author_info {
+    max-width: 330px;
+  }
+
+  .author_info p{
+    margin: 10px 0;
+  }
+
+  .rating {
+    margin: 7px 0px 7px 3px;
+  }
+
+  .author_img img{
+    margin: 20px 20px;
+  }
+
+
+  .contacts a {
+    height: 45px;
+  }
+
+  .contacts img {
+    height: 45px;
+  }
+
+  .app{
+    height: 45px;
+  }
+
+  .app a{
+    height: 45px;
+  }
+
+  .app img{
+    height: 45px;
+  }
+}
+
+@media (max-width: 560px){
+  .author {
+    min-width: 0px;
+  }
+  .author_info_block {
+    margin-right: 0px;
+  }
+
+  hr{
+    margin: 30px 10px;
+  }
+
+  .nav{
+    height: 50px;
+  }
+
+  .iOneLogo img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .container{
+    width: 390px;
+  }
+
+  .search input[type="submit"]{
+    padding: 5px;
+    height: 40px;
+  }
+
+  .search input[type="search"]{
+    padding: 5px;
+    height: 40px;
+  }
+
+  .author-categories button[value="1"]{
+    font-size: 16px;
+  }
+
+  .author-categories button[value="0"]{
+    font-size: 16px;
+  }
+
+  .author_img {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    text-align: center;
+  }
+
+  .author_img img{
+    height: 130px;
+    margin: 10px;
+  }
+
+  .author{
+    display: block;
+  }
+
+  .author h2{
+    text-align: center;
+  }
+
+  .author_link {
+    text-align: center;
+  }
+
+  .author_info {
+    min-width: 0px;
+    width: fit-content;
+    margin: 10px auto 0px auto;
+  }
+
+  .author_info_block h2{
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+
+  .author_info_block p{
+    font-size: 14px;
+  }
+
+  .author_info_block a{
+    font-size: 14px;
+  }
+
+  .app{
+    height: 40px;
+  }
+
+  .app a{
+    height: 40px;
+  }
+
+  .app img{
+    height: 40px;
+  }
+
+
+}
+
+@media (max-width: 400px){
+
+  .nav{
+    height: 40px;
+  }
+
+  .iOneLogo img{
+    width: 50px;
+    height: 50px;
+  }
+
+  .container{
+    max-width: 300px;
+    display: block;
+  }
+
+  .author_info {
+    max-width: 270px;
+  }
+
+  .author_rating img {
+    margin-right: 3px;
+    height: 16px;
+  }
+
+  .contacts a {
+    height: 28px;
+    margin: 0px 10px;
+  }
+
+  .contacts img {
+    height: 28px;
+  }
+
+  .app {
+    height: 25px
+  }
+
+  .app a{
+    height: 25px;
+    margin: 0 5px;
+  }
+
+  .app img{
+    height: 25px;
+  }
+
+
+}

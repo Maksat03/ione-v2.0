@@ -1,0 +1,238 @@
+body {
+  margin: 0px;
+  font-family: "Geometria";
+}
+
+.line {
+  background-image: url(details/imgs/lessonsPage/lineBackground.jpg);
+  background-position: top;
+  background-size: cover;
+  display: block;
+  /* height: 300px; */
+}
+
+.container1{
+  max-width: 1290px;
+  display: flex;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container2{
+  width: 1290px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.container3{
+  width: 1290px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.video {
+  margin: 50px;
+}
+
+.video video{
+  height: 210px;
+}
+
+.line p{
+  font-size: 17px;
+  margin-bottom: 0;
+}
+
+.line h2{
+  position: absolute;
+  bottom: 5px;
+}
+
+.price {
+  display: flex;
+}
+
+.price h3 {
+  margin: 10px 0px;
+  color: white;
+}
+
+.price h5 {
+  text-decoration: line-through;
+  margin: 10px 10px;
+  opacity: 0.5;
+  color: white;
+}
+
+.lessons {
+  margin: 50px;
+  display: block;
+  position: relative;
+}
+
+.lessons a{
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: black;
+  padding: 10px 50px 10px 20px;
+}
+
+.lessonsInf{
+  width: 100%;
+  display: block;
+  position: relative;
+  padding: 0px 0px 60px 0px;
+}
+
+.lessonsInf h1{
+  margin-bottom: 0px;
+}
+
+.lessonsInf a{
+  text-decoration: none;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  padding: 7px;
+}
+
+.lessonsInf .author_anchor{
+  color: black;
+  padding: 0px;
+  margin: 0px;
+  background: none;
+}
+
+.lessonsInf .author_anchor:hover{
+  color: #5624D0;
+}
+
+.lesson {
+  max-width: 1000px;
+  position: relative;
+  margin: 20px 0px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+}
+
+.locked {
+  position: absolute;
+  right: 10px;
+  top: 9%;
+  height: 36px;
+  border-radius: 50%;
+}
+
+/*.locked:hover::after{
+  content: attr(data-title);
+  position: absolute;
+  left: 40px;
+  z-index: 1;
+  background-color: #444444;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  font-weight: normal;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+}*/
+
+.locked img{
+  height: 100%;
+}
+
+.lesson a {
+  width: 100%;
+}
+
+.buyInf {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+}
+
+.buyInf a{
+  text-decoration: none;
+  color: black;
+  padding: 10px 20px;
+  background-color: white;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.buyInf a:hover {
+  filter: brightness(1.1);
+}
+
+.lessonsnbooks{
+  position: relative;
+}
+
+.books {
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+  position: absolute;
+  top: -50px;
+  right: 0;
+  padding: 40px;
+}
+
+.books h1{
+  margin: 0px 20px;
+}
+
+.books h3{
+  margin: 20px;
+}
+
+.booksLink {
+  display: flex;
+  flex-direction: column;
+}
+
+.booksLink a{
+  margin: 5px 20px;
+  color: black;
+}
+
+
+#renew_access {
+    background: rgba(102, 102, 102, 0.95);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 6;
+}
+
+#renew_access:target {
+    display: block;
+}
+
+.input_form{
+ margin: 30px 0;
+ text-align: center;
+}
+
+.input_form input{
+ display: none;
+}
+
+.input_form label{
+ user-select: none;
+ border: 2px solid #17bfca;
+ color: #17bfca;
+ border-radius: 5px;
+ cursor: pointer;
+ font-weight: bold;
+ padding: 8px 0;
+ display: block;
+ width: calc(100% - 4px);
+}
+
+.input_form input:checked ~ label{
+ color: white;
+ background-color: #17bfca;
+}

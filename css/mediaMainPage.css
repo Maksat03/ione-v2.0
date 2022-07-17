@@ -1,0 +1,674 @@
+@media (max-width: 1600px){
+  .phone-container {
+    padding: 220px 0px 370px 100px;
+  }
+}
+
+@media (max-width: 1300px){
+
+  .container1{
+    max-width: 910px;
+  }
+
+  .container2{
+    max-width: 910px;
+  }
+
+  .container3{
+    max-width: 910px;
+  }
+
+  .phone-container {
+    padding: 210px 0px 220px 0px;
+  }
+
+  .top_card {
+    width: 220px;
+    height: 150px;
+  }
+
+  .card_info{
+    padding: 30px 8px 0 8px;
+    background-image: linear-gradient(to top, black 30%, transparent);
+  }
+
+  .card_info p{
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: 15px;
+  }
+
+  .course_status p{
+    font-size: 12px;
+  }
+
+  .sponsors-img {
+    width: 110px;
+  }
+
+  .sponsors-img img{
+    width: 110px;
+  }
+}
+
+@media (max-width: 990px){
+  ::-webkit-scrollbar { /* chrome based */
+    width: 0px;  /* ширина scrollbar'a */
+    background: transparent;  /* опционально */
+  }
+
+  html {
+   -ms-overflow-style: none;  /* IE 10+ */
+   scrollbar-width: none; /* Firefox */
+  }
+
+  .container1{
+    max-width: 700px;
+  }
+
+  .container2{
+    max-width: 700px;
+  }
+
+  .container3{
+    max-width: 700px;
+  }
+
+  .categories-dropdown{
+    display: none;
+  }
+
+  .nav-right{
+    display: none;
+  }
+
+  .register-buttons {
+    display: none;
+  }
+
+  .dropdown{
+    display: none;
+  }
+
+  .text h2{
+    font-size: 26px;
+  }
+
+  .top_cards_line{
+    overflow: auto;
+  }
+
+  .top_card{
+    overflow: auto;
+    min-width: 230px;
+  }
+
+  .category_card{
+    display: block;
+    width: none;
+  }
+
+  .category_cards_line{
+    width: none;
+    overflow: auto;
+  }
+
+  .category_card_info{
+    padding: 0;
+  }
+
+  .category_card_img{
+    height: 220px;
+    width: 330px;
+  }
+
+  .category_card_img img{
+    height: 220px;
+    width: 330px;
+  }
+
+  .category_card {
+    width: 330px;
+  }
+
+  .price_block{
+    position: static;
+  }
+
+  .main_info2_img img{
+    height: 200px;
+    margin-top: 15px;
+  }
+
+  .select button{
+    background-color: white;
+    top: none;
+    bottom: 6px;
+  }
+
+  .scrollUp  {
+    bottom: 30px;
+    right: 30px;
+  }
+}
+
+@media (max-width: 900px){
+  .categories-dropdown{
+    display: none;
+  }
+
+  .nav-right{
+    display: none;
+  }
+
+  .register-buttons {
+    display: none;
+  }
+
+  .dropdown{
+    display: none;
+  }
+
+  .phone-container {
+    padding: 130px 0px 140px 0px;
+  }
+
+  .scroll{
+    width: 45px;
+    height: 45px;
+  }
+
+  .scroll img{
+    width: 45px;
+    height: 45px;
+  }
+
+  .reg-btn {
+    padding: 5px;
+  }
+
+  .log-btn {
+    padding: 5px;
+  }
+
+  .profbtn{
+    padding: 5px;
+  }
+
+  .text p{
+    font-size: 18px;
+  }
+
+  .top_cards h4{
+    margin-top: 10px;
+  }
+
+  .courses-categories button{
+    margin: 0 10px 0 0;
+  }
+
+  .courses-categories{
+    height: 42px;
+    margin-bottom: 0;
+  }
+
+  .categories-btn{
+    height: 25px;
+  }
+
+  .category_card_info {
+    padding-right: 25px;
+  }
+
+  .select button {
+    top: 223px;
+  }
+
+  .main_categories{
+    margin: 30px 0;
+  }
+
+  .main_info2 p{
+    margin-bottom: 0;
+  }
+
+  .sponsors-img {
+    width: 90px;
+  }
+
+  .sponsors-img img{
+    width: 90px;
+  }
+}
+
+@media (max-width: 767px){
+
+  .nav{
+    height: 50px;
+  }
+
+  .iOneLogo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .categories-dropdown{
+    display: none;
+  }
+
+  .nav-right{
+    display: none;
+  }
+
+  .register-buttons {
+    display: none;
+  }
+
+  .dropdown{
+    display: none;
+  }
+
+  .container1{
+    max-width: 540px;
+  }
+
+  .container2{
+    max-width: 540px;
+  }
+
+  .container3{
+    max-width: 540px;
+  }
+
+  .phone{
+    background-image: url(details/imgs/mainPage/mobLine.png);
+    background-position: right;
+  }
+
+  .phone-container {
+    padding: 120px 0 180px 0;
+  }
+
+  .phone-container h2{
+    width: 350px;
+    font-size: 22px;
+  }
+
+  .category_card_img{
+    width: 260px;
+    height: 170px
+  }
+
+  .category_card_img img{
+    width: 260px;
+    height: 170px
+  }
+
+  .category_card{
+    width: 260px;
+  }
+
+  .category_card_info{
+    padding-right: 30px;
+  }
+
+  .category_card_buy{
+    bottom: 2px;
+  }
+
+  .select button {
+    top: 175px;
+  }
+
+  .main_infos{
+    margin: 20px 0;
+  }
+
+.main_info1{
+    display: block;
+    width: 60%;
+    padding: 30px 20px;
+  }
+
+  .main_info1 h2{
+    margin: 0px 0 10px 0;
+  }
+
+  .main_info_img{
+    text-align: center;
+  }
+
+  .main_info2{
+    display: block;
+    width: 60%;
+    padding: 30px 20px;
+  }
+
+  .main_info_text{
+    margin-left: 0;
+  }
+
+  .main_info2_img{
+    text-align: center;
+  }
+
+  .main_info2_img img{
+    margin-top: 0;
+  }
+
+  .scrollUp img {
+    height: 40px;
+    border: 1px solid black;
+  }
+
+
+  .contacts a {
+    height: 45px;
+  }
+
+  .contacts img {
+    height: 45px;
+  }
+
+  .app{
+    height: 45px;
+  }
+
+  .app a{
+    height: 45px;
+  }
+
+  .app img{
+    height: 45px;
+  }
+}
+
+@media (max-width: 560px){
+  .hidden_category_card {
+    display: none;
+  }
+  .nav{
+    height: 50px;
+  }
+
+  .iOneLogo{
+    width: 60px;
+    height: 60px;
+  }
+
+  .container1{
+    width: 390px;
+    padding: 40px 0;
+  }
+
+  .container2{
+    width: 390px;
+    padding: 0;
+  }
+
+  .container3{
+    width: 390px;
+    padding: 20px 0;
+  }
+
+  .phone-container {
+    padding: 30px 0 90px 0;
+  }
+
+  .phone-container h2{
+    width: 250px;
+    font-size: 18px;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .phone-container p{
+    margin: 10px 0;
+    font-size: 14px;
+  }
+
+  .reg-btn {
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  .log-btn {
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  .profbtn {
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  .scroll{
+    width: 35px;
+    height: 35px;
+  }
+
+  .scroll img{
+    width: 35px;
+    height: 35px;
+  }
+
+  .best_top4 h2{
+    font-size: 20px;
+  }
+
+  .main_categories h2{
+    font-size: 20px;
+  }
+
+  .category_cards_line{
+    display: block;
+  }
+
+  .category_card_img{
+    width: 260px;
+    height: 170px
+  }
+
+  .category_card_img img{
+    width: 260px;
+    height: 170px
+  }
+
+  .category_card{
+    width: 260px;
+  }
+
+  .main_info1{
+    width: 70%;
+  }
+
+  .main_info2{
+    width: 70%;
+  }
+
+  .main_info2_img img{
+    height: 175px;
+  }
+
+  .container3 h1{
+    margin-top: 0;
+    font-size: 19px;
+  }
+
+  .sponsors-img {
+    width: 60px;
+    margin-bottom: 0;
+  }
+
+  .sponsors-img img{
+    width: 60px;
+  }
+
+  .scrollUp img {
+    height: 30px;
+  }
+
+  .contacts img {
+    height: 40px;
+  }
+
+  .app{
+    height: 40px;
+  }
+
+  .app a{
+    height: 40px;
+  }
+
+  .app img{
+    height: 40px;
+  }
+
+
+}
+
+@media (max-width: 400px){
+
+  .nav{
+    height: 40px;
+  }
+
+  .iOneLogo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .iOneLogo img{
+    width: 50px;
+    height: 50px;
+  }
+
+  .container1{
+    max-width: 300px;
+    padding: 30px 0 80px 0;
+  }
+
+  .container2{
+    max-width: 300px;
+  }
+
+  .container3{
+    max-width: 300px;
+  }
+
+  .container3 h1{
+    font-size: 16px;
+  }
+
+  .phone-container {
+    padding: 0;
+    padding-top: 10px;
+  }
+
+  .phone-container h2{
+    width: 200px;
+    font-size: 16px;
+  }
+
+  .phone-container p{
+    margin: 5px 0;
+  }
+
+  .log-btn{
+    margin-left: 0;
+    padding: 3px;
+    border-radius: 5px;
+  }
+
+  .reg-btn{
+    margin-left: 0;
+    padding: 3px;
+    border-radius: 5px;
+  }
+
+  .profbtn{
+    margin-left: 0;
+    padding: 3px;
+    border-radius: 5px;
+  }
+
+  .actual p{
+    font-size: 16px;
+  }
+
+  .main_categories{
+    margin: 20px 0;
+  }
+
+  .courses-categories button[value="1"]{
+    font-size: 16px;
+  }
+
+  .courses-categories button[value="0"]{
+    font-size: 16px;
+  }
+
+  .main_info1{
+    width: 80%;
+  }
+
+  .main_info2{
+    width: 85%;
+  }
+
+  .main_info_text a{
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .main_info2{
+    padding: 20px 20px;
+  }
+
+  .main_info2_img img{
+    height: 150px;
+  }
+
+  .sponsors-img {
+    width: 50px;
+  }
+
+  .sponsors-img img{
+    width: 50px;
+  }
+
+  .scrollUp  {
+    bottom: 20px;
+    right: 20px;
+  }
+
+  .scrollUp img {
+    height: 20px;
+  }
+
+  .contacts a {
+    height: 28px;
+    margin: 0px 10px;
+  }
+
+  .contacts img {
+    height: 28px;
+  }
+
+  .app {
+    height: 25px
+  }
+
+  .app a{
+    height: 25px;
+    margin: 0 5px;
+  }
+
+  .app img{
+    height: 25px;
+  }
+
+
+}

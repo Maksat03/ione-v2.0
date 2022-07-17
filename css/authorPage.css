@@ -1,0 +1,333 @@
+body {
+  margin: 0px;
+  font-family: sans-serif;
+}
+
+.container {
+  width: 1270px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 50px 0;
+}
+
+.about_author{
+  display: flex;
+  position: relative;
+}
+
+.author_img {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-radius: 50%;
+  border: 1px solid gray;
+  height: 200px;
+  width: 200px;
+  background-position: center;
+  background-size: cover;
+}
+
+.author_status p{
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 5px;
+  background-color: orange;
+  border-radius: 5px;
+  font-weight: bold;
+  width: fit-content;
+}
+
+.author_status h1{
+  font-size: 50px;
+  font-weight: bold;
+  margin: 0;
+  padding: 0;
+}
+
+.author_place{
+  display: flex;
+}
+
+.author_place h1{
+  font-size: 45px;
+  margin: 0;
+  padding: 0;
+}
+
+.author_place h3{
+  margin: 4px 0;
+}
+
+.amount_info{
+  display: flex;
+  margin-bottom: 30px;
+}
+
+.amount {
+  margin-right: 30px;
+}
+
+.amount p{
+  margin: 5px 0;
+}
+
+.amount h2{
+  margin: 5px 0;
+}
+
+.limited {
+  width: 90%;
+  max-height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+
+.limited .bottom{
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1) 80%);
+  width: 100%;
+  height: 60px;
+  opacity: 1;
+  transition: .3s;
+}
+
+.read_more:checked ~ .limited{
+  max-height: none;
+}
+
+.read_more:checked ~ .limited .bottom{
+  opacity: 0;
+  transition: .3s;
+}
+
+.read_more{
+  opacity: 0;
+  position: absolute;
+}
+
+.read_more_button{
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  user-select: none;
+}
+
+.read_more_button::after{
+  content: "Развернуть ▼"
+}
+
+.read_more:checked ~ .read_more_button::after{
+  content: "Свернуть ▲"
+}
+
+.about_text{
+  display: flex;
+  flex-direction: row;
+}
+
+.about_text h3{
+  margin: 10px 0 10px 0;
+}
+
+.author_img img{
+  border-radius: 50%;
+  height: 250px;
+}
+
+.diplomas h3{
+  margin: 50px 5px 0 5px;
+}
+
+.diplomas_line{
+  display: flex;
+}
+
+.diplomas .diploma_div{
+  margin-right: 5px;
+  width: 80px;
+  height: 100px;
+}
+
+.diplomas .diploma {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  cursor: pointer;
+  border: 1px solid gray;
+}
+
+.diplomas .diploma:hover {
+  border: 2px solid black;
+}
+
+.limited_diplomas {
+  max-height: 150px;
+  overflow: hidden;
+  position: relative;
+}
+
+.limited_diplomas .bottom{
+  position: absolute;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1) 80%);
+  width: 100%;
+  height: 60px;
+  opacity: 1;
+  transition: .3s;
+}
+
+.show_more:checked ~ .limited_diplomas{
+  max-height: none;
+}
+
+.show_more:checked ~ .limited_diplomas .bottom{
+  opacity: 0;
+  transition: .3s;
+}
+
+.show_more{
+  opacity: 0;
+  position: absolute;
+}
+
+.show_more_button{
+  cursor: pointer;
+  display: inline-block;
+  padding: 5px;
+  border: none;
+  user-select: none;
+}
+
+.show_more_button::after{
+  content: "Развернуть ▼"
+}
+
+.show_more:checked ~ .show_more_button::after{
+  content: "Свернуть ▲"
+}
+
+.courses-cards a {
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+.courses-cards h2{
+  margin-bottom: 0;
+}
+
+.card:hover {
+  background-color: #f5f3ee;
+  cursor: pointer;
+}
+
+.card {
+  margin: 20px 0;
+  display: flex;
+  position: relative;
+}
+
+.card img{
+  height: 200px;
+}
+
+.cardInf {
+  margin: 0px 20px;
+  width: 100%;
+  position: relative;
+}
+
+.cardInf h3{
+  margin:5px 0px;
+}
+
+.cardInf p{
+  margin: 0px;
+  font-size:12px;
+  opacity: 0.7;
+}
+
+.cardInf a{
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+  background-color: #FF5403;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.cardInf-btn {
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 15px;
+}
+
+.rating p{
+  margin-left: 5px;
+  font-size:12px;
+  opacity: 0.7;
+  display: inline-block;
+}
+
+.rating h3 {
+  margin-right: 5px;
+  font-size: 15px;
+  color: #B05B3B;
+}
+
+.rating img {
+  height: 17px;
+}
+
+.price h3{
+  margin-top: 5px;
+}
+
+.price h4{
+  text-decoration: line-through;
+  opacity: 0.5;
+  margin-top: 0;
+}
+
+.select button {
+  background-image: url(details/imgs/Library/like1.png);
+  background-size: cover;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 5px 5px 20px 20px;
+  border: none;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.price a{
+  display: none;
+}
+
+.go_button {
+  margin: 0 auto;
+  display: none;
+}
+
+.go_button a{
+  text-decoration: none;
+  color: white;
+  background-color: orange;
+  border-radius: 10px;
+  padding: 5px 0;
+  text-align: center;
+}

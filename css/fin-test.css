@@ -1,0 +1,144 @@
+body {
+  margin: 0px;
+  font-family: sans-serif;
+}
+
+.search_form input {
+  margin: 0px;
+}
+
+input {
+  margin: 4px 6px 4px 3px;
+  min-height: 20px;
+  min-width: 20px;
+}
+
+.choice {
+  padding-top: 3.5px;
+}
+
+.container{
+  position: relative;
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.test_title {
+  text-align: center;
+}
+
+.test_title h2{
+  padding: 10px;
+  border-radius: 10px;
+  background-color: orange;
+  max-width: 500px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.return_btn{
+  position: absolute;
+  top: 30px;
+  left: 10px;
+}
+
+.return_btn a{
+  text-decoration: none;
+  color: white;
+  background-color: #0098a6;
+  border-radius: 10px;
+  padding: 7px;
+}
+
+.return_btn a::before{
+  content: '◄';
+  color: white;
+  margin-right: 5px;
+}
+
+.fin_test_form{
+  max-width: 1300px;
+  border: 2px solid;
+  border-radius: 20px;
+  margin: 20px auto;
+  position: relative;
+  display: flex;
+}
+
+.test_question {
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+  padding: 5px;
+  width: 990px;
+  margin: 20px;
+}
+
+.test_question p {
+  margin: 5px 5px;
+}
+
+.questions_num{
+  margin-top: 20px;
+  margin-right: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+  position: sticky;
+  right: 20px;
+  top: 20px;
+  padding: 5px;
+  height: fit-content;
+}
+
+.questions_lines{
+  display: flex;
+  flex-direction: column;
+}
+
+.questions_line{
+  display: flex;
+}
+
+.question_num{
+  margin: 8px;
+  text-align: center;
+}
+
+.question_num a{
+  margin: 0px;
+  text-decoration-line: none;
+  color: black;
+  font-weight: bold;
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 3px;
+  display: block;
+  width: 20px;
+}
+
+.lessontest_results {
+  margin: 8px;
+}
+
+.lessontest_results p {
+  margin: 5px 0;
+}
+
+.lessontest_results h3 {
+  margin: 10px 0;
+}
+
+.lessontest_check_button {
+  background: none;
+  border: none;
+  padding: 10px;
+  background-color: orange;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: 0 20px 20px 20px;
+  cursor: pointer;
+}
+
+#timerBox b{
+  margin: 8px;
+}

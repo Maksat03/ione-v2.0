@@ -1,0 +1,92 @@
+body {
+  margin: 0px;
+  font-family: sans-serif;
+  background-image: url(details/imgs/gmail/gmailBack.jpg);
+  background-position: top;
+  background-size: cover;
+}
+
+.con {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.pass{
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+  background-color: white;
+  border-radius: 20px;
+  margin-top: 20vh;
+  text-align: center;
+  box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.pass input{
+  width: calc(100% - 12px);
+  height: 35px;
+  font-size: 18px;
+  border: 2px solid #17bfca;
+  border-radius: 5px;
+  outline: none;
+  padding-left: 5px;
+}
+
+.pass button{
+  border-radius: 10px;
+  width: 100%;
+  font-weight: bold;
+  font-size: 14px;
+  height: 40px;
+  background: #247FFF;
+  border-radius: 5px;
+  color:#fff;
+  text-transform: uppercase;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+}
+
+.form-field{
+  margin-bottom: 10px;
+}
+
+.pass h2{
+  margin-top: 0;
+}
+
+.pass a{
+  padding: 5px 30px;
+  text-decoration: none;
+  color: white;
+  background: #247FFF;
+  border-radius: 10px;
+  font-size: 20px;
+}
+
+@media (max-width: 460px){
+  .pass{
+    width: 350px;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 30vh;
+  }
+}
+
+@media (max-width: 400px){
+  .pass{
+    width: 280px;
+    padding: 15px;
+    border-radius: 10px;
+    margin-top: 30vh;
+  }
+
+  .pass h2{
+    font-size: 20px;
+  }
+
+  .pass a{
+    font-size: 18px;
+  }
+}

@@ -1,0 +1,596 @@
+body {
+  margin: 0px;
+  font-family: "Geometria";
+}
+
+.container1{
+  max-width: 1250px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.container2{
+  width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* line */
+.line {
+  background-image: url(details/imgs/profilePage/line.png);
+  background-position: top;
+  background-size: cover;
+  height: 375px;
+}
+
+.main_information{
+  display: flex;
+  width: 70%;
+}
+
+.line input{
+  font-size: 16px;
+  height: 25px;
+  width:250px;
+  display:block
+}
+
+.change_btn_form{
+  display: flex;
+}
+
+.change_data a {
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: white;
+  color: #00A19D;
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.change_passw a {
+  text-decoration: none;
+  border-radius: 5px;
+  padding: 5px;
+  background-color: white;
+  color: #00A19D;
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.profileInf {
+  margin: 70px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.inf {
+  padding: 10px;
+}
+
+.inf span{
+  color: white;
+  font-weight: bold;
+}
+
+.inf a {
+  background-image: url(details/imgs/profilePage/edit.png);
+  background-position: center;
+  background-size: cover;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.edit {
+  display: flex;
+}
+/* !line */
+
+
+/* my courses */
+
+.courses-categories {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+}
+
+.courses-categories button{
+  margin: 0 35px;
+  cursor: pointer;
+}
+
+.courses-categories button[value="1"]{
+  font-size: 20px;
+  color: #FF5403;
+  background: none;
+  border: none;
+  border-bottom: 2px solid #FF5403;
+}
+
+.courses-categories button[value="0"]{
+  font-size: 20px;
+  color: #0098a6;
+  background: none;
+  border: none;
+}
+
+.courses-cards {
+  margin: 0px 50px 50px 0px;
+  width: 100%;
+  position: relative;
+}
+
+/* !my courses */
+
+/* my coupons */
+
+.coupons-line{
+  display: flex;
+}
+
+.coupon{
+  margin: 1% 2%;
+  width: 100%;
+  padding: 15px 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.coupon-title {
+  display: flex;
+}
+
+.coupon_title_p{
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+.coupon-title h3{
+  font-size: 15px;
+  margin: 2px 0;
+}
+
+.coupon-info {
+  display: flex;
+}
+
+.coupon-info h3{
+  font-size: 15px;
+  margin: 2px 0;
+}
+
+.show-coupon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.show-coupon a{
+  text-decoration: none;
+  color: white;
+  padding: 3px 5px;
+  background-color: #FF5403;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.coupon-status{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.coupon-status h2{
+  margin: 0;
+  font-size: 15px;
+  color: red;
+}
+
+.coupon-num{
+  position: absolute;
+  top: -5px;
+  left: -5px;
+}
+
+.coupon-num h3{
+  margin: 0;
+  font-size: 15px;
+  color: white;
+  padding: 0 7px;
+  border-radius: 50%;
+  background-color: #FF5403;
+}
+
+/* !my coupons */
+
+/* my certificates */
+
+.certificates-line{
+  display: flex;
+}
+
+.certificates{
+  margin: 1% 2%;
+  width: 100%;
+  height: 60px;
+  padding: 15px 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+  position: relative;
+}
+
+.certificates-title {
+  display: flex;
+}
+
+.certificate-title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 200px;
+}
+
+.certificates-title h3{
+  font-size: 15px;
+  margin: 2px 0;
+}
+
+.certificates_title_p{
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 400px;
+}
+
+.show-certificates {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.show-certificates span{
+  font-size: 13px;
+}
+
+.show-certificates a{
+  text-decoration: none;
+  color: white;
+  padding: 3px 5px;
+  background-color: #FF5403;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.certificates-num{
+  position: absolute;
+  top: -5px;
+  left: -5px;
+}
+
+.certificates-num h3{
+  margin: 0;
+  font-size: 15px;
+  color: white;
+  padding: 0 7px;
+  border-radius: 50%;
+  background-color: #FF5403;
+}
+
+/* !my certificates */
+
+/* my favourites */
+
+.card a {
+  text-decoration: none;
+  color: black;
+}
+
+.favourites-cards .card:hover {
+  background-color: #f5f3ee;
+  cursor: pointer;
+}
+
+.card {
+  margin: 2%;
+  display: flex;
+  width: 1100px;
+  margin-right: 20px;
+  position: relative;
+}
+
+.card img{
+  height: 200px;
+}
+
+.course_info{
+  position: relative;
+  width: 100%;
+}
+
+.cardInf {
+  margin: 0px 20px;
+  width: 600px;
+  position: relative;
+}
+
+.cardInf span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.cardInf h3{
+  font-size: 20px;
+  margin:5px 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.authors a{
+  font-size:12px;
+  opacity: 0.7;
+}
+
+.cardInf p{
+  margin: 0px;
+  font-size:15px;
+  opacity: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardInf-btn {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+}
+
+.cardInf-btn a{
+  text-decoration: none;
+  color: white;
+  padding: 5px 10px;
+  background-color: #FF5403;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+.authors a {
+  text-decoration: none;
+  color: black;
+}
+
+.authors a:hover {
+  color: #5624D0;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  height: 15px;
+}
+
+.rating p{
+  margin-left: 5px;
+  font-size:12px;
+  opacity: 0.7;
+  display: inline-block;
+}
+
+.rating h3 {
+  margin-right: 5px;
+  font-size: 15px;
+  color: #B05B3B;
+}
+
+.card .rating img {
+  height: 17px;
+  margin-bottom: 2px;
+}
+
+.price h3{
+  margin-top: 5px;
+}
+
+.price h4{
+  text-decoration: line-through;
+  opacity: 0.5;
+  margin-top: 0;
+}
+
+.select button {
+  background-image: url(details/imgs/Library/like1.png);
+  background-size: cover;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 5px 5px 20px 20px;
+  border: none;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+/* !my favourites */
+
+#change-zatemnenie, #change-email {
+   background: rgba(102, 102, 102, 0.5);
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   display: none;
+   z-index: 6;
+ }
+
+ #change-zatemnenie:target, #change-email:target {
+   display: block;
+ }
+
+ .change-form-container {
+     max-width: 415px;
+     width: 100%;
+     background: #FFFFFF;
+     border-radius: 15px;
+     position: fixed;
+     top: 100px;
+     right: 0;
+     left: 0;
+     margin: auto;
+     padding: 20px 20px;
+ }
+
+ .form-field input{
+   height: 25px;
+   font-size: 18px;
+   border-radius: 10px;
+ }
+
+ .close {
+   height: 25px;
+   cursor:pointer;
+   position: absolute;
+   right: 10px;
+   top: 10px;
+   opacity: 0.8;
+ }
+
+ .close:hover {
+   opacity: 1;
+ }
+
+ .close img {
+   height: 25px;
+ }
+
+
+
+.user_photo {
+  height: 250px;
+  width: 250px;
+  background-position: center;
+  background-size: cover;
+  border-radius: 50%;
+  margin-top: 50px;
+  margin-left: 20px;
+  border: none;
+  padding: 0;
+}
+
+
+#change-user-data {
+  background: rgba(102, 102, 102, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 6;
+}
+
+#change-user-data:target {
+  display: block;
+}
+
+.info-form-container {
+  max-width: 415px;
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 15px;
+  position: fixed;
+  top: 100px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  padding: 50px 20px;
+}
+
+#view_coupon {
+  background: rgba(102, 102, 102, 0.5);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 6;
+}
+
+#view_coupon:target {
+  display: block;
+}
+
+.coupon-form-container {
+  max-width: 415px;
+  width: 100%;
+  background: #FFFFFF;
+  border-radius: 15px;
+  position: fixed;
+  top: 100px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+.coupon-pass {
+  margin: 10px 0;
+}
+
+.coupon-pass input{
+  background: none;
+  border: none;
+  font-size: 16px;
+}
+
+
+
+.view_coupon_form_submit_button {
+    width: 100%;
+    font-weight: bold;
+    font-size: 14px;
+    height: 40px;
+    background: #247FFF;
+    border-radius: 5px;
+    color:#fff;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+.view_coupon_form_submit_button:hover {
+    background-color: #0D6CF2;
+}
+
+.coupon_course_title {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 200px;
+}

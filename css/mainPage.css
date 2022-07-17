@@ -1,0 +1,433 @@
+body {
+  margin: 0px;
+  font-family: "Geometria";
+}
+
+.hidden_category_card {
+  display: block;
+}
+
+.container1{
+  max-width: 1280px;
+  padding: 0 5px;
+  margin: 0 auto;
+}
+
+.container2{
+  max-width: 1280px;
+  padding: 0 5px;
+  margin: 0 auto;
+}
+
+.container3{
+  max-width: 1280px;
+  padding: 0 5px;
+  margin: 0 auto;
+}
+
+.phone {
+  position: relative;
+  background-image: url(details/imgs/mainPage/mobbLine.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.phone a:hover{
+  filter: brightness(1.1);
+}
+
+.phone-container {
+  width: 100%;
+  max-width: 1000px;
+  z-index: 1;
+  padding: 350px 0px 400px 100px;
+}
+
+.phone-container h2{
+  width: 500px;
+  font-size: 30px;
+}
+
+.phone-container p{
+  font-size: 20px;
+}
+
+.phone-app {
+  position: absolute;
+  margin-top: 10px;
+}
+
+.phone-app a{
+  opacity: 0.7;
+}
+
+.phone-app a:hover{
+  opacity: 1;
+}
+
+.scroll{
+  width: 54px;
+  height: 54px;
+  margin: 10px auto;
+}
+
+.reg-btn {
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0px 5px;
+  background-color: white;
+  cursor: pointer;
+  color: #0098a6;
+  font-size: 15px;
+}
+
+.log-btn {
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0px 5px;
+  background-color: #0098a6;
+  cursor: pointer;
+  color: white;
+  font-size: 15px;
+}
+
+.profbtn {
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0px 5px;
+  background-color: #0098a6;
+  cursor: pointer;
+  color: white;
+  font-size: 15px;
+}
+
+.best_top4 h2 {
+  margin-bottom: 0;
+}
+
+.top_cards h4{
+  margin: 20px 0 5px 20px;
+}
+
+.top_cards_line {
+  display: flex;
+}
+
+.top_card {
+  width: 300px;
+  height: 200px;
+  border-radius: 10px;
+  margin-right: 10px;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+}
+
+.card_info{
+  padding: 50px 8px 0 8px;
+  position: absolute;
+  bottom: 0;
+  left: 0px;
+  right: 0px;
+  background-image: linear-gradient(to top, black 40%, transparent);
+  border-radius: 0 0 10px 10px;
+}
+
+.card_info p{
+  color: white;
+  margin: 0;
+  font-size: 16px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card_info a{
+  color: white;
+  font-size: 12px;
+  margin: 0;
+}
+
+.course_status{
+  display: flex;
+}
+
+.course_status p{
+  margin-right: 3px;
+  padding: 0 3px;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.main_categories {
+  margin: 50px 0;
+}
+
+.main_categories h2{
+  margin: 5px 0;
+}
+
+.main_categories p{
+  margin: 5px 0;
+  font-size: 18px;
+}
+
+.courses-categories {
+  margin: 10px 0;
+  display: flex;
+  overflow: auto;
+}
+
+.courses-categories button{
+  margin: 0 20px 0 0;
+  cursor: pointer;
+  width: 130px;
+}
+
+.courses-categories button[value="1"]{
+  font-size: 18px;
+  color: orange;
+  background: none;
+  width: 100%;
+  border: none;
+}
+
+.courses-categories button[value="0"]{
+  width: 100%;
+  font-size: 18px;
+  color: black;
+  opacity: 0.7;
+  background: none;
+  border: none;
+}
+
+.category_cards_line{
+  display: flex;
+}
+
+.category_card{
+  display: flex;
+  width: 600px;
+  margin: 15px auto;
+  position: relative;
+}
+
+.category_card img{
+  width: 180px;
+  border-radius: 10px;
+}
+
+.category_card_info {
+  padding: 0 30px 0 10px;
+}
+
+.category_card_info h4{
+  margin: 0 0 3px 0;
+  font-size: 17px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.category_card_info p{
+  margin: 0px;
+  font-size:12px;
+  opacity: 0.7;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  height: 15px;
+}
+
+.rating p{
+  margin-left: 5px;
+  font-size:12px;
+  opacity: 0.7;
+  display: inline-block;
+}
+
+.rating h3 {
+  margin-right: 1px;
+  font-size: 15px;
+  color: #B05B3B;
+  margin-top: 18px;
+}
+
+.rating img {
+  height: 17px;
+  width: 17px;
+}
+
+.select button {
+  background-image: url(details/imgs/Library/like.png);
+  background-size: cover;
+  background-color: grey;
+  cursor: pointer;
+  border-radius: 15px 15px 20px 20px;
+  border: none;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  right: 6px;
+  top: 6px;
+}
+
+.category_card_buy {
+  position: absolute;
+  right: 6px;
+  bottom: 5px;
+}
+
+.category_card_buy a{
+  padding: 1px 3px;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  background-color: #0098a6;
+}
+
+.price_block{
+    display: flex;
+    position: absolute;
+    left: 190px;
+    bottom: 0px;
+  }
+
+.price_block h3{
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.price_block h4{
+  opacity: 0.5;
+  margin-bottom: 0;
+  margin-left: 5px;
+  font-size: 14px;
+  margin-top: 0;
+  text-decoration: line-through;
+}
+
+.others {
+  text-align: center;
+}
+
+.others button{
+  padding: 5px;
+  background-color: orange;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.main_infos{
+  margin: 50px 0;
+}
+
+.main_info1 {
+  display: flex;
+  max-width: 80%;
+  padding: 40px 30px;
+  border-radius: 0 20px 20px 0;
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+  margin-bottom: 50px;
+}
+
+.main_info1 a{
+  padding: 5px;
+  background-color: orange;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+}
+
+.main_info1 h2{
+  margin: 10px 0 20px 0;
+}
+
+.main_info_img img{
+  height: 250px;
+}
+
+.main_info_text {
+  margin-left: 30px;
+}
+
+.main_info2 {
+  display: flex;
+  max-width: 80%;
+  padding: 40px 30px;
+  border-radius: 20px 0 0 20px;
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+  margin-left: auto;
+}
+
+.main_info_title {
+  display: inline-flex;
+}
+
+.main_info_title img{
+  height: 60px;
+}
+
+.main_info_title h2{
+  margin: 13px 5px;
+  color: orange;
+}
+
+.main_info2_img img{
+  height: 250px;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.1);
+}
+
+.main_info2_text {
+  margin-left: 30px;
+}
+
+.main_info_text p{
+  margin-top: 0;
+}
+
+/* sponsors */
+.sponsors-inf {
+  background-color: #EEEEEE;
+  display: block;
+  outline: none ;
+}
+
+.sponsors-inf h1{
+  font-size: 28px;
+  margin-top: 50px;
+}
+
+.sponsors-imgs {
+  display: flex;
+}
+
+.sponsors-img {
+  width: 130px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+}
+
+.sponsors-img img{
+  width: 130px;
+  margin: 0 auto;
+}
+
+/* !COURSES */

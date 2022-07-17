@@ -1,0 +1,139 @@
+body {
+  margin: 0px;
+  font-family: sans-serif;
+}
+
+hr {
+  margin: 25px 75px 5px 75px;
+  opacity: 0.6;
+}
+
+.search {
+  display: flex;
+}
+
+.search input[type="submit"]{
+  height: 50px; /* Высота кнопки */
+  border: none; /* Убираем рамку */
+  border-left: 1px solid;
+  background: no-repeat 50% 50%; /* Параметры фона */
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+  background-color: white;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.search input[type="search"]{
+  padding: 10px;
+  height: 50px;
+  font-size: 16px;
+  border: none;
+  outline: none; /* Убираем свечение в Chrome и Safari */
+  -webkit-appearance: none; /* Убираем рамку в Chrome и Safari */
+  width: 100%; /* Ширина поля */
+  vertical-align: middle; /* Выравнивание по середине */
+}
+
+.container{
+  width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+  box-shadow: 0px 10px 10px 10px rgba(0,0,0,0.1);
+  border-top: none;
+  border-bottom: none;
+}
+
+.author_info_block {
+  margin-right: 25px;
+}
+
+.author-categories {
+  margin: 10px;
+}
+
+.author-categories button{
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.author-categories button[value="1"]{
+  font-size: 18px;
+  color: orange;
+  background: none;
+  border: none;
+  border-bottom: 2px solid orange;
+}
+
+.author-categories button[value="0"]{
+  font-size: 18px;
+  color: #0098a6;
+  background: none;
+  border: none;
+}
+
+.author{
+  margin-bottom: 20px;
+  width: fit-content;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+}
+
+.author_rating  {
+  display: flex;
+}
+
+.author_rating p {
+  margin: 0;
+  margin-right: 5px;
+}
+
+.author_rating img {
+  margin-right: 3px;
+  height: 18px;
+}
+
+.author_img {
+  background-position: center;
+  background-size: cover;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 20px 20px;
+  border: none;
+}
+
+.author_info_block h2{
+  color: #1C6DD0;
+  margin: 10px 0 5px 0;
+}
+
+.author_link a{
+  color: black;
+  margin-right: 15px;
+}
+
+.author_info{
+  min-width: 307px;
+  margin-top: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.1);
+  padding: 5px;
+  position: relative;
+}
+
+.select button {
+  background-size: cover;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 5px 5px 20px 20px;
+  border: none;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
+  margin: 0px 8px 8px 0px;
+}

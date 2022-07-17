@@ -1,0 +1,47 @@
+body {
+  margin: 0px;
+  font-family: sans-serif;
+}
+
+.download_form{
+  width: 80vh;
+  margin-top: 15vh;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.warning{
+  text-align: center;
+}
+
+.download_btn{
+  text-align: center;
+  margin: 50px 0;
+}
+
+.download_btn a{
+  text-decoration: none;
+  color: white;
+  width: 100%;
+  padding: 30px 100px;
+  background-color: #247FFF;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.go_back{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.go_back a{
+  cursor: pointer;
+  padding: 5px 20px;
+  text-decoration: none;
+  color: white;
+  background-color: #247FFF;
+  font-weight: bold;
+  border-radius: 10px;
+}

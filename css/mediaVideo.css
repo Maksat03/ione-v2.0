@@ -1,0 +1,274 @@
+@media (max-width: 1250px){
+  .container{
+    max-width: 970px;
+  }
+
+  .video video {
+    width: 600px;
+  }
+
+  .text{
+    width: 600px;
+  }
+
+  .lessons_block{
+    width: 340px;
+  }
+
+  .lesson button p {
+    width: 60%;
+  }
+}
+
+@media (max-width: 992px){
+  .lesson button p {
+    width: 85%;
+  }
+  .container{
+    max-width: 750px;
+  }
+
+  .path{
+    font-size: 14px;
+  }
+
+  .title{
+    margin: 30px 0;
+  }
+
+  .title span{
+    font-size: 42px;
+  }
+
+  .main_block{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .video{
+    order: 1;
+  }
+
+  .video video{
+    width: 100%;
+  }
+
+  .lessons_block1{
+    display: none;
+  }
+
+  .text{
+    width: 100%;
+  }
+
+  .lessons_block2{
+    width: calc(100% - 2px);
+    height: 225px;
+    display: block;
+    margin-left: 0;
+    z-index: 100;
+  }
+
+  .lessonsNum {
+    height: 90px;
+  }
+
+  .lesson{
+    text-align: left;
+  }
+
+  .first_lesson div{
+    position: initial;
+  }
+
+  .first_lesson {
+    display: flex;
+  }
+
+  .first_lesson img {
+    margin-left: 10px;
+  }
+
+  .first_lesson button {
+    width: 734px;
+  }
+}
+
+@media (max-width: 880px){
+  .categories-dropdown{
+    display: none;
+  }
+
+  .nav-right{
+    display: none;
+  }
+
+  .register-buttons a{
+    display: none;
+  }
+
+  .dropdown button{
+    display: none;
+  }
+}
+
+@media (max-width: 768px){
+  .lesson button p {
+    width: 80%;
+  }
+  .container{
+    max-width: 550px;
+  }
+
+  .path{
+    font-size: 12px;
+  }
+
+  .text {
+    font-size: 15px;
+  }
+
+  .tests h1 {
+    font-size: 18px;
+  }
+
+  .tests h2 {
+    font-size: 18px;
+  }
+
+  .question {
+    font-size: 17px;
+  }
+
+  .test label {
+    font-size: 15px;
+  }
+
+  .first_lesson button {
+    width: 534px;
+  }
+}
+
+@media (max-width: 570px){
+.lesson button p {
+    width: 70%;
+  }
+  .nav{
+    height: 50px;
+  }
+
+  .iOneLogo img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .container{
+    width: 390px;
+    padding: 20px 0;
+  }
+
+  .lessons_block2 h3{
+    font-size: 15px;
+    margin: 12px 0;
+  }
+
+  .lesson button h3{
+    margin: 10px 0px 10px 5px;
+  }
+
+  .lesson button p{
+    margin: 10px 5px;
+  }
+
+  .path h3{
+    margin: 10px 0;
+  }
+
+  .video{
+    margin-bottom: 10px;
+  }
+
+  .title{
+    margin: 15px 0;
+  }
+
+  .title span{
+    font-size: 28px;
+  }
+
+  .first_lesson div{
+    height: 41px;
+  }
+
+  .first_lesson button {
+    width: 374px;
+  }
+
+  .lessons_block2 {
+    height: 200px;
+  }
+
+  .tests h2 {
+    font-size: 15px;
+  }
+
+  .tests span {
+    font-size: 13px;
+  }
+
+  .question {
+    font-size: 15px;
+  }
+
+  .test label {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 400px){
+.lesson button p {
+    width: 64%;
+  }
+  .nav{
+    height: 40px;
+  }
+
+  .iOneLogo img{
+    width: 50px;
+    height: 50px;
+  }
+
+  .container{
+    max-width: 300px;
+    display: block;
+  }
+
+  .video video {
+    height: 170px;
+  }
+
+  .title span{
+    font-size: 24px;
+  }
+
+  .path{
+    display: none;
+  }
+
+  .lessons_block2 h3 {
+    font-size: 13px;
+  }
+
+  .text {
+    font-size: 13px;
+    margin-top: 15px;
+  }
+
+  .lessons_block2 img {
+    margin-left: 0px;
+  }
+
+  .first_lesson button {
+    width: 282px;
+  }
+}

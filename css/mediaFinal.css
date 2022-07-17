@@ -1,0 +1,456 @@
+@media (max-width: 1300px){
+  input {
+    margin: 3px 6px 4px 3px;
+  }
+
+  .container{
+    max-width: 970px;
+  }
+
+  .fin_test_form{
+    max-width: 970px;
+  }
+
+  .test_title h2{
+    max-width: 400px;
+  }
+
+  .test_question {
+    width: 660px;
+    margin: 20px;
+  }
+
+  .test_question p {
+    font-size: 16px;
+  }
+
+  .question_answer label {
+    font-size: 16px;
+  }
+
+  .lessontest_results h3 {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 990px){
+  .container{
+    max-width: 750px;
+  }
+
+  .fin_test_form{
+    max-width: 750px;
+  }
+
+  .return_btn a{
+    border-radius: 10px;
+    padding: 7px;
+    font-size: 14px;
+  }
+
+  .test_title h2{
+    max-width: 300px;
+    font-size: 20px;
+  }
+
+  .test_question {
+    width: 500px;
+    margin: 20px;
+  }
+
+  .test_question p {
+    font-size: 14px;
+  }
+
+  .question_answer label {
+    font-size: 14px;
+  }
+
+  .lessontest_results h3 {
+    font-size: 15px;
+  }
+
+  .question_num{
+    margin: 5px;
+  }
+
+  .question_num a{
+    padding: 2px;
+    display: block;
+    width: 19px;
+  }
+
+  .lessontest_results {
+    margin: 5px;
+  }
+
+  #timerBox b{
+    margin: 5px;
+  }
+}
+
+@media (max-width: 767px){
+  input {
+    height: 18px;
+    margin: 2px 4px 4px 3px;
+  }
+
+  .nav{
+    height: 50px;
+  }
+
+  .iOneLogo img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .categories-dropdown{
+    display: none;
+  }
+
+  .nav-right{
+    display: none;
+  }
+
+  .dropdown{
+    display: none;
+  }
+
+  .container{
+    max-width: 600px;
+  }
+
+  .fin_test_form{
+    max-width: 570px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .return_btn {
+    top: 23px;
+  }
+
+  .return_btn a{
+    font-size: 14px;
+  }
+
+  .test_title h2{
+    max-width: 200px;
+    font-size: 17px;
+  }
+
+  .test_title span{
+    font-size: 15px;
+  }
+
+  .test_question {
+    max-width: 500px;
+    margin: 20px;
+  }
+
+  .test_question p {
+    font-size: 18px;
+  }
+
+  .question_answer label {
+    font-size: 18px;
+  }
+
+  .lessontest_results h3 {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+
+  .questions_num{
+    position: static;
+    margin: 20px;
+    order: -1;
+    box-shadow: 0px 0px 4px 4px rgba(0,0,0,0.1);
+  }
+
+  .question_num{
+    margin: 9px;
+  }
+
+  .question_num a{
+    font-size: 14px;
+    padding: 5px;
+    display: block;
+    width: 20px;
+  }
+
+  .questions_lines{
+    flex-direction: row;
+  }
+
+  .lessontest_results {
+    margin: 8px;
+  }
+
+  #timerBox b{
+    margin: 10px;
+    font-size: 18px;
+  }
+
+  .contacts a {
+    height: 45px;
+  }
+
+  .contacts img {
+    height: 45px;
+  }
+
+  .app a{
+    height: 45px;
+  }
+
+  .app img{
+    height: 45px;
+  }
+}
+
+@media (max-width: 555px){
+  input {
+    height: 13px;
+    margin: 3px 3px 5px 3px;
+  }
+
+  .nav{
+    height: 50px;
+  }
+
+  .iOneLogo img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .container{
+    width: 400px;
+  }
+
+  .fin_test_form{
+    width: 395px;
+  }
+
+  .return_btn {
+    top: 17px;
+  }
+
+  .return_btn a{
+    font-size: 12px;
+    padding: 4px;
+  }
+
+  .test_title h2{
+    max-width: 170px;
+    font-size: 16px;
+  }
+
+  .test_title span{
+    font-size: 14px;
+  }
+
+  .test_question {
+    width: 365px;
+    margin: 10px;
+  }
+
+  .test_question p {
+    font-size: 16px;
+  }
+
+  .question_answer label {
+    font-size: 16px;
+  }
+
+  .lessontest_results {
+    margin: 6px;
+  }
+
+  .lessontest_results p {
+    font-size: 15px;
+    margin: 6px 0;
+  }
+
+  .lessontest_results h3 {
+    font-size: 15px;
+    margin: 10px 0;
+  }
+
+  .questions_num{
+    margin: 10px;
+    padding: 5px 3px;
+  }
+
+  .question_num{
+    margin: 6px;
+  }
+
+  .question_num a{
+    font-size: 14px;
+    padding: 2px;
+    display: block;
+    width: 19px;
+  }
+
+  .lessontest_check_button {
+    padding: 6px;
+    border-radius: 5px;
+    margin: 10px 10px 20px 10px;
+    font-size: 14px;
+  }
+
+  #timerBox b{
+    font-size: 16px;
+    margin: 6px;
+  }
+
+  .contacts a {
+    height: 40px;
+  }
+
+  .contacts img {
+    height: 40px;
+  }
+
+  .app a{
+    height: 40px;
+  }
+
+  .app img{
+    height: 40px;
+  }
+
+}
+
+@media (max-width: 400px){
+  input {
+    height: 14px;
+    margin: 1.5px 2px 3px 3px;
+  }
+
+  .nav{
+    height: 40px;
+  }
+
+  .iOneLogo img{
+    width: 50px;
+    height: 50px;
+  }
+
+  .container{
+    max-width: 310px;
+  }
+
+  .fin_test_form{
+    max-width: 310px;
+    margin-top: 5px;
+  }
+
+  .return_btn {
+    top: 15px;
+  }
+
+  .return_btn a{
+    font-size: 10px;
+    padding: 5px 4px;
+  }
+
+  .test_title h2{
+    max-width: 120px;
+    font-size: 15px;
+    padding: 5px;
+    margin-top: 15px;
+    margin-bottom: 0;
+  }
+
+  .test_title span{
+    font-size: 10px;
+  }
+
+  .test_question {
+    width: 280px;
+    margin: 10px;
+    box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.1);
+  }
+
+  .test_question p {
+    font-size: 14px;
+    margin: 3px;
+  }
+
+  .questions_num{
+    box-shadow: 0px 0px 3px 3px rgba(0,0,0,0.1);
+  }
+
+  .question_answer label {
+    font-size: 15px;
+  }
+
+  .lessontest_results {
+    margin: 5px;
+  }
+
+  .lessontest_results p {
+    font-size: 14px;
+    margin: 3px 0;
+  }
+
+  .lessontest_results h3 {
+    font-size: 14px;
+    margin: 5px 0;
+  }
+
+  /* .questions_num{
+    margin-top: 10px;
+    margin-right: 10px;
+    right: 10px;
+    top: 10px;
+  } */
+
+  .question_num{
+    margin: 5px;
+  }
+
+  .question_num a{
+    font-size:  10px;
+    padding: 1px;
+    display: block;
+    width: 14px;
+    border-radius: 3px;
+    margin: 0;
+  }
+
+  .lessontest_check_button {
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 10px 10px 10px;
+    font-size: 12px;
+  }
+
+  #timerBox b{
+    font-size: 15px;
+    margin: 1px 5px;
+  }
+
+
+  .contacts a {
+    height: 28px;
+    margin: 0px 10px;
+  }
+
+  .contacts img {
+    height: 28px;
+  }
+
+  .app a{
+    height: 25px;
+    margin: 0 5px;
+  }
+
+  .app img{
+    height: 25px;
+  }
+
+
+}

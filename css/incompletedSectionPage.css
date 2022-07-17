@@ -1,0 +1,229 @@
+body {
+  margin: 0px;
+  font-family: "Geometria";
+}
+
+hr{
+  opacity: 0.5
+}
+
+.line {
+  background-position: top;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 345px;
+  border-radius: 0 0 60px 60px;
+  position: relative;
+}
+
+.line div {
+  margin: 0;
+  color: white;
+  position: absolute;
+  left: 100px;
+  width: 70%;
+}
+
+.line div a {
+  color: #5624D0;
+  font-weight: bold;
+}
+
+.line div ul {
+  margin-top: 2px;
+}
+
+.line div p {
+  margin-top: 2px;
+}
+
+.courses-cards {
+  margin: 0px 50px;
+  width: 100%;
+  position: relative;
+}
+
+.courses-cards a {
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+.card {
+  margin: 2%;
+  display: flex;
+  width: 1100px;
+  margin-right: 20px;
+    position: relative;
+}
+
+.card img{
+  height: 200px;
+}
+
+.card:hover {
+  background-color: #f5f3ee;
+  cursor: pointer;
+}
+
+.cardInf {
+  padding: 0px 20px;
+  width: 100%;
+}
+
+.cardInf h3{
+  margin: 10px 0px;
+}
+
+.cardInf .authors {
+  margin-top: 15px;
+}
+
+.cardInf p{
+  margin: 0px;
+  font-size: 12px;
+  opacity: 0.7;
+}
+
+.cardInf a {
+  margin-right: 5px;
+  display: inline-block;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  height: 15px;
+}
+
+.rating p{
+  margin-left: 5px;
+  font-size:12px;
+  opacity: 0.7;
+  display: inline-block;
+}
+
+.rating h3 {
+  margin-right: 5px;
+  font-size: 15px;
+  color: #B05B3B;
+}
+
+.rating img {
+  height: 17px;
+}
+
+.price h3{
+  margin-top: 5px;
+}
+
+.price h4{
+  text-decoration: line-through;
+  opacity: 0.5;
+  margin-top: 0;
+}
+
+.sections {
+  display: flex;
+  margin-left: 2%;
+}
+
+.filter_section {
+
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.filters {
+  width: 275px;
+  user-select: none;
+  padding-left: 5px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+
+.filter {
+  cursor: pointer;
+  display: flex;
+}
+
+.filter label{
+  cursor: pointer;
+}
+
+.filter input{
+  cursor: pointer;
+}
+
+.filter_rating {
+  display: flex;
+}
+
+.filter_rating img {
+  margin-right: 3px;
+  height: 18px;
+}
+
+.filter_rating p {
+  margin: 0;
+}
+
+.custom-checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+}
+
+.custom-checkbox+label {
+  display: inline-flex;
+  align-items: center;
+  user-select: none;
+}
+.custom-checkbox+label::before {
+  content: '';
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  flex-grow: 0;
+  border: 1px solid #adb5bd;
+  border-radius: 0.25em;
+  margin-right: 0.5em;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 50% 50%;
+}
+
+.custom-checkbox:checked+label::before {
+  border-color: #0b76ef;
+  background-color: #0b76ef;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
+}
+
+.select button {
+  background-image: url(details/imgs/Library/like.png);
+  background-size: cover;
+  background-color: white;
+  cursor: pointer;
+  border-radius: 5px 5px 20px 20px;
+  border: none;
+  width: 18px;
+  height: 18px;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.order_by {
+  margin-bottom: 20px;
+}
+
+.order_by h3 {
+  margin-bottom: 5px;
+}
+
+.order_by select {
+  width: 100%;
+  font-size: 18px;
+}

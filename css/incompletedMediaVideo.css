@@ -1,0 +1,212 @@
+@media (max-width: 1250px){
+  .container{
+    max-width: 970px;
+  }
+}
+
+@media (max-width: 992px){
+  .container{
+    max-width: 750px;
+  }
+
+  .things {
+    margin-top: 30px;
+    height: 120px;
+  }
+
+  .things a {
+    width: 300px;
+  }
+
+  .things img {
+    height: 80px;
+    margin: 10px 15px;
+  }
+
+  .thingInfo h2{
+    font-size: 20px;
+  }
+
+  .thingInfo p{
+    font-size: 10px;
+    height: 36px;
+    width: 190px;
+  }
+
+  .thing-buy {
+    bottom: 3px;
+    right: 8px;
+  }
+
+  .thing-buy h4{
+    font-size: 13px;
+  }
+
+  .thing-buy h6{
+    font-size: 9px;
+  }
+
+  .lessonsNum {
+    height: 90px;
+  }
+
+  .lesson button {
+    width: 130px;
+    height: 70px;
+    margin-right: 20px;
+  }
+
+  .lesson h3 {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .lesson p {
+    width: 100%;
+    font-size: 11px;
+  }
+
+  .text {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 880px){
+  .categories-dropdown{
+    display: none;
+  }
+
+  .nav-right{
+    display: none;
+  }
+
+  .register-buttons a{
+    display: none;
+  }
+
+  .dropdown button{
+    display: none;
+  }
+}
+
+@media (max-width: 768px){
+  .container{
+    max-width: 550px;
+  }
+}
+
+@media (max-width: 570px){
+
+  .nav{
+    height: 50px;
+  }
+
+  .iOneLogo img{
+    width: 60px;
+    height: 60px;
+  }
+
+  .container{
+    width: 390px;
+    padding: 20px 0;
+  }
+
+  .video{
+    margin-bottom: 10px;
+  }
+
+  .title p{
+    font-size: 20px;
+  }
+
+  .prev_next_btns {
+    margin: 50px 0 20px 0;
+  }
+
+  .prev_next_btns a{
+    padding: 7px;
+    border-radius: 10px;
+    font-size: 14px;
+  }
+
+  .prev_btn{
+    bottom: 30px
+  }
+
+  .next_btn{
+    bottom: 30px
+  }
+
+  .contacts img {
+    height: 40px;
+  }
+
+  .app{
+    height: 40px;
+  }
+
+  .app a{
+    height: 40px;
+  }
+
+  .app img{
+    height: 40px;
+  }
+
+  .footer h2{
+    border-radius: 20px;
+    width: 42px;
+    height: 18px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px){
+
+  .nav{
+    height: 40px;
+  }
+
+  .iOneLogo img{
+    width: 50px;
+    height: 50px;
+  }
+
+  .container{
+    max-width: 300px;
+    display: block;
+  }
+
+  .footer{
+    height: 120px;
+  }
+
+  .contacts a {
+    height: 28px;
+    margin: 0px 10px;
+  }
+
+  .contacts img {
+    height: 28px;
+  }
+
+  .app {
+    height: 25px
+  }
+
+  .app a{
+    height: 25px;
+    margin: 0 5px;
+  }
+
+  .app img{
+    height: 25px;
+  }
+
+  .footer h2 {
+    border-radius: 20px;
+    width: 45px;
+    height: 19px;
+    font-size: 15px;
+  }
+}
