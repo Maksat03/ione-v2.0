@@ -1,0 +1,210 @@
+body {
+  margin: 0px;
+  position: relative;
+}
+
+/* footer */
+.footer {
+  margin-top: auto;
+  padding: 0px 20px;
+  background-color: #112B3C;
+  display: block;
+  height: 200px;
+}
+
+.footer-top {
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+}
+
+.footer-top-content{
+  margin-right: 10%;
+}
+
+.footer h2 {
+  margin: 0px;
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  background-color: white;
+  border-radius: 20px;
+  width: 60px;
+  height: 25px;
+  text-align: center;
+  font-family: sans-serif;
+  color: #17bfca;
+  font-size: 20px;
+}
+
+.contacts {
+  display: flex;
+  height: 50px;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+}
+
+.contacts a {
+  border-radius: 50%;
+  height: 50px;
+  margin: 0px 0 0 20px;
+  opacity: 0.5;
+}
+
+.contacts a:hover {
+  opacity: 1;
+}
+
+.app {
+  display: flex;
+  height: 50px;
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+}
+
+.app a {
+  opacity: 0.5;
+  margin: 0 0 0 10px;
+}
+
+.app a:hover {
+  opacity: 1;
+}
+
+.contacts a {
+  height: 50px;
+}
+
+.contacts img {
+  height: 50px;
+}
+0
+.app{
+  height: 50px;
+}
+
+.app a{
+  height: 50px;
+}
+
+.app img{
+  height: 50px;
+}
+
+.copyright{
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+}
+
+.copyright p{
+  margin-bottom: 0;
+  font-size: 14px;
+  color: white;
+}
+
+.footer_content{
+  display: flex;
+  width: 600px;
+  margin: 10px 0 0 20px;
+}
+
+.content{
+  width: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+.content a{
+  text-decoration: none;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.container3{
+  position: relative;
+  height: 100%;
+}
+/* !footer */
+
+
+@media (max-width: 990px){
+  .content{
+    width: 200px;
+  }
+}
+
+@media (max-width: 767px){
+  .footer{
+    height: 250px;
+  }
+
+  .footer_content{
+    display: block;
+    width: 500px;
+  }
+
+  .content{
+    width: 260px;
+  }
+}
+
+@media (max-width: 560px){
+  .footer{
+    height: 260px;
+  }
+
+  .container3{
+    padding: 0;
+  }
+
+  .footer_content{
+    width: 300px;
+    margin-left: 0;
+  }
+
+  .contacts{
+    right: 0;
+  }
+
+  .contacts img{
+    height: 40px;
+  }
+
+  .app{
+    height: 40px;
+    left: 0;
+    bottom: 40px;
+  }
+
+  .app a{
+    height: 40px;
+    margin: 0 10px 0 0;
+  }
+
+  .app img{
+    height: 40px;
+  }
+
+  .copyright{
+    left: 0;
+    bottom: 5px;
+  }
+}
+
+@media (max-width: 400px){
+  .footer{
+    height: 300px;
+  }
+
+  .contacts{
+    left: 0;
+    top: 165px;
+  }
+
+  .contacts a{
+    margin: 0px 20px 0 0px;
+  }
+}

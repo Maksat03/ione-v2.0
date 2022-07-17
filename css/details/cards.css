@@ -1,0 +1,97 @@
+.coursesCards {
+  margin: 50px 10px;
+}
+
+.cardsLine {
+  width: 1308px;
+  display: flex;
+  margin: 60px auto;
+}
+
+@keyframes show{
+0%{
+opacity:0;
+}
+100% {
+opacity:1;
+}
+}
+
+.show{
+  opacity:0; /*Элемент полностью прозрачный (невидимый)*/
+  transition: 1s; /*Скорость перехода состояния элемента*/
+  animation: show 3s 1; /* Указываем название анимации, её время и количество повторов*/
+  animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
+}
+
+.back-img img {
+  width: 100%;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.left-img {
+  position: absolute;
+  left: -70px;
+  top: -40px;
+  z-index: 2;
+}
+
+.left-img img {
+  height: 150px;
+}
+
+.right-img {
+  position: absolute;
+  right: -80px;
+  top: -60px;
+  z-index: 3;
+}
+
+.right-img img {
+  height: 180px;
+}
+
+.card{
+  background-color: white;
+  position: relative;
+  border: 0.1px solid;
+  width: 300px;
+  height: 350px;
+  border-radius: 10px;
+  text-align: center;
+  z-index: 1;
+}
+
+.card h2{
+  height: 50px;
+}
+
+.card a {
+  font-size: 20px;
+  color: white;
+  background-color: orange;
+  text-decoration: none;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  position: absolute;
+  bottom: -10px;
+  right: 15px;
+  z-index: 4;
+}
+
+.card a:hover {
+  filter: brightness(1.1);
+}
+
+.card h4 {
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+
+.price {
+  display: flex;
+  position: absolute;
+  bottom: 0px;
+  z-index: 5;
+}

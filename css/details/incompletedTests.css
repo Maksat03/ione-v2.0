@@ -1,0 +1,45 @@
+.tests {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+  background-color: #FFC074;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.test p{
+  margin: 0 0 5px 5px;
+}
+
+.test label{
+  cursor: pointer;
+  user-select: none;
+}
+
+.test input{
+  cursor: pointer;
+}
+
+.question_answer {
+  display: flex;
+  margin: 1px 0;
+}
+
+#lessontest {
+  margin: 0px;
+}
+
+.question {
+  font-size: 20px;
+}
+
+.choice {
+  font-size: 18px;
+}

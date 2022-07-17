@@ -1,0 +1,89 @@
+.tests {
+  max-width: 740px;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 30px;
+  background-color: #f1f1f1;
+}
+
+.tests h1{
+  font-size: 22px;
+  font-family: monospace;
+  color: #f93a18;
+  margin-bottom: 0;
+}
+
+.tests h2 {
+  font-family: sans-serif;
+}
+
+.tests span {
+  color: #948686;
+  font-family: sans-serif;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.test {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  padding: 10px 0;
+}
+
+.question, .task{
+  margin: 0 0 5px 5px;
+}
+
+.test label {
+  font-family: monospace;
+  font-size: 17px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.test input{
+  cursor: pointer;
+}
+
+.task {
+  font-family: sans-serif;
+  color: #948686;
+  font-size: 14px;
+}
+
+.question_answer {
+  display: flex;
+  margin: 4px 0;
+}
+
+.question_answer input {
+  margin: 2px 5px 2px 2px;
+  min-width: 20px;
+  min-height: 20px;
+}
+
+.check_answers button{
+  background-color: #3AB0FF;
+  padding: 20px 40px;
+  color: white;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+
+.question {
+  font-family: sans-serif;
+  font-size: 19px;
+}
+
+.answer {
+  margin-top: 2px;
+}
+
+.text {
+  font-family: sans-serif;
+  font-weight: normal; 
+}

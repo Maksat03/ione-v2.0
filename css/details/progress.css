@@ -1,0 +1,97 @@
+.diagram {
+    width: 80px;
+    height:80px;
+    border-radius: 50%;
+    background: #0098a6;
+    position: relative;
+    overflow: hidden;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.diagram::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top:7px;
+    left:7px;
+    right:7px;
+    bottom:7px;
+    border-radius: 50%;
+    background: white;
+    z-index: 3;
+    opacity: 1;
+}
+.diagram .piece {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    position: absolute;
+}
+.diagram .piece::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 50%;
+    height: 100%;
+}
+.diagram .piece.left {
+    transform: rotate(0deg);
+    z-index: 2;
+    border-radius: 50%; /* only FireFox < 75.0v (fix bug)*/
+}
+.diagram.over_50 .piece.left {
+    transform: rotate(180deg);
+}
+.diagram .piece.right {
+    transform: rotate(180deg);
+    z-index: 1;
+    border-radius: 50%; /* only FireFox < 75.0v (fix bug)*/
+}
+.diagram.over_50 .piece.right {
+    transform: rotate(360deg);
+}
+.diagram .left::before {
+    background: #FF5403;
+}
+.diagram.over_50 .left::before {
+    background: #0098a6;
+}
+.diagram .right::before {
+    background: #FF5403;
+}
+.diagram .text {
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    bottom: 0;
+    left:0;
+    right:0;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.diagram .text b {
+    font-size: 23px;
+    color: #0098a6;
+    font-weight: bolder;
+}
+
+.progress-area {
+  width: 100px;
+  text-align: center;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.progress-area p{
+  font-size: 17px;
+  font-weight: bolder;
+  color: #0098a6;
+  width: 100px;
+  margin-top: 0;
+}

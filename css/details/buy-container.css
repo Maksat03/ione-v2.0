@@ -1,0 +1,195 @@
+#buy-btn, #get-course-btn {
+   background: rgba(102, 102, 102, 0.95);
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   display: none;
+   z-index: 6;
+ }
+
+ #buy-btn:target, #get-course-btn:target {
+   display: block;
+ }
+
+ .buy-container {
+   max-width: 450px;
+   width: 100%;
+   background: #FFFFFF;
+   border-radius: 15px;
+   position: fixed;
+   top: 300px;
+   right: 0;
+   left: 0;
+   margin: auto;
+   padding: 0px 20px;
+   z-index: 99;
+ }
+
+ .close {
+   height: 25px;
+   cursor:pointer;
+   position: absolute;
+   right: 10px;
+   top: 10px;
+   opacity: 0.8;
+ }
+
+ .close:hover {
+   opacity: 1;
+ }
+
+ .close img {
+   height: 25px;
+ }
+
+ .email-info {
+   margin: 5px 0;
+   display: flex;
+ }
+
+ .buy-info h2{
+   margin: 10px 0;
+ }
+
+ .buy-container p{
+   font-size: 14px;
+ }
+
+ .buy-type {
+   display: flex;
+   flex-direction: column;
+   border-radius: 10px;
+   background-color: #BCFFB9;
+   padding: 10px;
+ }
+
+ .buy-price {
+   margin: 5px 0;
+   display: flex;
+ }
+
+ .buy-price h3{
+  padding-top: 2px;
+   margin: 0 10px 0 5px;
+ }
+
+ .buy-price p{
+   margin: 5px 0;
+   margin-bottom: 10px;
+ }
+
+ .buy-container input{
+  min-width: 20px;
+  min-height: 20px;
+   border: none;
+   background: none;
+   margin-bottom: 20px;
+   font-size: 15px;
+   margin-bottom: 5px;
+ }
+
+ .buy-btn-container .submit_button {
+   text-decoration: none;
+   background-color: orange;
+   color: white;
+   font-size: 20px;
+   padding: 5px 40px;
+   border-radius: 10px;
+ }
+
+.buy-btn-container .submit_button {
+  cursor: pointer;
+}
+
+ #coupon-btn {
+    background: rgba(102, 102, 102, 0.95);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 6;
+  }
+
+  #coupon-btn:target {
+    display: block;
+  }
+
+  .coupon-container {
+    max-width: 450px;
+    width: 100%;
+    background: #FFFFFF;
+    border-radius: 15px;
+    position: fixed;
+    top: 300px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    padding: 0px 20px;
+    z-index: 99;
+  }
+
+  .coupon-info p{
+    margin-bottom: 5px;
+  }
+
+  .coupon-container input{
+    margin-bottom: 20px;
+    font-size: 17px;
+    width: 98%;
+  }
+
+  .coupon-btn-container .submit_button {
+    width: 50%;
+    text-decoration: none;
+    background-color: #0098a6;
+    color: white;
+    font-size: 20px;
+    padding: 5px 5px;
+    border-radius: 10px;
+    border: none;
+  }
+
+.coupon-btn-container .submit_button {
+  cursor: pointer;
+}
+
+#certificate{
+  background: rgba(102, 102, 102, 0.95);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 6;
+}
+
+#certificate:target {
+  display: block;
+}
+
+.certificate_img{
+  height: 600px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.certificate_container{
+  max-width: 900px;
+  width: 100%;
+  height: 700;
+  background: #FFFFFF;
+  border-radius: 15px;
+  position: fixed;
+  top: 100px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  padding: 35px;
+  z-index: 99;
+}

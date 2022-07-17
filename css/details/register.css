@@ -1,0 +1,159 @@
+.date{
+  width:408.5px;
+  height:43px
+}
+
+
+
+
+.form-field input {
+    width: -webkit-fill-available;
+    height: 40px;
+    font-size: 18px;
+    border: 2px solid #17bfca;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+#register-form-container {
+    width: 415px;
+    padding: 40px 20px;
+    border-radius: 15px;
+    position: fixed;
+    top: 100px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    background: #fff;
+}
+
+.reg_button {
+    width: 100%;
+    font-weight: bold;
+    font-size: 14px;
+    height: 40px;
+    background: #247FFF;
+    border-radius: 5px;
+    color:#fff;
+    text-transform: uppercase;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+}
+
+.reg_button:hover {
+    background-color: #0D6CF2;
+}
+
+.form-field {
+    margin-bottom: 13px;
+}
+
+.checked{
+  height: 25px;
+  cursor: pointer;
+}
+
+.rule-checkbox {
+  width: 30px;
+  margin-right: 10px;
+  display: flex;
+}
+
+.rule {
+  margin-top: 10px;
+  display: flex;
+}
+
+#reg-zatemnenie {
+   background: rgba(102, 102, 102, 0.95);
+   width: 100%;
+   height: 100%;
+   position: absolute;
+   top: 0;
+   left: 0;
+   display: none;
+   z-index: 6;
+ }
+
+ #reg-zatemnenie:target {
+   display: block;
+ }
+
+
+
+@media (max-width: 480px){
+   #register-form-container {
+       width: 315px;
+       padding: 40px 20px 20px 20px;
+       border-radius: 10px;
+   }
+
+   .form-field input {
+       width: -webkit-fill-available;
+   }
+
+   .login-form-container {
+       padding: 40px 20px 20px 20px;
+       max-width: 315px;
+       width: 100%;
+   }
+
+   .reset-password-form-container {
+       padding: 10px 20px 20px 20px;
+       max-width: 315px;
+       width: 100%;
+   }
+ }
+
+ @media (max-width: 370px){
+   #register-form-container {
+       width: 250px;
+       padding: 40px 20px 20px 20px;
+       border-radius: 10px;
+   }
+
+   .form-field input {
+       width: -webkit-fill-available;
+       height: 40px;
+       font-size: 18px;
+       border: 2px solid #17bfca;
+       border-radius: 5px;
+       outline: none;
+       padding-left: 5px;
+   }
+
+   #blocks{
+     width: 208px;
+   }
+
+   .login-form-container {
+       padding: 40px 20px 20px 20px;
+       max-width: 250px;
+       width: 100%;
+   }
+
+   .reset-password-form-container {
+       padding: 10px 20px 20px 20px;
+       max-width: 250px;
+       width: 100%;
+   }
+
+   #reg_phone_number input {
+    width: 208px;
+   }
+ }
+
+ .form-field label {
+    border: 2px solid #17bfca;
+    border-radius: 5px 0 0 5px;
+    border-right: none;
+    padding: 9px 5px;
+    font-weight: 300;
+    font-size: 17.5px;
+}
+
+#reg_phone_number {
+    display: flex;
+    width: 100%;
+}
