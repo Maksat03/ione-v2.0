@@ -1,0 +1,52 @@
+from django.urls import path
+
+from courses.views import course_search_api_view
+from .views import *
+
+urlpatterns = [
+    path("", home_page_view),
+    path("get_course_categories/", get_course_categories_view),
+    path("get_section/<int:section_pk>/", get_section_view),
+    path("get_filtered_courses/<int:section_pk>/", get_courses_view),
+    path("get_course/<int:course_pk>/", get_course_view),
+    path("get_course_feedbacks/<int:course_pk>/", get_course_feedbacks_view),
+    path("trial_lesson/", trial_lesson_view),
+    path("trial_lesson_stream/", trial_lesson_video_stream_view),
+    path("trial_lesson_forum_get_comments/", trial_lesson_forum_get_comments_view),
+    path("trial_lesson_forum_get_nested_comments/", trial_lesson_forum_get_nested_comments_view),
+    path("course_search/", course_search_api_view),
+
+    path("am_i_authenticated/", am_i_authenticated_view),
+    path("login/", token_auth_login_view),
+    path("logout/", token_auth_logout_view),
+    path("sign-up/", token_auth_sign_up_view),
+    path("reset_password/", reset_password_view),
+
+    path("profile_page/", profile_page_view),
+    path("get_my_courses/", get_my_courses_view),
+    path("get_my_coupons/", get_my_coupons_view),
+    path("get_my_certificates/", get_my_certificates_view),
+    path("get_my_favourite_courses/", get_my_favourite_courses_view),
+    path("change_user_data/", change_user_data_view),
+    path("change_password/", change_password_view),
+    path("change_email/", change_email_view),
+    path("change_profile_image/", change_profile_image),
+    path("add_to_fav/<int:course_pk>/", add_to_fav_view),
+    path("remove_from_fav/<int:course_pk>/", remove_from_fav_view),
+    path("view_coupon/", view_coupon_view),
+    path("get_my_course/<int:my_course_pk>/", get_my_course_view),
+    path("my_course/<int:my_course_pk>/leave_comment/", leave_comment_view),
+    path("get_lesson/<int:lesson_index>/my_course/<int:my_course_pk>/", get_lesson_view),
+    path("video_stream/", video_stream_view),
+    path("renew_access/<int:my_course_pk>/", renew_access_view),
+    path("final_test/<int:course_pk>/", final_test_view),
+    path("final_test/<int:course_pk>/check/", final_test_check_view),
+    path("test_check/", test_check_view),
+    path("forum/get_comments/", get_forum_comments_view),
+    path("forum/get_nested_comments/", get_forum_nested_comments_view),
+    path("forum/ask/", ask_view),
+    path("forum/answer/", answer_view),
+    path("buy_course/<int:course_pk>/", buy_course_view),
+    path("get_access_to_free_course/<int:course_pk>/", get_access_to_free_course_view),
+    path("get_access_to_course_by_coupon/<int:course_pk>/", get_access_to_course_by_coupon_view),
+]
