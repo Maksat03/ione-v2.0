@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  {{ section.title }}
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/sectionPage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mediaSection.css' %}">
+    <link rel="stylesheet" href="{% static 'css/loading.css' %}">
+{% endblock %}
+
+{% block search_input %}
+{{ search_input }}
+{% endblock %}
+
+{% block body %}
+<div class="container2">
+  <div class="courses-cards" style="margin: 0">
+    <div class="loading">
+      <div class="cssload-dots">
+        <div class="cssload-dot"></div>
+        <div class="cssload-dot"></div>
+        <div class="cssload-dot"></div>
+        <div class="cssload-dot"></div>
+        <div class="cssload-dot"></div>
+      </div>
+      <div class="loadingText">
+        <h2>Загрузка...</h2>
+      </div>
+
+      <svg version="1.1">
+        <defs>
+          <filter id="goo">
+            <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="12" ></feGaussianBlur>
+            <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" ></feColorMatrix>
+          </filter>
+        </defs>
+      </svg>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/courses_list_page.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,381 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Teacher's Page</title>
+
+    <link rel="stylesheet" href="{% static 'css/details/register.css' %}">
+    <link rel="stylesheet" href="{% static 'css/teacherPageComments.css' %}">
+    <link rel="stylesheet" href="{% static 'css/teacherPage.css' %}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.0.2/dist/chart.min.js"></script>
+  </head>
+  <body>
+    <div class="teacher_page">
+      <div class="vertical_menu">
+        <div class="teacher_logo">
+
+        </div>
+        <div class="teacher_account">
+          <div class="teacher_img">
+            <img src="{% static 'css/details/imgs/profilePage/avatarka.png' %}" alt="">
+          </div>
+          <div class="teacher_info">
+            <div class="teacher_name">
+              <h3>{{ request.user.first_name }} {{ request.user.last_name }}</h3>
+              <span>{{ request.user.email }}</span>
+            </div>
+            <div class="teacher_edit">
+              <a href="#change-zatemnenie">изменить пароль</a>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="teacher_items">
+          <div class="teacher_item">
+            <button class="btn" onclick="func(this)" type="button" name="btn1" value="1" data-id="courses" id="btn-courses">
+            <img src="{% static 'css/details/imgs/teacherPage/video-lesson' %}.png" alt="" height="23">
+            <p>Курсы и студенты</p></button>
+          </div>
+          <div class="teacher_item">
+            <button class="btn" onclick="func(this)" type="button" name="btn2" value="0" data-id="proceeds" id="btn-proceeds">
+            <img src="{% static 'css/details/imgs/teacherPage/money-bag' %}.png" alt="" height="23">
+            <p>Выручка</p></button>
+          </div>
+          <div class="teacher_item">
+            <button class="btn" onclick="func(this)" type="button" name="btn3" value="0" data-id="feedback_list" id="btn-feedback_list">
+            <img src="{% static 'css/details/imgs/teacherPage/chat.png' %}" alt="" height="23">
+            <p>Обратная связь учеников</p></button>
+          </div>
+          <div class="teacher_item">
+            <button class="btn" onclick="func(this)" type="button" name="btn4" value="0" data-id="docs" id="btn-docs">
+            <img src="{% static 'css/details/imgs/teacherPage/docs.png' %}" alt="" height="23">
+            <p>Документы</p></button>
+          </div>
+        </div>
+
+        <hr>
+
+        <div class="vertical_menu_bottom">
+          <div class="help">
+            <a href="#" onclick="show_call_center_with_sweet_alert()">Нужна помощь?</a>
+          </div>
+          <div class="quit">
+            <a href="{% url 'logout' %}"><h2>Выйти</h2></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="documents" id="docs" style="display: none;">
+        <div class="documents_title">
+          <h1>Документы</h1>
+        </div>
+
+        <hr>
+
+        <div class="docs">
+
+          <div class="header">
+            <p style="margin-left: 20px;">Заголовок</p>
+
+            <div class="document_info">
+              <div class="document_date">
+                <p>Дата добавления</p>
+              </div>
+
+              <div class="subscription_date">
+                <p>Дата подписки</p>
+              </div>
+
+              <div class="answer_status">
+                <p>Ответ</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <hr>
+
+
+
+        {% for doc in request.user.teacher.documents.all %}
+        <div class="docs">
+
+          <div class="header">
+            {% if doc.docs_type == "contract" %}
+            <img src="{% static 'css/details/imgs/teacherPage/2.png' %}" alt="">
+            {% else %}
+            <img src="{% static 'css/details/imgs/teacherPage/3.png' %}" alt="">
+            {% endif %}
+            <p>{{ doc.title }}</p>
+          </div>
+
+          <div class="document_info">
+            <div class="document_date">
+              <p>{{ doc.created_at }}</p>
+            </div>
+
+            <div class="subscription_date">
+              {% if doc.subscription_date %}
+              <p>{{ doc.subscription_date }}</p>
+              {% else %}
+              <p>---</p>
+              {% endif %}
+            </div>
+
+            <div class="answer_status">
+              {% if doc.status == "is_waiting" %}
+              <img src="{% static 'css/details/imgs/teacherPage/time-left.png' %}" alt="">
+              {% elif doc.status == "answered" %}
+              <img src="{% static 'css/details/imgs/teacherPage/check.png' %}" alt="">
+              {% else %}
+              <img src="{% static 'css/details/imgs/teacherPage/remove.png' %}" alt="">
+              {% endif %}
+            </div>
+          </div>
+
+
+          {% if doc.status == "is_waiting" %}
+          <div class="sign_btns">
+            <form method="post" action="{% url 'subscribe_document' doc.pk %}" style="display: inline-block">
+              {% csrf_token %}
+              <button type="submit" style="background-color: green">Подписать</button>
+            </form>
+            <form method="post" action="{% url 'refuse_document' doc.pk %}" style="display: inline-block">
+              {% csrf_token %}
+              <button type="submit" style="background-color: orange">Отказать</button>
+            </form>
+          </div>
+          {% elif doc.status == "not_answered" %}
+          <div class="sign_btns">
+            <form method="post" action="{% url 'subscribe_document' doc.pk %}" style="display: inline-block">
+              {% csrf_token %}
+              <button type="submit" style="background-color: green">Подписать</button>
+            </form>
+          </div>
+          {% endif %}
+
+          <div class="download">
+            <button type="button" name="button" onclick="window.open('{{ doc.file.url }}', '_blank').focus();">
+            <img src="{% static 'css/details/imgs/teacherPage/download.png' %}" alt="">
+            </button>
+          </div>
+        </div>
+
+        <hr>
+        {% endfor %}
+      </div>
+
+      <div class="info_form" id="proceeds" style="display: none;">
+        <div class="teacher_income_list">
+          <h1>Выручка</h1>
+
+          <div class="teacher_income_statistic">
+            <div class="income_title">
+              <h3>Статистика выручек</h3>
+              <img src="{% static 'css/details/imgs/teacherPage/diagram.png' %}" alt="" height="20">
+            </div>
+            <h4 style="margin: 5px 0px; padding: 0px;">Сумма выручки со дня размещения: {{ proceeds_for_whole_months }} тг</h4>
+            <h4 style="margin: 5px 0px; padding: 0px;">Сумма выручки за месяц: {{ proceeds_for_current_month }} тг</h4>
+
+            {% if proceeds.items|length > 1 %}
+            <div style="min-width: 400px; width: auto;"><canvas id="proceeds_chart_pie"></canvas></div>
+            <script>
+              const CHART_COLORS = {
+                c: '#4c6d89',
+                c0: '#4f8cc1',
+                c1: '#249fc6',
+                c2: '#22C0F1',
+                c3: '#93B6ED',
+                c4: '#169ED9',
+                c5: '#33ffe3',
+                c6: '#30C591)',
+                red: 'rgb(255, 99, 132)',
+                orange: 'rgb(255, 159, 64)',
+                yellow: 'rgb(255, 205, 86)',
+                green: 'rgb(75, 192, 192)',
+                blue: 'rgb(54, 162, 235)',
+                purple: 'rgb(153, 102, 255)',
+                grey: 'rgb(201, 203, 207)'
+              };
+              var proceeds_ctx = document.getElementById('proceeds_chart_pie').getContext('2d');
+              var proceedsChart = new Chart(proceeds_ctx, {
+                type: 'pie',
+                data: {
+                    labels: [{% for course_title, _ in proceeds.items %}  '{{ course_title }}',  {% endfor %}],
+                    datasets: [{
+                        data: [{% for _, course_proceeds in proceeds.items %}  {{ course_proceeds|floatformat:"0" }},  {% endfor %}],
+                        backgroundColor: Object.values(CHART_COLORS),
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                }
+            });
+            </script>
+            {% endif %}
+
+          </div>
+
+          <div class="teacher_income">
+            <div class="income_title">
+              <h3>История получения денег</h3>
+              <img src="{% static 'css/details/imgs/teacherPage/money.png' %}" alt="" height="20">
+            </div>
+
+            <div class="income_list">
+              <ol>
+                {% for date, course_proceeds in history.items %}
+                  <li>{{ date }}: <p>{{ course_proceeds }}тг</p></li>
+                {% endfor %}
+              </ol>
+            </div>
+          </div>
+
+          <div class="income_history">
+            <p>Дата следующей выплаты:</p><span>1ый день в следующем месяце</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info_form" id="courses">
+        <div class="teacher_courses_list">
+          <h1>Курсы</h1>
+
+          <div class="teacher_courses">
+            <h3>Мои курсы</h3>
+
+            <div class="courses_list">
+              <ol>
+                {% for course in courses %}
+                  <li>{{ course.title }}</li>
+                {% endfor %}
+              </ol>
+            </div>
+          </div>
+
+          <div class="teacher_courses_statistic">
+            <div class="statistic_title">
+              <div style="display: flex;">
+                <h3>Статистика курсов</h3>
+                <img src="{% static 'css/details/imgs/teacherPage/diagram.png' %}" alt="" height="20">
+              </div>
+              <h4 style="margin: 5px 0px; padding: 0px;">Общее количество студентов: {{ request.user.teacher.get_number_of_students }}</h4>
+
+              {% if courses|length > 1 %}
+              <div style="min-width: 400px; width: auto;"><canvas id="courses_chart_pie"></canvas></div>
+              <script>
+                var courses_ctx = document.getElementById('courses_chart_pie').getContext('2d');
+                var coursesChart = new Chart(courses_ctx, {
+                  type: 'pie',
+                  data: {
+                      labels: [{% for course in courses %}  '{{ course.title }}',  {% endfor %}],
+                      datasets: [{
+                          data: [{% for course in courses %}  {{ course.course.number_of_students }},  {% endfor %}],
+                          backgroundColor: Object.values(CHART_COLORS),
+                          borderWidth: 1
+                      }]
+                  },
+                  options: {
+                      responsive: true,
+                  }
+              });
+              </script>
+              {% endif %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feedback_list" id="feedback_list" style="display: none;">
+        <div class="teacher_courses_name">
+          <h1>Ваши курсы</h1>
+
+          <div class="courses_feedback">
+            {% for course in courses %}
+            <div class="course_name">
+              <a onclick="open_lessons_of_course({{ course.id }})">{{ forloop.counter }}. {{ course.title }}</a>
+            </div>
+            <hr>
+            {% endfor %}
+          </div>
+        </div>
+
+        {% for course in courses %}
+        <div class="teacher_lessons_name" id="lessons_of_course_{{ course.id }}" style="display: none">
+          <h1>Уроки курса</h1>
+
+          <div class="lessons_feedback">
+            {% for lesson in course.get_lessons %}
+            <div class="lesson_name">
+              <a onclick="open_forum_of_lesson({{ lesson.id }})">{{ forloop.counter }}. {{ lesson.title }}</a>
+            </div>
+            <hr>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for course in courses %}
+          {% for lesson in course.get_lessons %}
+            <div class="teacher_courses_coms" id="forum_of_lesson_{{ lesson.id }}" style="display: none">
+              <h1>Отзывы учеников</h1>
+
+              <div class="courses_com">
+              </div>
+
+              <form class="commentSubmit" action="leave_message/" method="post">
+                {% csrf_token %}
+                <input type="hidden" id="lesson_id_{{ lesson.id }}" name="lesson_id" value="{{ lesson.id }}">
+                <input type="hidden" id="parent_comment_id_{{ lesson.id }}" name="parent_comment_id" value="0">
+                <input type="hidden" id="nested_comment_id_{{ lesson.id }}" name="nested_comment_id" value="0">
+                <div class="to_whom_answer_block" style="display: none;">
+                  <span>Ответить <a href="#" class="whom"></a></span>
+                  <button onclick="cancel_answer_form()" type="button">X</button>
+                </div>
+                <div style="display: flex;">
+                  <textarea class="input" name="message" rows="1" cols="80" placeholder="Оставьте свой коментарий" required></textarea>
+                  <button type="submit" class="answer_form_btn">Отправить</button>
+                </div>
+              </form>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+
+      <div class="news" id="news" style="display: none;">
+        <h1>What's up</h1>
+      </div>
+    </div>
+
+    <div id="change-zatemnenie">
+      <form method="post" action="change-password/" class="change_password_form">
+        {% csrf_token %}
+        <div class="change-form-container">
+          <h3 style="color: black; font-size: 13px;" class="last_password_changing">{% if request.user.last_password_changing %}Последний раз пароль был изменён {{ request.user.last_password_changing }}{% endif %}</h3>
+          <div class="change-password-form-container">
+            <div class="form-fields">
+              {% for field in change_password_form %}
+              <div class="form-field">
+                <div id="{{ field.name }}_field_errors"></div>
+                {{ field }}
+              </div>
+              {% endfor %}
+            </div>
+            <button class="reg_button" type="submit" style="margin: 0px">Изменить</button>
+          </div>
+          <a href="#" class="close"><img src="{% static 'css/details/imgs/mainPage/exit.png' %}" alt=""></a>
+        </div>
+      </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{% static 'js/teacherPage.js' %}"></script>
+  </body>
+</html>

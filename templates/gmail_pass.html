@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Изменить пароль</title>
+    <style>
+      ul {
+        padding: 0 0 0 20px;
+      }
+    </style>
+    <link rel="stylesheet" href="{% static 'css/gmail.css' %}">
+  </head>
+  <body>
+    <div class="con">
+      <form method="post">
+        {% csrf_token %}
+        <div class="pass">
+          <div class="form-fields">
+            <div class="form-field" style="text-align: left">
+              {{ info }}
+            </div>
+            <div class="form-field">
+              {{ new_password_form.new_password1 }}
+            </div>
+            <div class="form-field">
+              {{ new_password_form.new_password2 }}
+            </div>
+          </div>
+          <button type="submit" class="reg_button" style="margin: 0px">Изменить пароль</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

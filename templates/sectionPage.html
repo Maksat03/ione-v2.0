@@ -1,0 +1,207 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  {{ section.title }}
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/sectionPage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mediaSection.css' %}">
+    <link rel="stylesheet" href="{% static 'css/loading.css' %}">
+{% endblock %}
+
+
+{% block body %}
+<div class="line">
+  <div class="container1">
+    <h2>{{ section.title }}</h2>
+    <h4>{{ section.description }}</h4>
+
+    В этом разделе:
+    <ul>
+      <li>{{ number_of_courses }} курсов</li>
+      <li>{{ number_of_students }} студентов</li>
+    </ul>
+
+    <a href="authors/">Авторы курсов</a>
+    {% if similar_sections %}
+    <p>Похожие разделы:
+      {% for similar_section in similar_sections %}
+        <a href='{{ similar_section.get_absolute_url }}'>{{ similar_section.title }}</a>,
+      {% endfor %}
+    </p>
+    {% endif %}
+    <div style="margin-bottom: 10px;"></div>
+  </div>
+</div>
+
+<div class="container2">
+  <div class="sections">
+    <div class="filters_pc">
+      <details open>
+      <summary>Фильтры</summary>
+      <div class="filters">
+        <div class="first_section">
+          <div class="order_by">
+            <label for="order_by"><h3>Сортировка по:</h3></label>
+            <select name="order_by" id="order_by">
+              <option value="course__number_of_students">Популярные</option>
+              <option value="-id">Новинки</option>
+              <option value="current_price">Цена по возрастанию</option>
+              <option value="-current_price">Цена по убыванию</option>
+            </select>
+          </div>
+          <div class="filter_section">
+            <h3>Рейтинг</h3>
+            <div class="filter">
+              <input id="rating_4.5" type="checkbox" class="custom-checkbox" name="course__rating__gte" data-value="4.5" onclick="checkbox_action(this)">
+              <label for="rating_4.5">
+                <div class="filter_rating">
+                  <img src="{% static 'css/details/imgs/lessonsPage/fullStar.png' %}" alt="">
+                  <img src="{% static 'css/details/imgs/lessonsPage/fullStar.png' %}" alt="">
+                  <img src="{% static 'css/details/imgs/lessonsPage/fullStar.png' %}" alt="">
+                  <img src="{% static 'css/details/imgs/lessonsPage/fullStar.png' %}" alt="">
+                  <img src="{% static 'css/details/imgs/lessonsPage/halfStar.png' %}" alt="">
+                  <p>4,5 <p class="min">и выше</p></p>
+                </div>
+              </label>
+            </div>
+            <div class="filter">
+              <input id="rating_4.0" type="checkbox" class="custom-checkbox" name="course__rating__gte" data-value="4.0" onclick="checkbox_action(this)">
+              <label for="rating_4.0">
+                <div class="filter_rating">
+                  <img src="{% static 'css/details/imgs/lessonsPage/fullStar.png' %}" alt="">
+                  <img src="{% static 'css/details/imgs/lessonsPage/fullStar.png' %}" alt="">
+                  <img src="{% static 'css/details/imgs/lessonsPage/fullStar.png' %}" alt="">
+                  <img src="{% static 'css/details/imgs/lessonsPage/fullStar.png' %}" alt="">
+                  <img src="{% static 'css/details/imgs/lessonsPage/noStar.png' %}" alt="">
+                  <p>4,0 <p class="min">и выше</p></p>
+                </div>
+              </label>
+            </div>
+            <div class="filter">
+              <input id="rating_3.5" type="checkbox" class="custom-checkbox" name="course__rating__gte" data-value="3.5" onclick="checkbox_action(this)">
+              <label for="rating_3.5">
+                <div class="filter_rating">
+                  <img src="{% static 'css/details/imgs/lessonsPage/fullStar.png' %}" alt="">
+                  <img src="{% static 'css/details/imgs/lessonsPage/fullStar.png' %}" alt="">
+                  <img src="{% static 'css/details/imgs/lessonsPage/fullStar.png' %}" alt="">
+                  <img src="{% static 'css/details/imgs/lessonsPage/halfStar.png' %}" alt="">
+                  <img src="{% static 'css/details/imgs/lessonsPage/noStar.png' %}" alt="">
+                  <p>3,5 <p class="min">и выше</p></p>
+                </div>
+              </label>
+            </div>
+            <div class="filter">
+              <input id="rating_3.0" type="checkbox" class="custom-checkbox" name="course__rating__gte" data-value="3.0" onclick="checkbox_action(this)">
+              <label for="rating_3.0">
+                <div class="filter_rating">
+                  <img src="{% static 'css/details/imgs/lessonsPage/fullStar.png' %}" alt="">
+                  <img src="{% static 'css/details/imgs/lessonsPage/fullStar.png' %}" alt="">
+                  <img src="{% static 'css/details/imgs/lessonsPage/fullStar.png' %}" alt="">
+                  <img src="{% static 'css/details/imgs/lessonsPage/noStar.png' %}" alt="">
+                  <img src="{% static 'css/details/imgs/lessonsPage/noStar.png' %}" alt="">
+                  <p>3,0 <p class="min">и выше</p></p>
+                </div>
+              </label>
+            </div>
+          </div>
+          <hr>
+          <div class="filter_section">
+            <h3>Язык</h3>
+            <div class="filter">
+              <input id="kaz" type="checkbox" class="custom-checkbox" name="language" data-value="1" onclick="checkbox_action(this)">
+              <label for="kaz">Қазақша</label>
+            </div>
+            <div class="filter">
+              <input id="rus" type="checkbox" class="custom-checkbox" name="language" data-value="2" onclick="checkbox_action(this)">
+              <label for="rus">Русский</label>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="second_section">
+          <div class="filter_section">
+            <h3>Домашнее задание</h3>
+            <div class="filter">
+              <input id="yes_homework" type="radio" value="0" class="custom-checkbox" name="has_homeworks" data-value="true" onclick="checkbox_action(this)">
+              <label for="yes_homework">Да</label>
+            </div>
+            <div class="filter">
+              <input id="no_homework" type="radio" value="0" class="custom-checkbox" name="has_homeworks" data-value="false" onclick="checkbox_action(this)">
+              <label for="no_homework">Нет</label>
+            </div>
+          </div>
+          <hr>
+          <div class="filter_section">
+            <h3>Субтитры</h3>
+            <div class="filter">
+              <input id="yes_subtitles" type="radio" value="0" class="custom-checkbox" name="has_subtitles" data-value="true" onclick="checkbox_action(this)">
+              <label for="yes_subtitles">Да</label>
+            </div>
+            <div class="filter">
+              <input id="no_subtitles" type="radio" value="0" class="custom-checkbox" name="has_subtitles" data-value="false" onclick="checkbox_action(this)">
+              <label for="no_subtitles">Нет</label>
+            </div>
+          </div>
+          <hr>
+          <div class="filter_section">
+            <h3>Тип курса</h3>
+            <div class="filter">
+              <input id="free" type="checkbox" class="custom-checkbox" name="is_free" data-value="true" onclick="checkbox_action(this)">
+              <label for="free">Бесплатные</label>
+            </div>
+            <div class="filter">
+              <input id="paid" type="checkbox" class="custom-checkbox" name="is_free" data-value="false" onclick="checkbox_action(this)">
+              <label for="paid">Платные</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </details>
+    </div>
+
+
+
+
+    <div class="courses-cards">
+      <div class="loading">
+        <div class="cssload-dots">
+           <div class="cssload-dot"></div>
+           <div class="cssload-dot"></div>
+           <div class="cssload-dot"></div>
+           <div class="cssload-dot"></div>
+           <div class="cssload-dot"></div>
+        </div>
+        <div class="loadingText">
+          <h2>Загрузка...</h2>
+        </div>
+
+       <svg version="1.1">
+         <defs>
+           <filter id="goo">
+             <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="12" ></feGaussianBlur>
+             <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" ></feColorMatrix>
+           </filter>
+         </defs>
+       </svg>
+      </div>
+  </div>
+
+</div>
+</div>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/section_page.js' %}"></script>
+  <script>
+    var line = document.getElementsByClassName("line")[0];
+    if (window.screen.width < 300) {
+      line.style.backgroundImage = "url('{{ section.background_image_mobile.url }}')";
+    }
+    else {
+      line.style.backgroundImage = "url('{{ section.background_image.url }}')";
+    }
+  </script>
+{% endblock %}

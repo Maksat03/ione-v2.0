@@ -1,0 +1,190 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Final Exam
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/fin-test.css' %}">
+<link rel="stylesheet" href="{% static 'css/details/fin-test.css' %}">
+<link rel="stylesheet" href="{% static 'css/mediaFinal.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="test_title">
+    <h2>{{ course_title }}</h2>
+    <span>*Финальное тестирование</span>
+  </div>
+
+  <div class="return_btn">
+    <a href="{% url 'my_course' course_pk %}">Вернуться</a>
+  </div>
+
+  <div class="fin_test_form">
+    <div id="lessontest"></div>
+    <div class="test_form">
+
+        {% for question in questions %}
+            <div class="test_question" id="scroll-{{ forloop.counter }}">
+                <p data-question-id="{{question.id}}" class="question">{{ forloop.counter }}. {{ question.question }}</p>
+                {% with question_id=forloop.counter %}
+                {% with question_has_only_one_correct_answer=question.has_only_one_correct_answer %}
+                {% for choice in question.get_choices %}
+                    <div class="question_answer">
+                        <input class="choice{{ question.id }}" data-choice-id="{{ choice.id }}" id="{{ question_id }}.{{ forloop.counter }}" type="{% if question_has_only_one_correct_answer %}radio{% else %}checkbox{% endif %}" name="question{{ question_id }}">
+                        <label for="{{ question_id }}.{{ forloop.counter }}" class="choice">{{ choice.choice }}</label>
+                    </div>
+                {% endfor %}
+                {% endwith %}
+                {% endwith %}
+            </div>
+        {% endfor %}
+
+      <form class="check_test_form" method="post">
+          {% csrf_token %}
+        <button type="submit" class="lessontest_check_button">Отправить</button>
+      </form>
+    </div>
+
+
+<!--<div class="questions_num">-->
+<!--  <div class="questions_lines">-->
+<!--    <div class="questions_line">-->
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-1">1</a>-->
+<!--      </div>-->
+
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-2">2</a>-->
+<!--      </div>-->
+
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-3">3</a>-->
+<!--      </div>-->
+
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-4">4</a>-->
+<!--      </div>-->
+
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-5">5</a>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="questions_line">-->
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-6">6</a>-->
+<!--      </div>-->
+
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-7">7</a>-->
+<!--      </div>-->
+
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-8">8</a>-->
+<!--      </div>-->
+
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-9">9</a>-->
+<!--      </div>-->
+
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-10">30</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div class="questions_lines">-->
+<!--    <div class="questions_line">-->
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-1">1</a>-->
+<!--      </div>-->
+
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-2">2</a>-->
+<!--      </div>-->
+
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-3">3</a>-->
+<!--      </div>-->
+
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-4">4</a>-->
+<!--      </div>-->
+
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-5">5</a>-->
+<!--      </div>-->
+<!--    </div>-->
+
+<!--    <div class="questions_line">-->
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-6">6</a>-->
+<!--      </div>-->
+
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-7">7</a>-->
+<!--      </div>-->
+
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-8">8</a>-->
+<!--      </div>-->
+
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-9">9</a>-->
+<!--      </div>-->
+
+<!--      <div class="question_num">-->
+<!--        <a href="http://127.0.0.1:8000/courses/user/profile/my_course/12/final_test/#scroll-10">30</a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+
+<!--  <div id="timerBox"><b>00:00</b></div>-->
+<!--  <div class="lessontest_results"><p>Результат: 100%<br>10 / 10</p><h3>Вы прошли тест</h3></div>-->
+<!--</div>-->
+
+
+    <div class="questions_num">
+        {% for question in questions %}
+            {% if forloop.counter0|divisibleby:5 %}
+                {% if forloop.counter0 != 0 %}
+                    </div>
+                    {% if forloop.counter0 != 0 and forloop.counter0|divisibleby:10 %}
+                        </div>
+                    {% endif %}
+                {% endif %}
+                {% if forloop.counter0|divisibleby:10 %}
+                    <div class="questions_lines">
+                {% endif %}
+                <div class="questions_line">
+                <div class="question_num">
+                <a href="#scroll-{{ forloop.counter }}">{{ forloop.counter }}</a>
+                </div>
+            {% else %}
+                <div class="question_num">
+                <a href="#scroll-{{ forloop.counter }}">{{ forloop.counter }}</a>
+                </div>
+            {% endif %}
+            {% if forloop.last %}
+                {% if not forloop.counter0|divisibleby:5 %}
+                    </div></div>
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        <div id="timerBox"></div>
+        <div class="lessontest_results"></div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/fin-test.js' %}"></script>
+    <script src="{% static 'js/timer.js' %}"></script>
+    <script>
+      activateTimer({{ timer }});
+    </script>
+{% endblock %}

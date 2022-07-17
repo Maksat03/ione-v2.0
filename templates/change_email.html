@@ -1,0 +1,5 @@
+{% autoescape off %}
+Hi {{ user.first_name }} {{ user.last_name }},
+Пожалуйста, перейдите по ссылке, чтобы подтвердить изменения электронный почты,
+{{ domain }}{% url 'change_email' email=email uidb64=uid token=token %}
+{% endautoescape %}

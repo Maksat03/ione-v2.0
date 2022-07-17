@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  {{ lesson.lesson.title }}
+{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/videoPage.css' %}">
+  <link rel="stylesheet" href="{% static 'css/mediaVideo.css' %}">
+  <link rel="stylesheet" href="{% static 'css/details/tests.css' %}">
+  <link rel="stylesheet" href="{% static 'css/details/video_page_comments.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="title">
+    <p>{{ lesson.lesson.title }}</p>
+  </div>
+
+  <div class="video">
+    <video controls preload="auto" poster="{{ lesson.lesson.poster.url }}">
+      {% if is_trial_lesson %}
+      <source src="stream/" type="video/mp4">
+      {% else %}
+      <source src="{% url 'stream' course_pk lesson_index %}" type="video/mp4">
+      {% endif %}
+    </video>
+  </div>
+
+  <div class="lessonsNum">
+    {% for i in lessons %}
+      <div class="lesson">
+        {% if forloop.counter == lesson_index %}
+          <button style="background-color: #0098a6;" type="button" name="button"><h3>Урок {{ forloop.counter }}.</h3><p>{{ i.lesson.title }}</p></button>
+        {% else %}
+          {% if is_trial_lesson %}
+          <button onclick="alert('Вам необходима купить курс')" type="button" name="button"><h3>Урок {{ forloop.counter }}.</h3><p>{{ i.lesson.title }}</p></button>
+          {% else %}
+          <button onclick="window.location.href = '{% url 'lesson' course_pk forloop.counter %}'" type="button" name="button"><h3>Урок {{ forloop.counter }}.</h3><p>{{ i.lesson.title }}</p></button>
+          {% endif %}
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+
+<!--  <div class="lessonsNum">-->
+<!--    <div class="lesson">-->
+<!--      <button type="button" name="button"><h3>Урок 19.</h3><p>Название урока</p></button>-->
+<!--    </div>-->
+<!--  </div>-->
+
+  <div class="text">
+    {% autoescape off %}
+      {{ lesson.lesson.text }}
+    {% endautoescape %}
+  </div>
+
+  {% if test %}
+  <div class="tests" id="scroll-test">
+    <h1 id="lessontest">Тест</h1>
+    <h4 class="lessontest_results"></h4>
+    {% for question in questions %}
+      <div class="test">
+        <p data-question-id="{{question.id}}" class="question">{{ forloop.counter }}. {{ question.question }}</p>
+        {% with question_id=forloop.counter %}
+          {% with question_has_only_one_correct_answer=question.has_only_one_correct_answer %}
+            {% for choice in question.get_choices %}
+              <div class="question_answer">
+                <input class="choice{{ question.id }}" data-choice-id="{{ choice.id }}" id="{{ question_id }}.{{ forloop.counter }}" type="{% if question_has_only_one_correct_answer %}radio{% else %}checkbox{% endif %}" name="question{{ question_id }}">
+                <label for="{{ question_id }}.{{ forloop.counter }}" class="choice">{{ choice.choice }}</label>
+              </div>
+            {% endfor %}
+          {% endwith %}
+        {% endwith %}
+      </div>
+    {% endfor %}
+
+    {% if is_trial_lesson %}
+    <div style="text-align: center"><button class="lessontest_check_button" onclick="alert('Чтобы сдать тест вы должны купить курс')">Проверить</button></div>
+    {% else %}
+    <form class="check_test_form" method="post" style="text-align: center">
+      {% csrf_token %}
+      <button type="submit" class="lessontest_check_button">Проверить</button>
+    </form>
+    {% endif %}
+  </div>
+  {% endif %}
+</div>
+
+<div class="comments" id="comments">
+  <hr style="margin: 0; padding:0; height: 1px;">
+  <div class="comments-form">
+    <p style="font-weight:bold; margin:1% 0; font-size: 18px;">Здесь мини форум, вы можете спросить что вас интересует или что вам не понятно в этом уроке</p>
+
+    <form action="forum/leave_comment/" method="post">
+      {% csrf_token %}
+      <div class="commentSubmit">
+        {{ leave_comment_form.comment }}
+        {% if is_trial_lesson %}
+        <button type="button" onclick="alert('Чтобы отправить вы должны купить курс')">Отправить</button>
+        {% else %}
+        <button type="submit">Отправить</button>
+        {% endif %}
+      </div>
+    </form>
+
+    <hr>
+
+    <div class="comments_list"></div>
+
+    {% if number_of_comments > 0 %}
+    <button class="get_comments" onclick="get_comments(this)" data-no-more-comment="false" data-startswith="0" data-endswith="5">Показать еще отзывы</button>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/test.js' %}"></script>
+    <script src="{% static 'js/forum.js' %}"></script>
+    <script src="{% static 'js/videopage.js' %}"></script>
+    <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>
+
+    <script>
+    {% if is_trial_lesson %}
+    let is_trial_lesson = true;
+    {% else %}
+    let is_trial_lesson = false;
+    {% endif %}
+    </script>
+{% endblock %}

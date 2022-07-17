@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Course Preview
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/aboutCourse.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="text">
+    <h1>{{course.title}}</h1>
+    <h2>О курсе</h2>
+
+    {% autoescape off %}
+        {{ course.about_course }}
+    {% endautoescape %}
+
+    <h2 style="margin-top: 50px;">Наши преподаватели</h2>
+
+    {% for author in course.get_authors %}
+        <div class="teacher">
+            <div class="author"><button class="author_photo" style="background-image: url('{{author.photo.url}}')"></div>
+            <div class="teacher-info" style="margin-left: 20px;">
+                <h4 style="margin: 0">{{author.name}}</h4>
+                <p>{{author.profession}}</p>
+                <p>{{author.brief_about_author}}</p>
+            </div>
+        </div>
+    {% endfor %}
+
+    <div class="coursePlan">
+        <p style="font-weight: bold">Программа курса</p>
+        {% for lessons_section in course.get_lessons_sections %}
+        <details class="plan" style="display:block">
+            <summary>{{lessons_section.title}}</summary>
+            {% for lesson in lessons_section.get_lessons %}
+            <p>{{lesson.title}}</p>
+            {% endfor %}
+        </details>
+        {% endfor %}
+    </div>
+
+    <h2>Текстовые варианты уроков и их тесты</h2>
+    <div style="margin-bottom: 30px;">
+        {% for lesson in lessons %}
+            <details>
+                <summary>{{forloop.counter}}. {{lesson.title}}</summary>
+                <div>
+                    {% autoescape off %}
+                    {{ lesson.text }}
+                    {% endautoescape %}
+                </div>
+                <!--       Test       -->
+                <!--       Test       -->
+                <!--       Test       -->
+            </details>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

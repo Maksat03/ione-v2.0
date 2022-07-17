@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  {{ lesson.lesson.title }}
+{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/details/tests.css' %}">
+  <link rel="stylesheet" href="{% static 'css/videoPage.css' %}">
+  <link rel="stylesheet" href="{% static 'css/mediaVideo.css' %}">
+  <link rel="stylesheet" href="{% static 'css/details/video_page_comments.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+    <!-- <p class="path">
+      <a href="">THE COURSE NAME</a>  /  <a href="">LESSONS SECTION NAME</a>  /  <a style="color: #5e5d5d;">LESSON NAME</a>
+    </p> -->
+
+  <h2 class="title">
+    {{ lesson.lesson.title }}
+  </h2>
+
+  <div class="link_comm">
+    <a onclick='document.querySelector("#comments").scrollIntoView({behavior: "smooth",block: "start"})' style="display: flex; cursor: pointer; width: fit-content;"><img src="{% static 'css/details/imgs/videoPage/conversation.png' %}" height="22" width="22"><p style="margin: 0;">Обсуждение темы</p></a>
+  </div>
+
+  <div class="main_block">
+
+  <div class="main_content">
+    <div class="video">
+      <video controls preload="auto" poster="{{ lesson.lesson.poster.url }}">
+        {% if is_trial_lesson %}
+        <source src="stream/" type="video/mp4">
+        {% else %}
+        <source src="{% url 'stream' course_pk lesson_index %}" type="video/mp4">
+        {% endif %}
+      </video>
+    </div>
+
+    <div class="lessons_block2">
+      <h3 style="padding: 0 6px; text-align: center; font-family: sans-serif;">{{ lesson.lesson.course.title }}</h3>
+      <div class="lessonsNum">
+        {% for i in lessons %}
+          <div class="lesson{% if forloop.counter == lesson_index %} first_lesson{% endif %}">
+            {% if forloop.counter == lesson_index %}
+            <div></div>
+            {% endif %}
+
+            {% if is_trial_lesson %}
+            <button onclick="alert('Вам необходима купить курс')"><img class="video_play_icons"><h3>Урок {{ forloop.counter }}:</h3><p>{{ i.lesson.title }}</p></button>
+            {% else %}
+            <button onclick="window.location.href = '{% url 'lesson' course_pk forloop.counter %}'"><img class="video_play_icons"><h3>Урок {{ forloop.counter }}:</h3><p>{{ i.lesson.title }}</p></button>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="text">
+      {% autoescape off %}
+        {{ lesson.lesson.text }}
+      {% endautoescape %}
+    </div>
+    {% if test %}
+    <div class="tests" id="scroll-test">
+      <h1>ТЕСТ</h1>
+      <h2>{{ lesson.lesson.title }}</h2>
+      <span class="choose_right">Выберите правильный вариант ответа</span>
+      <h4 style="font-family: sans-serif; display: none;" class="lessontest_results"></h4>
+
+      {% for question in questions %}
+        <div class="test">
+          <p class="task">Задание {{ forloop.counter }}.</p>
+          <div class="question" data-question-id="{{question.id}}">{{ question.question }}</div>
+          {% with question_id=forloop.counter %}
+            {% with question_has_only_one_correct_answer=question.has_only_one_correct_answer %}
+              {% for choice in question.get_choices %}
+                <div class="question_answer">
+                  <input class="choice{{ question.id }}" data-choice-id="{{ choice.id }}" id="{{ question_id }}.{{ forloop.counter }}" type="{% if question_has_only_one_correct_answer %}radio{% else %}checkbox{% endif %}" name="question{{ question_id }}">
+                  <div class="answer"><label for="{{ question_id }}.{{ forloop.counter }}">{{ choice.choice }}</label></div> <!--  class="choice" -->
+                </div>
+              {% endfor %}
+            {% endwith %}
+          {% endwith %}
+        </div>
+      {% endfor %}
+
+      {% if is_trial_lesson %}
+      <div class="check_answers"><button type="button" onclick="alert('Чтобы сдать тест вы должны купить курс')">Проверить мои ответы</button></div>
+      {% else %}
+      <form class="check_answers" method="post"> <!-- check_test_form -->
+        {% csrf_token %}
+        <button type="submit" class="lessontest_check_button">Проверить мои ответы</button> <!-- lessontest_check_button -->
+      </form>
+      {% endif %}
+    </div>
+    {% endif %}
+
+  </div>
+
+  <div class="lessons_block1">
+    <div class="lessos_block_name">
+      <h3 style="text-align: center; font-family: sans-serif;">{{ lesson.lesson.course.title }}</h3>
+    </div>
+    <div class="lessonsNum">
+      {% for i in lessons %}
+        <div class="lesson{% if forloop.counter == lesson_index %} first_lesson{% endif %}">
+          {% if forloop.counter == lesson_index %}
+          <div></div>
+          {% endif %}
+
+          {% if is_trial_lesson %}
+          <button onclick="alert('Вам необходима купить курс')"><img class="video_play_icons"><h3>Урок {{ forloop.counter }}:</h3><p>{{ i.lesson.title }}</p></button>
+          {% else %}
+          <button onclick="window.location.href = '{% url 'lesson' course_pk forloop.counter %}'"><img class="video_play_icons"><h3>Урок {{ forloop.counter }}:</h3><p>{{ i.lesson.title }}</p></button>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="comments" id="comments">
+  <hr style="margin: 0; padding:0; height: 1px;">
+  <div class="comments-form">
+    <p style="font-weight:bold; margin:1% 0; font-size: 18px;">Здесь мини форум, вы можете спросить что вас интересует или что вам не понятно в этом уроке</p>
+
+    <form action="forum/leave_comment/" method="post">
+      {% csrf_token %}
+      <div class="commentSubmit">
+        {{ leave_comment_form.comment }}
+        {% if is_trial_lesson %}
+        <button type="button" onclick="alert('Чтобы отправить вы должны купить курс')">Отправить</button>
+        {% else %}
+        <button type="submit">Отправить</button>
+        {% endif %}
+      </div>
+    </form>
+
+    <hr>
+
+    <div class="comments_list"></div>
+
+    {% if number_of_comments > 0 %}
+    <button class="get_comments" onclick="get_comments(this)" data-no-more-comment="false" data-startswith="0" data-endswith="5">Показать еще отзывы</button>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'js/test.js' %}"></script>
+    <script src="{% static 'js/forum.js' %}"></script>
+    <script>
+    {% if is_trial_lesson %}
+    let is_trial_lesson = true;
+    {% else %}
+    let is_trial_lesson = false;
+    {% endif %}
+    </script>
+
+    <!-- ionelayer -->
+    {% if not request.user.is_superuser %}
+    <script>
+      function check_user_is_using_ionelayer() {
+        $.ajax({
+          url: "check_user_is_using_ionelayer/",
+          headers: {
+            "X-Requested-With": "XMLHttpRequest",
+          },
+          success: (response) => {
+            if (response == "User is not using iOneLayer") {
+              var download_ionelayer_div = document.getElementById("download_ionelayer_div");
+              download_ionelayer_div.style.display = "block";
+              var content = document.getElementById("content");
+              if (content.parentNode) {
+                content.parentNode.removeChild(content);
+              }
+              clearInterval(interval);
+              return;
+            }
+          },
+          error: (error) => {
+              console.log(error);
+              clearInterval(interval);
+              return;
+          }
+        })
+      }
+
+      const interval = setInterval(check_user_is_using_ionelayer, 5000);
+    </script>
+    {% endif %}
+    <!-- ionelayer -->
+
+<!--    <script src="https://vjs.zencdn.net/7.10.2/video.min.js"></script>-->
+{% endblock %}

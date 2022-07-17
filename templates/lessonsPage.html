@@ -1,0 +1,205 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  {{ my_course.course.title }}
+{% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{% static 'css/lessonsPage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/details/comments.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mediaLessons.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="line">
+    <div class="container1">
+        <div class="video">
+            <video src="{{ my_course.course.video.url }}" controls="" poster="{{ my_course.course.poster.url }}"></video>
+        </div>
+        <div class="lessonsInf">
+            <h1>{{ my_course.course.title }}</h1>
+
+            {% for author in my_course.course.authors.all %}
+              <a class="author_anchor" href="/courses/authors/?author_id={{ author.pk }}">{{ author.user_account.first_name }} {{ author.user_account.last_name }}{% if forloop.last %}.{% else %},{% endif %}</a>
+            {% endfor %}
+
+            <p>{{ my_course.course.description }}</p>
+            {% if my_course.is_available_until %}<span>Доступно до: <span style="color: {% if my_course.is_today_last_available_day or my_course.is_timeout %}red{% else %}#70f7ff{% endif %}">{{ my_course.is_available_until }}</span></span>{% endif %}
+
+            <div class="buyInf" style="display:flex">
+              <a href="{{ my_course.course.get_absolute_url }}" style="margin-right: 5px">О курсе</a>
+              {% if my_course.is_available_until %}
+                <a href="#renew_access">Продлить доступ к курсу</a>
+              {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if my_course.is_available_until %}
+<div id="renew_access">
+  <form method="post" action="renew_access/" class="renew_access_form">
+      {% csrf_token %}
+        <div class="login-form-container">
+            <div class="form-fields">
+              {% for radio in renew_access_form.months %}
+                <div class="input_form" style="margin-top: 10px">
+                  {{ radio.tag }}
+                  {% if forloop.counter == 1 %}
+                  <label for="{{ radio.id_for_label }}">{{ radio.choice_label }} - {{ my_course.get_price_for_renew_access_for_half_month }}тг.</label>
+                  {% elif forloop.counter == 2 %}
+                  <label for="{{ radio.id_for_label }}">{{ radio.choice_label }} - {{ my_course.get_price_for_renew_access_for_month }}тг (-10% скидка).</label>
+                  {% else %}
+                  <label for="{{ radio.id_for_label }}">{{ radio.choice_label }} - {{ my_course.get_price_for_renew_access_for_two_months }}тг (-15% скидка).</label>
+                  {% endif %}
+                </div>
+              {% endfor %}
+            </div>
+            <button type="submit" class="reg_button" style="margin: 0px">Продлить доступ</button>
+            <a href="#" class="close"><img src="{% static 'css/details/imgs/mainPage/exit.png' %}" alt=""></a>
+        </div>
+    </form>
+</div>
+{% endif %}
+
+<div class="container2">
+  <div class="lessonsnbooks">
+      <div class="lessons">
+
+        {% if my_course.is_completed %}
+          <h3 style="color: green;">Вы завершили курс</h3>
+        {% endif %}
+
+
+        {% for lesson in my_course.lessons.all %}
+          <div class="lesson" style="display:flex">
+            {% if my_course.is_available_until %}
+              {% if not my_course.is_available %}
+                <a href="#renew_access">Урок {{ forloop.counter }}. {{ lesson.lesson.title }}
+              {% else %}
+                <a href="lesson/{{ forloop.counter }}/">Урок {{ forloop.counter }}. {{ lesson.lesson.title }}
+              {% endif %}
+            {% else %}
+              <a href="lesson/{{ forloop.counter }}/">Урок {{ forloop.counter }}. {{ lesson.lesson.title }}
+            {% endif %}
+            {% if lesson.is_completed %}
+              <div class="locked"><img src="{% static 'css/details/imgs/lessonsPage/is_completed.png' %}" alt="is-completed"></div>
+            {% endif %}
+              </a>
+          </div>
+        {% endfor %}
+
+        {% if my_course.has_final_test %}
+          <div class="lesson" style="display:flex">
+            {% if my_course.get_number_of_completed_lessons == my_course.course.get_number_of_lessons %}
+              <a href="final_test/">Финальный тест для получения сертификата
+              {% if my_course.is_completed %}
+                <div class="locked"><img src="{% static 'css/details/imgs/lessonsPage/is_completed.png' %}" alt="is-completed"></div>
+              {% endif %}
+              </a>
+            {% else %}
+              <a>Финальный тест для получения сертификата<div class="locked"><img src="{% static 'css/details/imgs/lessonsPage/locked.png' %}" alt="is-completed"></div></a>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        </div>
+
+    </div>
+</div>
+
+
+
+{% with course_number_of_comments=my_course.course.course.get_number_of_comments %}
+{% if course_number_of_comments > 0 %}
+<div class="comments" id="comments">
+  <hr style="margin: 0; padding:0; height: 1px;">
+  <div class="container3">
+    {% if my_course.get_course_passed_percentage >= 80 %}
+      <form class="form form_margin" action="leave_comment/" method="post">
+      {% csrf_token %}
+      {{ leave_comment_form.comment }}
+<!--      <textarea name="comment" cols="40" rows="10" class="input" placeholder="Оставить свой комментарий" maxlength="2000" required="" id="id_comment"></textarea>-->
+      <div class="form__item">
+        <div class="rating_form">
+          <label for="simple-rating"><p>Оцените качество курса:</p></label>
+          <div class="simple-rating">
+            <div class="simple-rating__items">
+              {% for radio in leave_comment_form.rating %}
+              {{ radio.tag }}
+              <label for="id_rating_{{ forloop.counter0 }}" class="simple-rating__label"></label>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        {% if my_course.is_available_until %}
+          {% if my_course.is_available %}
+            <button type="submit">Отправить</button>
+          {% else %}
+            <button type="button" onclick="location.hash = '#renew_access'">Отправить</button>
+          {% endif %}
+        {% else %}
+        <button type="submit">Отправить</button>
+        {% endif %}
+      </div>
+    </form>
+    {% else %}
+      <h3 style="margin: 0.5% 15%;">You can't leave comments until you won't reach course +80%</h3>
+    {% endif %}
+    <div class="commentsAmount">
+      <p>{{ course_number_of_comments }} отзывов</p>
+    </div>
+    <div class="comments_list"></div>
+    {% if course_number_of_comments > 10 %}
+    <button id="get_comments">Показать еще отзывы</button>
+    {% endif %}
+  </div>
+</div>
+{% else %}
+<div class="comments" id="comments">
+  <hr style="margin: 0; padding:0; height: 1px;">
+  <div class="container3">
+    {% if my_course.get_course_passed_percentage >= 80 %}
+      <form class="form form_margin" action="leave_comment/" method="post">
+        {% csrf_token %}
+        {{ leave_comment_form.comment }}
+        <div class="form__item">
+          <div class="rating_form">
+            <label for="simple-rating"><p>Оцените качество курса:</p></label>
+            <div class="simple-rating">
+              <div class="simple-rating__items">
+                {% for radio in leave_comment_form.rating %}
+                {{ radio.tag }}
+                <label for="id_rating_{{ forloop.counter0 }}" class="simple-rating__label"></label>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          {% if my_course.is_available_until %}
+            {% if my_course.is_available %}
+              <button type="submit">Отправить</button>
+            {% else %}
+              <button type="button" onclick="location.hash = '#renew_access'">Отправить</button>
+            {% endif %}
+          {% else %}
+          <button type="submit">Отправить</button>
+          {% endif %}
+        </div>
+      </form>
+    {% else %}
+      <h3 style="margin: 0.5% 15%;">You can't leave comments until you won't reach course +80%</h3>
+    {% endif %}
+    <div class="commentsAmount">
+        <p>{{ course_number_of_comments }} отзывов</p>
+    </div>
+  </div>
+</div>
+{% endif %}
+{% endwith %}
+{% endblock %}
+
+
+{% block js %}
+  <script src="{% static 'js/get_comments.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,83 @@
+<html>
+<head>
+  <title>Покупка курса</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body style="text-align: center; margin-top: 20px;">
+<h2 id="h2_order_description">{{ order_description }}</h2>
+<div id="ioka-widget"></div>
+
+<script src="https://cdn.ioka.kz/ioka-widget-v2-stage.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script>
+  const options = {
+    onSuccess: (res) => {
+      $.ajax({
+        type: "POST",
+        url: res["success_url"],
+        headers: {
+          "X-Requested-With": "XMLHttpRequest",
+          "X-CSRFToken": $.cookie("csrftoken"),
+        }
+      })
+      window.location.href = res["checkout_url"]
+    },
+    widgetProps: {
+      cardForm: {
+        hideErrorMessages: true,
+        hideEmail: true,
+        hideCardContainer: true,
+        hideResultMessage: true,
+        buttonText: "Пополнить - ",
+        title: "{{ order_description }}",
+        cardNumberLabel: "",
+        expireMonthLabel: "",
+        expireYearLabel: "",
+        cvcLabel: "",
+        cardHolderLabel: "",
+      },
+      styles: {
+        inputContainer: {
+          border: "1px solid #CBCBCC",
+          borderRadius: "4px",
+          height: "32px",
+        },
+        inputs: {
+          padding: "8px",
+          height: "100%",
+        },
+        submitButton: {
+          height: "32px",
+          borderRadius: "4px",
+        },
+        buttonTextStyle: {
+          fontSize: "14px",
+        },
+        middleContainer: {
+          margin: "0",
+        },
+        brandImage: {
+          top: "-4px",
+        },
+        checkboxContainer: {
+          display: "none",
+        }
+      },
+    },
+  };
+
+  const IokaWidgetItem = new IokaWidget({
+    orderId: "{{ order_id }}",
+    orderAccessToken: "{{ order_access_token }}",
+    isSaveCard: false,
+    elementId: "ioka-widget",
+    options,
+  });
+
+  IokaWidgetItem.initPayment();
+</script>
+</body>
+</html>

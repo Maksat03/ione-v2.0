@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Приложение</title>
+
+    <link rel="stylesheet" href="{% static 'css/iOneLayer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/downloadApp.css' %}">
+  </head>
+  <body>
+    <div class="con">
+      <div class="go_back">
+        <a onclick="window.history.go(-1); return false;">Вернуться назад</a>
+      </div>
+      <div class="download_form">
+        <div class="warning">
+          <h2>Скачайте наше приложения, что бы обучение стало ещё удобнее</h2>
+        </div>
+        <div class="download_btns">
+          <div class="btn">
+            <a href="#"><img src="{% static 'css/details/imgs/mainPage/playm.png' %}" alt=""></a>
+          </div>
+          <div class="btn">
+            <a href="#"><img src="{% static 'css/details/imgs/mainPage/apps.png' %}" alt=""></a>
+          </div>
+        </div>
+        <div class="app_img">
+          <img src="{% static 'css/details/imgs/app/mobApp.png' %}" alt="">
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

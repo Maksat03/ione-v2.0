@@ -1,0 +1,276 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  iOne.education
+{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/mainPage.css' %}">
+  <link rel="stylesheet" href="{% static 'css/mediaMainPage.css' %}">
+  <link rel="stylesheet" href="{% static 'css/details/carousel.css' %}">
+  <link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="phone">
+  <div class="container1">
+    <div class="phone-container">
+      <div class="text">
+        <h2>Теперь у вас, вместе с нами, есть шанс обучаться в любое время, в любом месте и без ограничении!</h2>
+        {% if request.user.is_authenticated %}
+        <p>Продолжите обучение</p>
+        {% else %}
+        <p>Начните обучение вместе с нами</p>
+        {% endif %}
+      </div>
+
+      {% if request.user.is_authenticated %}
+      <div class="profilebtn">
+        <a class="profbtn" href="{% url 'profile' %}">Перейти в профиль</a>
+      </div>
+      {% else %}
+      <div class="phone-register-buttons">
+        <a class="log-btn" href="#log-zatemnenie">Войти</a>
+        <a class="reg-btn" href="#reg-zatemnenie">Регистрация</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+<div class="container2">
+  <div class="scroll">
+    <a href="#scroll-courses"><img src="{% static 'css/details/imgs/mainPage/btn.png' %}" alt="" style=" border-radius: 50%;"></a>
+  </div>
+
+  <div class="best_top4" id="scroll-courses">
+    <h2>Подборка ТОП 4</h2>
+
+    {% for top in tops %}
+    <div class="top_cards">
+      <h4>{{ top.section.title }}</h4>
+      <div class="top_cards_line">
+          {% for course in top.courses.all %}
+          <div class="top_card" style="background-image: url({{ course.poster.url }})">
+            <div class="card_info">
+              <a href="{% url 'course' course.pk %}"><p style="font-weight: bold">{{ course.title }}</p></a>
+              <div class="course_status">
+                <p style="background-color: #0098a6">Топ</p>
+                <p style="background-color: orange">Лидер продаж</p>
+              </div>
+              <p>
+              {% for author in course.authors.all %}
+              <a href="{% url 'authors' %}?author_id={{author.pk}}">
+                {{ author.user_account.first_name }} {{ author.user_account.last_name }}{% if not forloop.last %}, {% endif %}
+              </a>
+              {% endfor %}
+              </p>
+            </div>
+          </div>
+          {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="main_categories">
+    <h2>Категорий</h2>
+
+    <div class="actual">
+      <p>Самые актуальные категорий</p>
+    </div>
+
+    <div class="courses-categories">
+      {% for category in sections %}
+      <div class="categories-btn">
+        <button class="btn" onclick="open_category({{ category.id }}, this)" type="button" value="{% if forloop.counter == 1 %}1{% else %}0{% endif %}">{{ category.title }}</button>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% with request.user.get_user_courses as my_courses %}
+    {% with request.user.favourite_courses.all as fav_courses %}
+    {% for section in sections %}
+    <div id="section_{{ section.id }}" style="display: {% if forloop.counter == 1 %}block{% else %}none{% endif %}">
+      {% with section.get_courses|slice:":6" as courses %}
+      {% for course in courses %}
+        {% if forloop.counter == 1 or forloop.counter == 3 or forloop.counter == 5%}
+          {% if forloop.counter != 1 %}
+            </div>
+          {% endif %}
+        <div class="category_cards_line">
+        {% endif %}
+          <div class="category_card">
+            <div class="category_card_img">
+              <img src="{{ course.poster.url }}" alt="">
+            </div>
+            <div class="category_card_info">
+              <a href="{% url 'course' course.pk %}" style="color: black"><h4>{{ course.title }}</h4></a>
+              <p>
+                {% for author in course.authors.all %}
+                <a href="{% url 'authors' %}?author_id={{author.pk}}">
+                  {{ author.user_account.first_name }} {{ author.user_account.last_name }}{% if not forloop.last %}, {% endif %}
+                </a>
+                {% endfor %}
+              </p>
+              <div class="rating">
+                <h3>{{ course.course.rating }}</h3>
+                {% for _ in ''|center:course.course.get_number_of_rating_full_stars %}
+                  <img src="/static/css/details/imgs/lessonsPage/fullStar.png" alt="">
+                {% endfor %}
+
+                {% if course.rating_has_half_star %}
+                  <img src="/static/css/details/imgs/lessonsPage/halfStar.png" alt="">
+                {% endif %}
+
+                {% for _ in ''|center:course.course.get_number_of_rating_no_stars %}
+                  <img src="/static/css/details/imgs/lessonsPage/noStar.png" alt="">
+                {% endfor %}
+              </div>
+              <p>всего {{ course.video_duration }} ч - {{ course.number_of_lessons }} лекции</p>
+            </div>
+
+            <div class="select">
+              {% if request.user.is_authenticated %}
+                {% if course in fav_courses %}
+                <button onclick="Listener(this)" style="background-image: url({% static 'css/details/imgs/Library/like1.png' %})" type="button" name="button" value=1 id="{{ course.id }}"></button>
+                {% else %}
+                <button onclick="Listener(this)" type="button" name="button" value=0 id="{{ course.id }}"></button>
+                {% endif %}
+              {% else %}
+              <button onclick="window.location.hash = 'log-zatemnenie'" type="button"></button>
+              {% endif %}
+            </div>
+
+            <div class="category_card_buy">
+              {% if course in my_courses %}
+                <a href="{% url 'profile' %}">Продолжить обучение</a>
+              {% else %}
+                {% if course.is_free %}
+                <a href="{% url 'course' course.pk %}">Начать обучение</a>
+                {% else %}
+                <a href="{% url 'course' course.pk %}">Купить</a>
+                {% endif %}
+              {% endif %}
+            </div>
+
+            <div class="price_block">
+              {% if course.is_free %}
+              <h3>Бесплатно</h3>
+              {% else %}
+              <h3>{{ course.current_price }}тг</h3>
+              {% endif %}
+            </div>
+          </div>
+          {% if forloop.last %}
+            {% if not forloop.counter|divisibleby:2 %}
+              <div style="visibility: hidden;" class="category_card hidden_category_card">
+                <div class="category_card_img">
+                  <img src="{{ course.poster.url }}" alt="">
+                </div>
+                <div class="category_card_info">
+                  <h4>{{ course.title }}</h4>
+                  <p>Журавлёв Сергей</p>
+                  <div class="rating">
+                    <h3>4,5</h3>
+                    <img src="css/details/imgs/lessonsPage/fullStar.png" alt="">
+                    <img src="css/details/imgs/lessonsPage/fullStar.png" alt="">
+                    <img src="css/details/imgs/lessonsPage/fullStar.png" alt="">
+                    <img src="css/details/imgs/lessonsPage/halfStar.png" alt="">
+                    <img src="css/details/imgs/lessonsPage/noStar.png" alt="">
+                    <p>(100)</p>
+                  </div>
+                  <p>всего 2,5 ч - 10 лекции - Средний</p>
+                </div>
+
+                <div class="select">
+                  <button onclick="Listener(this)" type="button" name="button" value=0></button>
+                </div>
+
+                <div class="category_card_buy">
+                  <a href="#">Купить</a>
+                </div>
+
+                <div class="price_block">
+                  <h3>20000тг</h3>
+                  <h4>25000тг</h4>
+                </div>
+              </div>
+            {% endif %}
+            </div>
+          {% endif %}
+      {% endfor %}
+      {% if courses|length == 6 %}
+        <div class="others">
+          <button type="button" name="button" onclick="window.location.href = '{% url 'section' section.pk %}'">Ещё</button>
+        </div>
+      {% endif %}
+      {% endwith %}
+    </div>
+    {% endfor %}
+    {% endwith %}
+    {% endwith %}
+  </div>
+
+  <div class="main_infos">
+    <div class="main_info1 wow animate__animated animate__fadeInLeft">
+      <div class="main_info_img">
+        <img src="https://i03.fotocdn.net/s112/4ceecbd02a0ab5f2/public_pin_l/2510064623.jpg" alt="">
+      </div>
+      <div class="main_info_text">
+        <h2>Станьте нашим преподавателем</h2>
+        <p>PHP входит в десятку самых популярных языков программирования в рейтинге TIOBE. На нём написано большинство CMS, в том числе и WordPress, на котором работает 65% всех сайтов в мире.</p>
+        <a href="#publish-zatemnenie">Начните преподавать сегодня</a>
+      </div>
+    </div>
+
+    <div class="main_info2 wow animate__animated animate__slideInLeft">
+      <div class="main_info2_img">
+        <img src="https://mir-s3-cdn-cf.behance.net/project_modules/fs/6ab63f119004471.60945b6e9afb8.jpg" alt="">
+      </div>
+      <div class="main_info_text">
+        <div class="main_info_title">
+          <img src="css/details/imgs/mainPage/logo.png" alt="">
+          <h2>teacher</h2>
+        </div>
+        <p>PHP входит в десятку самых популярных языков программирования в рейтинге TIOBE. На нём написано большинство CMS, в том числе и WordPress, на котором работает 65% всех сайтов в мире.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- sponsors -->
+
+<!-- <div class="sponsors-inf">
+  <div class="container3">
+    <div class="text-sponsors" style="text-align:center">
+      <h1>Нам доверяют такие компании как</h1>
+    </div>
+    <div class="sponsors-imgs">
+      <div class="sponsors-img">
+        <img src="css/details/imgs/mainPage/sponsor.jpg" alt="">
+      </div>
+      <div class="sponsors-img">
+        <img src="css/details/imgs/mainPage/sponsor.jpg" alt="">
+      </div>
+      <div class="sponsors-img">
+        <img src="css/details/imgs/mainPage/sponsor.jpg" alt="">
+      </div>
+      <div class="sponsors-img">
+        <img src="css/details/imgs/mainPage/sponsor.jpg" alt="">
+      </div>
+      <div class="sponsors-img">
+        <img src="css/details/imgs/mainPage/sponsor.jpg" alt="">
+      </div>
+    </div>
+  </div>
+</div> -->
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/mainPage.js' %}"></script>
+<script src="{% static 'js/wow.min.js' %}"></script>
+<script>new WOW().init();</script>
+{% endblock %}

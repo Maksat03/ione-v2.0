@@ -1,0 +1,296 @@
+{% load static %}
+{% load sections_tags %}
+{% load user_tags %}
+{% load teacher_tags %}
+{% load ione_courses_tags %}
+{% get_ione_news_list as ione_news_list %}
+{% get_registration_form as registration_form %}
+{% get_login_form as login_form %}
+{% get_publish_course_request_form as publish_course_request_form %}
+{% get_reset_password_form as reset_password_form %}
+{% get_sections_tree as sections_tree %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>{% block title %}{% endblock %}</title>
+
+    {% block styles %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/details/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/details/checkbox.css' %}">
+    <link rel="stylesheet" href="{% static 'css/details/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/details/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/details/register.css' %}">
+    <link rel="stylesheet" href="{% static 'css/details/scrollUp.css' %}">
+
+    <link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+</head>
+<body id="scroll-top" style="font-family: sans-serif">
+    <div class="page">
+    <!-- navbar -->
+    <div class="nav">
+        <div class="hamburger-menu">
+           <input id="menu__toggle" type="checkbox" />
+           <label class="menu__btn" for="menu__toggle">
+             <span></span>
+           </label>
+           <ul class="menu__box">
+               <li>
+                   <form action="/courses/search/">
+                        <div class="search_form" id="search_form">
+                          <button type="submit"><img src="{% static 'css/details/imgs/mainPage/search.jpg' %}" alt=""></button>
+                          <input type="search" placeholder="Поиск курсов" name="search">
+                        </div>
+                   </form>
+               </li>
+               <li>
+                   <button class="categories-dropdown-btn" style="padding: 0" id="id-categories-dropdown-btn"><a class="menu__item">Категории</a></button>
+                   <div class="categories" id="mob_categories">
+                        {% autoescape off %}
+                        {{ sections_tree }}
+                        {% endautoescape %}
+                   </div>
+               </li>
+               {% if request.user.is_authenticated %}
+                 <li><a class="menu__item" href="{% url 'profile' %}">Профиль</a></li>
+                 <li><a class="menu__item" href="{% url 'profile' %}">Моё обучение</a></li>
+                 <li><a class="menu__item" href="{% url 'profile' %}#favourites">Избранные</a></li>
+               {% else %}
+                 <li><a class="menu__item" href="#log-zatemnenie">Моё обучение</a></li>
+                 <li><a class="menu__item" href="#log-zatemnenie">Избранные</a></li>
+               {% endif %}
+             <li><a class="menu__item" href="#publish-zatemnenie">Разместить курсы</a></li>
+             <li><a class="menu__item" href="#zatemnenie">Что нового в iOne</a></li>
+               {% if request.user.is_authenticated %}
+                 <li><a style="color: red;" class="menu__item" href="{% url 'logout' %}">Выйти</a></li>
+               {% else %}
+                 <li><a style="color: #0098a6;" class="menu__item" href="#reg-zatemnenie">Регистрация</a></li>
+                 <li><a style="color: #0098a6;" class="menu__item" href="#log-zatemnenie">Войти</a></li>
+               {% endif %}
+           </ul>
+         </div>
+        <div class="nav-left">
+            <div class="logo_form">
+                <a href="/courses/" class="iOneLogo"><img src="{% static 'css/details/imgs/mainPage/logo.png' %}" alt="" width="80" height="80"></a>
+            </div>
+            <div class="categories-dropdown">
+                <button class="categories-dropdown-btn"><a>Категории</a></button>
+                <div class="categories" id="categories">
+                    {% autoescape off %}
+                    {{ sections_tree }}
+                    {% endautoescape %}
+                </div>
+            </div>
+            <form action="/courses/search/">
+                <div class="search_form">
+                  <button type="submit"><img src="{% static 'css/details/imgs/mainPage/search.jpg' %}" alt=""></button>
+                  <input type="search" placeholder="Поиск курсов" value="{% block search_input %}{% endblock %}" name="search">
+                </div>
+            </form>
+        </div>
+        <div class="nav-right">
+            <a href="#publish-zatemnenie">Разместить свои курсы</a>
+            <a href="{% if request.user.is_authenticated %}{% url 'profile' %}{% else %}#log-zatemnenie{% endif %}">Мои курсы</a>
+        </div>
+
+        {% if not request.user.is_authenticated %}
+        <div class="register-buttons">
+
+            <a class="reg" href="#reg-zatemnenie" style="border: 0.1px solid;">Регистрация</a>
+
+            <a class="log" href="#log-zatemnenie" style="border: 1px solid">Войти</a>
+        </div>
+
+        <div id="log-zatemnenie">
+
+            <form method="post" action="/courses/user/login/" class="login_form">
+                {% csrf_token %}
+
+                <div class="login-form-container">
+                    <div id="login_form_errors"></div>
+                    <div class="form-fields">
+                        {% for field in login_form %}
+                        <div class="form-field">
+                            {{ field }}
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button type="submit" class="reg_button" style="margin: 0px">Войти</button>
+                    <a href="#" class="close"><img src="{% static 'css/details/imgs/mainPage/exit.png' %}" alt=""></a>
+                    <a href="#reset_password">Забыли пароль?</a>
+                </div>
+            </form>
+        </div>
+
+        <div id="reset_password">
+            <form action="/courses/user/reset_password/" method="post" class="reset_password_form">
+                {% csrf_token %}
+                <div class="reset-password-form-container">
+                    <h3>Напишите свою эл почту и мы отправим вам ссылку в почту где вы можете написать новый пароль для аккаунта</h3>
+                    <div class="form-fields">
+                        <div class="form-field">
+                            <div id="{{ reset_password_form.reset_password_email_field.name }}_errors"></div>
+                            {{ reset_password_form.reset_password_email_field }}
+                        </div>
+                    </div>
+                    <button type="submit" class="reg_button">Отправить</button>
+                    <a href="#" class="close"><img src="{% static 'css/details/imgs/mainPage/exit.png' %}" alt=""></a>
+                </div>
+            </form>
+        </div>
+        
+        <div id="reg-zatemnenie">
+            <form method="post" action="/courses/user/sign-up/" class="registration_form">
+                {% csrf_token %}
+                <div id="register-form-container">
+                    <div class="form-fields">
+                        {% for field in registration_form %}
+                            {% if field != registration_form.user_agreement %}
+                                {% if field == registration_form.phone_number %}
+                                <div id="{{ field.name }}_field_errors"></div>
+                                <div class="form-field" style="display: flex">
+                                    <div id="reg_phone_number">
+                                    <label for="id_phone_number">+7</label>
+                                    <input  style="border-radius: 0 5px 5px 0;" type="tel" name="phone_number" placeholder="Номер телефона" maxlength="128" required="" id="id_phone_number">
+                                    </div>
+                                </div>
+                                {% else %}
+                                <div class="form-field">
+                                    <div id="{{ field.name }}_field_errors"></div>
+                                    {{ field }}
+                                </div>
+                                {% endif %}
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <div class="form-buttons">
+                        <button class="reg_button" type="submit" style="margin: 0px">Регистрация</button>
+                    </div>
+                    <div id="user_agreement_field_errors"></div>
+                    <div class="rule">
+                        <div class="rule-checkbox">
+                            {{ registration_form.user_agreement }}
+                        </div>
+                        <span style="font-size:15px">Да, я принимаю <a href="test.html">правила конфиденциальности</a> и <a href="#">условия</a> использования моих данных.</span>
+                        <a href="#" class="close"><img src="{% static 'css/details/imgs/mainPage/exit.png' %}" alt=""></a>
+                    </div>
+                </div>
+            </form>
+        </div>
+        {% else %}
+        <div class="dropdown">
+            <button class="dropbtn" style="background-image: url('{{ request.user.photo.url }}')"></button>
+            <div class="dropdown-content">
+                <div class="account">
+                    <button style="background-image: url('{{ request.user.photo.url }}')"></button>
+                    <div class="account-inf">
+                        <div class="account-nick">
+                            <p>{{ request.user.first_name }} {{ request.user.last_name }}</p>
+                        </div>
+                        <div class="account-email">
+                            <p>{{ request.user.email }}</p>
+
+                            {% if request.user.is_authenticated %}
+                                <p>Баланс: {{ request.user.cashback_balance|floatformat:"0" }} тг</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                <a href="{% url 'profile' %}">Профиль</a>
+                <a href="{% url 'profile' %}">Мои курсы</a>
+                <a href="{% url 'profile' %}#favourites">Избранные</a>
+                <a href="#publish-zatemnenie">Разместить свои курсы</a>
+                <a href="#zatemnenie">Что нового в iOne</a>
+                <a href="{% url 'logout' %}">Выйти из системы</a>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+
+    <div id="zatemnenie">
+        <div id="newsPage">
+
+            <h2>Главные новости iOne</h2><hr>
+
+            {% for news in ione_news_list %}
+            <h3>{{ news.title }}</h3>
+            <p>{{ news.text }}</p>
+            {% endfor %}
+
+            <a href="#" class="close"><img src="{% static 'css/details/imgs/mainPage/exit.png' %}" alt=""></a>
+        </div>
+    </div>
+
+    <div id="publish-zatemnenie">
+      <form method="post" id="publish_course_request_form">
+          {% csrf_token %}
+        <div class="login-form-container">
+          <div class="form-fields">
+              {% for field in publish_course_request_form %}
+              <div id="{{ field.name }}_field_errors"></div>
+            <div class="form-field">
+                {{ field }}
+            </div>
+              {% endfor %}
+          </div>
+          <button type="submit" class="reg_button" style="margin: 0px">Оставить заявку</button>
+          <a href="#" class="close"><img src="{% static 'css/details/imgs/mainPage/exit.png' %}" alt=""></a>
+        </div>
+      </form>
+    </div>
+    <!-- !navbar-->
+
+    {% block body %}
+    {% endblock %}
+
+    <div class="scrollUp" style="display: none;">
+        <a href="#scroll-top"><img src="{% static 'css/details/imgs/mainPage/arrow-up.png' %}" alt="Scroll-up"></a>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+        <div class="container3">
+          <div class="copyright">
+            <p>© 2022 IONE</p>
+          </div>
+          <div class="footer-top">
+<!--            <div class="contacts">-->
+<!--              <a href="#"><img src="{% static 'css/details/imgs/mainPage/whatsapp.png' %}" alt=""></a>-->
+<!--              <a href="#"><img src="{% static 'css/details/imgs/mainPage/instagram.png' %}" alt=""></a>-->
+<!--              <a href="#"><img src="{% static 'css/details/imgs/mainPage/telegram.png' %}" alt=""></a>-->
+<!--            </div>-->
+          </div>
+
+          <div class="footer_content">
+            <div class="content">
+                {% if not request.user.is_authenticated %}
+                    <a href="#log-zatemnenie">Мой профиль</a>
+                {% else %}
+                    <a href="{% url 'profile' %}">Мой профиль</a>
+                {% endif %}
+              <a href="#zatemnenie">Что нового в iOne</a>
+              <a href="#publish-zatemnenie">Разместить курсы</a>
+            </div>
+            <div class="content">
+              <a href="{% static 'others/docs.pdf' %}">Политика конфиденциальности</a>
+              <a href="{% static 'others/docs.pdf' %}">Условия использования данных</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    <!-- !footer -->
+    </div>
+
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    {% block js %}
+    {% endblock %}
+
+</body>
+</html>

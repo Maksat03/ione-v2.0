@@ -1,0 +1,192 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  {{ author.user_account.first_name }} {{ author.user_account.last_name }}
+{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/authorPage.css' %}">
+  <link rel="stylesheet" href="{% static 'css/mediaAuthor.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="container">
+
+  <div class="about_author">
+
+    <div class="author_info">
+      <div class="author_status">
+        <h1>{{ author.user_account.first_name }} {{ author.user_account.last_name }}</h1>
+        <p>Преподователь/партнёр iOne</p>
+      </div>
+
+      <div class="amount_info">
+        <div class="amount">
+          <p>Всего студентов</p>
+          <h2>{{ author.get_number_of_students }}</h2>
+        </div>
+
+        <div class="amount">
+          <p>Всего курсов</p>
+          <h2>{{ author.get_number_of_courses }}</h2>
+        </div>
+
+<!--        <div class="amount">-->
+<!--          <p>Всего отзывов</p>-->
+<!--          <h2>2 000</h2>-->
+<!--        </div>-->
+      </div>
+    </div>
+
+    <div style="text-align: center">
+      <button class="author_img" style="background-image: url('{{ author.user_account.photo.url }}')"></button>
+    </div>
+</div>
+
+<div class="about_text">
+  <div class="limited_text">
+    <input type="checkbox" class="read_more" id="read_more">
+    <div class="limited">
+      <h3>Немного о себе</h3>
+      {{ author.about_author }}
+      <div class="bottom"></div>
+    </div>
+    <label for="read_more" class="read_more_button"></label>
+  </div>
+
+  <div class="diplomas">
+    <h3>Достижения</h3>
+    <input type="checkbox" class="show_more" id="show_more">
+    <div class="limited_diplomas">
+      {% for diploma in author.get_diplomas %}
+      {% if forloop.counter0|divisibleby:3 %}
+        {% if forloop.counter0 != 0 %}
+          </div>
+        {% endif %}
+        <div class="diplomas_line">
+     {% endif %}
+          <div class="diploma_div">
+            <button class="diploma" style='background-image: url("{{ diploma.image.url }}")' onclick="window.open('{{ diploma.image.url }}')">
+            </button>
+          </div>
+          {% if forloop.last %}
+        </div>
+          {% endif %}
+      {% endfor %}
+      <div class="bottom"></div>
+    </div>
+    <label for="show_more" class="show_more_button"></label>
+  </div>
+</div>
+
+<div class="courses-cards">
+  <h2>Курсы автора</h2>
+
+  {% with request.user.favourite_courses.all as favourite_courses %}
+  {% for course in author.get_courses %}
+  <div class="card_bottom">
+    <div class="card">
+    <a href="{{course.get_absolute_url}}" target="_blank">
+      <img src="{{course.poster.url}}" alt="">
+    </a>
+    <a href="{{ course.get_absolute_url }}" target="_blank" class="cardInf">
+      <h3>{{ course.title }}</h3>
+      <span>{{ course.description }}</span>
+      <p class="authors">
+        {% for author in course.authors.all %}
+        {{ author.user_account.first_name }} {{ author.user_account.last_name }}{% if forloop.last %}. {% else %}, {% endif %}
+        {% endfor %}
+      </p>
+      <div class="rating">
+        <h3>{{ course.course.rating }}</h3>
+        {% for _ in ''|center:course.course.get_number_of_rating_full_stars %}
+          <img src="/static/css/details/imgs/lessonsPage/fullStar.png" alt="">
+        {% endfor %}
+
+        {% if course.rating_has_half_star %}
+          <img src="/static/css/details/imgs/lessonsPage/halfStar.png" alt="">
+        {% endif %}
+
+        {% for _ in ''|center:course.course.get_number_of_rating_no_stars %}
+          <img src="/static/css/details/imgs/lessonsPage/noStar.png" alt="">
+        {% endfor %}
+      </div>
+      <p>всего {{ course.video_duration }} ч - {{ course.number_of_lessons }} лекции</p>
+    </a>
+    <a href="{{ course.get_absolute_url }}" target="_blank" class="price"><h3>{% if course.is_free %}Бесплатно{% else %}{{ course.current_price }}{% endif %}</h3></a>
+
+    {% if not request.user.is_authenticated %}
+      <div class="select"><button onclick="window.location.hash = '#log-zatemnenie'" class="fav_btn" value="0" style="background-image: url('/static/css/details/imgs/Library/like.png');"></button></div>
+    {% else %}
+      {% if course in favourite_courses %}
+      <div class="select"><button onclick="Listener(this)" class="fav_btn" id="{{ course.id }}" value="1" style="background-image: url('/static/css/details/imgs/Library/like1.png');"></button></div>
+      {% else %}
+      <div class="select"><button onclick="Listener(this)" class="fav_btn" id="{{ course.id }}" value="0" style="background-image: url('/static/css/details/imgs/Library/like.png');"></button></div>
+      {% endif %}
+    {% endif %}
+  </div>
+
+    <div class="go_button">
+      <a href="{{ course.get_absolute_url }}">Перейти</a>
+    </div>
+  </div>
+  <hr>
+  {% endfor %}
+  {% endwith %}
+</div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script>
+function add_to_favourite(el) {
+  $.ajax({
+    url: "add_to_favourite/" + el.id + "/",
+    type: "POST",
+    headers: {
+      "X-Requested-With": "XMLHttpRequest",
+      "X-CSRFToken": $.cookie("csrftoken"),
+    },
+    success: (response) => {
+      if (response["success"]){
+        el.style.backgroundImage = "url('/static/css/details/imgs/Library/like1.png')";
+      }
+    },
+    error: (error) => {
+      console.log(error);
+    }
+  });
+}
+
+function remove_from_favourite(el) {
+  $.ajax({
+    url: "remove_from_favourite/" + el.id + "/",
+    type: "POST",
+    headers: {
+      "X-Requested-With": "XMLHttpRequest",
+      "X-CSRFToken": $.cookie("csrftoken"),
+    },
+    success: (response) => {
+      if (response["success"]){
+        el.style.backgroundImage = "url('/static/css/details/imgs/Library/like.png')";
+      }
+    },
+    error: (error) => {
+      console.log(error);
+    }
+  });
+}
+
+function Listener(el) {
+  el.value++;
+  if (el.value % 2 == 0) {
+    remove_from_favourite(el);
+  }
+  else {
+    add_to_favourite(el);
+  }
+}
+</script>
+{% endblock %}

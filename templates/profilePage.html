@@ -1,0 +1,350 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load user_tags %}
+
+{% block title %}
+  Профиль
+{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/profilePage.css' %}">
+  <link rel="stylesheet" href="{% static 'css/details/progress.css' %}">
+  <link rel="stylesheet" href="{% static 'css/mediaProfile.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="line">
+
+  <div class="container1">
+
+    <div class="user_photo_img">
+      <button class="user_photo" style="background-image: url({{ request.user.photo.url }})"></button>
+    </div>
+
+    <div class="main_information">
+      <div class="profileInf">
+        <div class="inf">
+          <span>Фамилия Имя: </span>
+          <input type="text" value="{{ request.user.first_name }} {{ request.user.last_name }}" disabled>
+        </div>
+
+        <div class="inf">
+          <span>Эл. почта:</span>
+          <div class="edit">
+            <input type="text" value="{{ request.user.email }}" disabled>
+            <a href="#change-email"></a>
+          </div>
+        </div>
+
+        <div class="change_btn">
+          <div class="change_btn_form">
+
+            <div class="change_passw">
+              <a class="change" href="#change-zatemnenie" style="margin-left: 10px">Изменить пароль</a>
+            </div>
+
+            <div class="change_data">
+            {% if request.user.needs_to_give_completed_user_data %}
+              <a href="#change-user-data" class="change" style="margin-left: 10px">Дополнить данные</a>
+              <button class="why" style="background: none; border: none; margin: 0px; padding: 0px;" type="button" onclick="window.location.href = '/courses/privacy-policy/#user-data'">Почему нужно дополнить <span style="cursor: pointer; color: #1f3ad5">все данные?</span></button>
+            {% else %}
+              <a href="#change-user-data" class="change" style="margin-left: 10px">Редактировать данные</a>
+            {% endif %}
+            </div>
+
+          </div>
+        </div>
+
+
+      </div>
+
+      <div class="profileInf">
+
+        <div class="inf">
+          <span>Номер:</span>
+          {% if request.user.phone_number %}
+            <input type="text" value="{{ request.user.phone_number }}" disabled>
+          {% else %}
+            <input type="text" value="Не указано" disabled>
+          {% endif %}
+        </div>
+
+        <div class="inf">
+          <span>Дата рождения: </span>
+          {% if request.user.date_of_birth %}
+            <input type="text" value="{{ request.user.date_of_birth }}" disabled>
+          {% else %}
+            <input type="text" value="Не указано" disabled>
+          {% endif %}
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div id="change-email">
+    <form method="post" action="change-email/" class="change_email_form">
+      {% csrf_token %}
+      <div class="change-form-container">
+        <div class="change-email-form-container">
+          <div class="form-fields">
+            {% for field in change_email_form %}
+            <div class="form-field">
+              <div id="{{ field.name }}_field_errors"></div>
+              {{ field }}
+            </div>
+            {% endfor %}
+          </div>
+          <button class="reg_button" type="submit" style="margin: 0px">Изменить</button>
+        </div>
+        <a href="#" class="close"><img src="{% static 'css/details/imgs/mainPage/exit.png' %}" alt=""></a>
+      </div>
+    </form>
+  </div>
+  <div id="change-user-data">
+<form method="post" class="change_user_data_form">
+  {% csrf_token %}
+  <div class="info-form-container">
+    <div class="form-fields">
+      {% for field in change_user_data_form %}
+      <div class="form-field" style="{% if field.name == 'photo' %}margin-bottom: 0px{% endif %}">
+        <div id="{{ field.name }}_field_errors"></div>
+        {% if field.name == "photo" %}
+        <div style="display: flex">
+          <label for="field.auto_id" style="margin: 0px; border: 0px; padding: 3.5px;">Фото:</label>
+          {{ field }}
+          <style>
+            #{{ field.auto_id }} {
+            border: 0px;
+            padding: 0px;
+            padding-left: 3px;
+            }
+          </style>
+        </div>
+        {% else %}
+        {{ field }}
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+    <button type="submit" class="reg_button" style="margin: 0px">Изменить</button>
+    <a href="#" class="close"><img src="{% static 'css/details/imgs/mainPage/exit.png' %}" alt=""></a>
+  </div>
+</form>
+</div>
+  <div id="change-zatemnenie">
+    <form method="post" action="change-password/" class="change_password_form">
+      {% csrf_token %}
+      <div class="change-form-container">
+        <h3 style="color: black; font-size: 13px;" class="last_password_changing">{% if request.user.last_password_changing %}Последний раз пароль был изменён {{ request.user.last_password_changing }}{% endif %}</h3>
+        <div class="change-password-form-container">
+          <div class="form-fields">
+            {% for field in change_password_form %}
+            <div class="form-field">
+              <div id="{{ field.name }}_field_errors"></div>
+              {{ field }}
+            </div>
+            {% endfor %}
+          </div>
+          <button class="reg_button" type="submit" style="margin: 0px">Изменить</button>
+          <a href="#reset_password">Забыли пароль?</a>
+        </div>
+        <a href="#" class="close"><img src="{% static 'css/details/imgs/mainPage/exit.png' %}" alt=""></a>
+      </div>
+    </form>
+  </div>
+  <div id="reset_password">
+      <form action="/courses/user/reset_password/" method="post" class="reset_password_form">
+          {% csrf_token %}
+          <div class="reset-password-form-container">
+              <h3>Напишите свою эл почту и мы отправим вам ссылку в почту где вы можете написать новый пароль для аккаунта</h3>
+              <div class="form-fields">
+                  <div class="form-field">
+                      <div id="{{ reset_password_form.reset_password_email_field.name }}_errors"></div>
+                      <input disabled type="email" name="reset_password_email_field" placeholder="Email" required="" id="id_reset_password_email_field" value="{{ request.user.email }}">
+                  </div>
+              </div>
+              <button type="submit">Отправить</button>
+              <a href="#" class="close"><img src="{% static 'css/details/imgs/mainPage/exit.png' %}" alt=""></a>
+          </div>
+      </form>
+  </div>
+  <div id="view_coupon">
+    <form method="post" class="view_coupon_form">
+      {% csrf_token %}
+      <div class="coupon-form-container">
+        <h3>Чтобы посмотреть купон курса "<i><span class="coupon_form_info_course_name"></span></i>" введите пароль вашего аккаунта</h3>
+        <div class="coupon-pass">
+          <span>Номер вашего купона: <span class="coupon_number"></span></span>
+        </div>
+        <p id="view_coupon_form_error"></p>
+        <div class="form-fields">
+          <div class="form-field">
+            <input class="blocks" type="password" placeholder="Введите свой пароль" id="id_view_coupon_password">
+          </div>
+        </div>
+        <button class="view_coupon_form_submit_button" style="margin: 0px" type="submit" id="">Посмотреть купон</button>
+        <a href="#" class="close"><img src="{% static 'css/details/imgs/mainPage/exit.png' %}" alt=""></a>
+      </div>
+    </form>
+  </div>
+<!-- !line -->
+
+<div class="container2">
+  <div class="courses-categories">
+    <button class="btn" onclick="func(this)" type="button" name="btn1" value="1" data-value="courses-cards">Мои курсы</button>
+    <button class="btn" onclick="func(this)" type="button" name="btn2" value="0" data-value="coupons-cards">Мои купоны</button>
+    <button class="btn" onclick="func(this)" type="button" name="btn3" value="0" data-value="certificates-cards">Мои сертификаты</button>
+    <button class="btn" onclick="func(this)" type="button" name="btn4" value="0" data-value="favourites-cards">Избранные</button>
+  </div>
+  <div style="display: none;" class="favourites-cards">
+    {% for c in favourite_courses %}
+      <div class="card" data-value="{{ c.pk }}" id="{{ c.pk }}_fav_card">
+        <a href="course/{{ c.pk }}/" target="_blank">
+          <img src="{{ c.poster.url }}" alt="">
+        </a>
+        <a href="course/{{ c.pk }}/" target="_blank" class="cardInf">
+          <h3>{{ c.title }}</h3>
+          <span>{{ c.description }}</span>
+          <p class="authors">
+            {% for author in c.authors.all %}
+            {{ author.user_account.first_name }} {{ author.user_account.last_name }}{% if forloop.last %}. {% else %}, {% endif %}
+            {% endfor %}
+          </p>
+          <div class="rating">
+            <h3>{{ c.course.rating }}</h3>
+            {% for _ in ''|center:c.course.get_number_of_rating_full_stars %}
+              <img src="/static/css/details/imgs/lessonsPage/fullStar.png" alt="">
+            {% endfor %}
+
+            {% if c.rating_has_half_star %}
+              <img src="/static/css/details/imgs/lessonsPage/halfStar.png" alt="">
+            {% endif %}
+
+            {% for _ in ''|center:c.course.get_number_of_rating_no_stars %}
+              <img src="/static/css/details/imgs/lessonsPage/noStar.png" alt="">
+            {% endfor %}
+          </div>
+          <p>всего {{ c.video_duration }} ч - {{ c.number_of_lessons }} лекции</p>
+        </a>
+        <a href="course/{{ c.pk }}/" target="_blank" class="price"><h3>{% if c.is_free %}Бесплатно{% else %}{{ c.current_price }}{% endif %}</h3></a>
+        <div class="select"><button data-value="{{ c.pk }}" style="background-image: url({% static 'css/details/imgs/Library/like1.png' %});" onclick="remove_from_favourite(this)"></button>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div style="display: none; margin: 0 0 50px 0" class="coupons-cards">
+    {% for coupon_line in coupons %}
+    <div class="coupons-line">
+      {% with line_num=forloop.counter0 %}
+      {% for coupon in coupon_line %}
+        <div class="coupon">
+          <div class="coupon-title">
+            <h3 style="color: #FF5403">Курс:</h3><h3 style="margin-left: 5px" class="coupon_course_title" id="{{coupon.pk}}">
+            <a href="{{ coupon.course.get_absolute_url }}">{{ coupon.course.title }}</a></h3>
+          </div>
+          <div class="coupon-title">
+            <h3 style="color: #FF5403">Цена:</h3><h3 style="margin-left: 5px">{{ coupon.course.current_price }}тг</h3>
+          </div>
+          <div class="coupon-info">
+            <h3>Номер этого купона: </h3><h3> {{ coupon.coupon|truncatechars:4 }}</h3>
+          </div>
+          <div class="show-coupon">
+            <a href="#view_coupon" id="{{coupon.pk}}">Посмотреть</a>
+          </div>
+          <div class="coupon-status">
+            {% if coupon.is_active %}
+               <h2>Активирован</h2>
+            {% else %}
+              <h2 style="color: green">Не активирован</h2>
+            {% endif %}
+          </div>
+          <div class="coupon-num">
+            <h3>{{ line_num|add:forloop.counter }}</h3>
+          </div>
+        </div>
+      {% endfor %}
+      {% endwith %}
+    </div>
+  {% endfor %}
+  </div>
+  <div style="display: none;" class="certificates-cards">
+    {% for certificate_line in courses_with_certificate %}
+      <div class="certificates-line">
+        {% with line_num=forloop.counter0 %}
+          {% for my_course in certificate_line %}
+            <div class="certificates">
+              <div class="certificates-title">
+                <h3 style="color: #FF5403">Тема:</h3><h3 class="certificate-title" style="margin-left: 5px">{{ my_course.course.title }}</h3>
+              </div>
+              <div class="certificates-title">
+                <h3 style="color: #FF5403">Завершено:</h3><h3 style="margin-left: 5px">{{ my_course.completed_date }}</h3>
+              </div>
+              <div class="show-certificates">
+                <span>Скачать в один клик</span>
+                <a href="{{ my_course.certificate.url }}">Скачать</a>
+              </div>
+              <div class="certificates-num">
+                <h3>{{ line_num|add:forloop.counter }}</h3>
+              </div>
+            </div>
+          {% endfor %}
+        {% endwith %}
+      </div>
+    {% endfor %}
+  </div>
+  <div style="display: block;" class="courses-cards">
+    {% for my_course in my_courses %}
+      {% with course_passed_percentage=my_course.get_course_passed_percentage %}
+      <div class="card">
+        <div class="card_img">
+          <img src="{{ my_course.course.poster.url }}" alt="">
+        </div>
+        <div class="course_info">
+          <div class="cardInf">
+            <h3>{{ my_course.course.title }}</h3>
+            <span>{{ my_course.course.description }}</span>
+            <p class="authors">
+              {% for author in my_course.course.authors.all %}
+              <a href="/courses/authors/?author_id={{ author.pk }}">{{ author.user_account.first_name }} {{ author.user_account.last_name }}{% if forloop.last %}.{% else %},{% endif %}</a>
+              {% endfor %}
+            </p>
+            <p style="opacity: 0.7">всего {{ my_course.course.video_duration }} ч - {{ my_course.course.number_of_lessons }} лекции</p>
+          </div>
+
+          <div class="progress-area">
+            <div class="diagram progress over_50" data-percent="{{ course_passed_percentage }}">
+              <div class="piece left"></div>
+              <div class="piece right" style="transform: rotate(540deg);"></div>
+              <div class="text">
+                <div>
+                  <b>{{ course_passed_percentage }}%</b>
+                </div>
+              </div>
+            </div>
+            {% if course_passed_percentage == 100 %}
+            <p style="color: green">Завершено</p>
+            {% else %}
+            <p>В процессе</p>
+            {% endif %}
+          </div>
+
+          <div class="cardInf-btn">
+            <a href="my_course/{{ my_course.pk }}/" target="_blank">{% if course_passed_percentage == 100 %}Перейти на курс{% else %}Продоложить обучение{% endif %}</a>
+            {% if course_passed_percentage >= 80 %}
+            <a href="my_course/{{ my_course.pk }}/#comments" style="background-color: #0098a6;">Оставить отзыв</a>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+      {% endwith %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/profile_page.js' %}"></script>
+{% endblock %}

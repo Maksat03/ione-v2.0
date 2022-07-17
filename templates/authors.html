@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+  Авторы раздела
+{% endblock %}
+
+{% block styles %}
+  <link rel="stylesheet" href="{% static 'css/authors.css' %}">
+  <link rel="stylesheet" href="{% static 'css/mediaAuthors.css' %}">
+{% endblock %}
+
+
+{% block body %}
+<div class="container">
+  <div class="authors_list">
+    <form>
+      <div class="search">
+        <input placeholder="Поиск автора" type="search" name="search_author" value="{{ search_author_name }}">
+        <input type="submit" value="Поиск">
+      </div>
+    </form>
+
+    <hr style="margin: 0">
+
+    <div class="author-categories" style="text-align: center;">
+      <button style="margin-bottom: 10px" class="btn" onclick="open_authors_list(this)" type="button" name="btn1" value="1">Авторы раздела</button>
+      <button class="btn" onclick="open_fav_authors(this)" type="button" name="btn2" value="0">Избранные</button>
+    </div>
+
+    <div id="fav_authors" style="display: none;">
+      {% for author in request.user.favourite_authors.all %}
+      <div class="author" id="fav_author_{{ author.id }}">
+        <div style="text-align: center;">
+          <button class="author_img" style="background-image: url('{{ author.user_account.photo.url }}');"></button>
+        </div>
+        <div class="author_info_block">
+          <h2>{{ author.user_account.first_name }} {{ author.user_account.last_name }}</h2>
+          <div class="author_link">
+            <a href="/courses/authors/?author_id={{ author.id }}#courses">Курсы автора</a>
+            <a href="/courses/authors/?author_id={{ author.id }}">Об авторе</a>
+          </div>
+          <div class="author_info">
+            <p style="margin-top: 0">Количество студентов: {{ author.get_number_of_students }} студентов</p>
+            <p>Количество курсов: {{ author.get_number_of_courses }} курсов</p>
+            <div class="author_rating">
+              <p>Рейтинг: {{ author.get_rating|floatformat }}</p>
+              <div class="rating">
+              {% for _ in ''|center:author.get_number_of_rating_full_stars %}
+                <img src="/static/css/details/imgs/lessonsPage/fullStar.png" alt="">
+              {% endfor %}
+
+              {% if author.rating_has_half_star %}
+                <img src="/static/css/details/imgs/lessonsPage/halfStar.png" alt="">
+              {% endif %}
+
+              {% for _ in ''|center:author.get_number_of_rating_no_stars %}
+                <img src="/static/css/details/imgs/lessonsPage/noStar.png" alt="">
+              {% endfor %}
+              </div>
+            </div>
+            <div class="select">
+              <button class="fav_btn" id="{{ author.id }}" onclick="Listener(this)" type="button" name="button" value="1"></button>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% if not forloop.last %}
+      <hr>
+      {% endif %}
+      {% endfor %}
+    </div>
+
+    <div id="authors">
+      {% with request.user.favourite_authors.all as favourite_authors %}
+      {% for author in authors %}
+      <div class="author" id="author_{{ author.id }}">
+        <div style="text-align: center;">
+          <button class="author_img" style="background-image: url('{{ author.user_account.photo.url }}');"></button>
+        </div>
+        <div class="author_info_block">
+          <h2>{{ author.user_account.first_name }} {{ author.user_account.last_name }}</h2>
+          <div class="author_link">
+            <a href="/courses/authors/?author_id={{ author.id }}#courses">Курсы автора</a>
+            <a href="/courses/authors/?author_id={{ author.id }}">Об авторе</a>
+          </div>
+          <div class="author_info">
+            <p style="margin-top: 0">Количество студентов: {{ author.get_number_of_students }} студентов</p>
+            <p>Количество курсов: {{ author.get_number_of_courses }} курсов</p>
+            <div class="author_rating">
+              <p>Рейтинг: {{ author.get_rating|floatformat }}</p>
+              <div class="rating">
+              {% for _ in ''|center:author.get_number_of_rating_full_stars %}
+                <img src="/static/css/details/imgs/lessonsPage/fullStar.png" alt="">
+              {% endfor %}
+
+              {% if author.rating_has_half_star %}
+                <img src="/static/css/details/imgs/lessonsPage/halfStar.png" alt="">
+              {% endif %}
+
+              {% for _ in ''|center:author.get_number_of_rating_no_stars %}
+                <img src="/static/css/details/imgs/lessonsPage/noStar.png" alt="">
+              {% endfor %}
+              </div>
+            </div>
+            <div class="select">
+              {% if request.user.is_authenticated %}
+                <button class="fav_btn" id="{{ author.id }}" onclick="Listener(this)" type="button" name="button" value="{%if author in favourite_authors%}1{%else%}0{% endif %}"></button>
+              {% else %}
+                <button class="fav_btn" id="{{ author.id }}" onclick="window.location.hash = 'log-zatemnenie'" type="button" name="button" value="{%if author in favourite_authors%}1{%else%}0{% endif %}"></button>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% if not forloop.last %}
+      <hr>
+      {% endif %}
+      {% endfor %}
+      {% endwith %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+
+{% block js %}
+<script src="{% static 'js/authors.js' %}"></script>
+{% endblock %}

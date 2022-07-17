@@ -1,0 +1,227 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ course.title }}
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'css/aboutCourse.css' %}">
+<link rel="stylesheet" href="{% static 'css/details/comments.css' %}">
+<link rel="stylesheet" href="{% static 'css/details/buy-container.css' %}">
+<link rel="stylesheet" href="{% static 'css/mediaAboutCourse.css' %}">
+{% endblock %}
+
+{% block body %}
+<div class="courses-line">
+  <div class="container1">
+    <div class="line-info">
+      <div class="courseName">
+        <p>{{ course.title }}</p>
+      </div>
+      <div class="authors">
+        {% for author in course.authors.all %}
+            <a class="author_anchor" href="/courses/authors/?author_id={{ author.pk }}">{{ author.user_account.first_name }} {{ author.user_account.last_name }}{% if forloop.last %}.{% else %},{% endif %}</a>
+        {% endfor %}
+      </div>
+      <p>{{ course.description }}</p>
+        {% if course.has_certificate %}
+      <div class="certificate">
+        <a href="#certificate">
+          <img src="/media/certificates/certificateIcon.png" alt="">
+          <p>Сертификат <br> iOne</p>
+        </a>
+      </div>
+        {% endif %}
+    </div>
+    <div class="video">
+      <video src="{{ course.video.url }}" controls="" poster="{{ course.poster.url }}"></video>
+    </div>
+  </div>
+</div>
+
+
+<div class="about" style="margin-bottom: 30px;">
+  <div class="container2">
+    <div class="text">
+      {% if not course.is_last_edition %}
+        <h3 style="color: red;">Это старая версия курса, советуем перейти к <a href="go_to_last_edition_course/" style="text-decoration: none;">последнему версию курса</a></h3>
+      {% endif %}
+      <h2>О курсе</h2>
+        {% autoescape off %}
+        {{ course.about_course }}
+        {% endautoescape %}
+      <h2 style="margin-top: 50px;">Наши преподаватели</h2>
+      {% for author in course.get_authors %}
+        <div class="teacher">
+            <div class="author"><button class="author_photo" style="background-image: url('{{author.user_account.photo.url}}')"></div>
+            <div class="teacher-info" style="margin-left: 20px;">
+                <h4 style="margin: 0">{{author.user_account.first_name}} {{author.user_account.last_name}}</h4>
+                <p>{{author.profession}}</p>
+                <p>{{author.brief_about_author}}</p>
+            </div>
+        </div>
+        {% endfor %}
+        <div class="coursePlan">
+        <p style="font-weight: bold">Программа курса</p>
+        {% for lessons_section in course.get_lessons_sections %}
+        <details class="plan" style="display:block">
+            <summary><b>{{lessons_section.title}}</b></summary>
+            {% for lesson in lessons_section.get_lessons %}
+            <p style="margin-left: 50px">{{ forloop.counter }}. {{lesson.title}}</p>
+            {% endfor %}
+        </details>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="aboutCard">
+      <div class="aboutText">
+        <p>Видеоуроков: {{ course.number_of_lessons }}</p>
+        <p>Общий: {{ course.video_duration }}ч</p>
+        {% if course.has_homeworks %}
+        <p>Задач: {{ course.number_of_homeworks }}</p>
+        {% endif %}
+        <p>{{ course.created_at }}</p>
+
+        <div class="price_list">
+           {% if course.is_free %}
+            <h2 style="padding: 0px; font-size: 18px">Бесплатно</h2>
+           {% else %}
+          <h2 style="padding: 0px; margin: 0 5px 0 0;">{{ course.current_price }} тг</h2>
+<!--          <h3 style="padding: 0px; margin: 0px">course.original_price тг</h3>-->
+            {% endif %}
+        </div>
+      </div>
+      <div class="buy" style="padding: 0px 15px">
+            {% if user_already_has_course %}
+                <a href="{{ my_course.get_absolute_url }}" class="buy-btn">Перейти</a>
+            {% else %}
+                {% if course.is_free %}
+                    {% if request.user.is_authenticated %}
+                        <a class="buy-btn" href="#get-course-btn">Получить курс</a>
+                    {% else %}
+                        <a class="buy-btn" href="#log-zatemnenie">Получить курс</a>
+                    {% endif %}
+                {% else %}
+                    {% if request.user.is_authenticated %}
+                        <a class="buy-btn" href="#buy-btn">Купить</a>
+                        <a class="buy-btn" style="background-color: #0098a6; margin-top: 7px;" href="#coupon-btn">Купон</a>
+                    {% else %}
+                        <a class="buy-btn" href="#log-zatemnenie">Купить</a>
+                        <a class="buy-btn" style="background-color: #0098a6; margin-top: 7px;" href="#log-zatemnenie">Купон</a>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+      </div>
+        {% if not user_already_has_course %}
+      <div class="trial_lesson">
+        <a href="trial-lesson/">Пробный урок</a>
+      </div>
+        {% endif %}
+    </div>
+  </div>
+</div>
+
+
+<div id="certificate">
+    <div class="certificate_container">
+      <div class="certificateImg">
+        <img class="certificate_img" src="/media/certificates/certificate.png" alt="certificate">
+        <a href="#" class="close"><img src="{% static 'css/details/imgs/mainPage/exit.png' %}" alt=""></a>
+      </div>
+    </div>
+</div>
+
+{% if request.user.is_authenticated and not user_already_has_course %}
+<div id="get-course-btn">
+    <form action="get_course/" method="post" id="get-course-form">
+        {% csrf_token %}
+        <div class="buy-container">
+            <div class="buy-info">
+                <h2>Вы подтверждаете что хотите получить этот курс "{{ course.title }}"</h2>
+            </div>
+            <div class="buy-btn-container">
+                <input type="submit" class="submit_button" value="Получить" style="width: 100%; margin-bottom: 15px">
+            </div>
+            <a href="#" class="close"><img src="{% static 'css/details/imgs/mainPage/exit.png' %}" alt=""></a>
+        </div>
+    </form>
+</div>
+<div id="buy-btn">
+    <form method="post" action="buy/" id="buy_form">
+        {% csrf_token %}
+        <div class="buy-container">
+            <div class="buy-info">
+                <h2>Купить курс "{{ course.title }}"</h2>
+                <h3 style="margin: 0px 0px 0px 5px; padding: 0">Выберите один из вариантов:</h3>
+                <div class="buy-type">
+                    {% for radio in payment_form.payment_type %}
+                    <div style="display: flex">
+                        <span class="radio">{{ radio.tag }}</span>
+                        <span style="margin-top: 4px">{{ radio.choice_label }}</span>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="buy-price">
+                    <p>Цена:</p>
+                    <h3 id="course_price">{{ course.current_price|floatformat:"0" }}тг</h3>
+                    {% if request.user.cashback_balance > 0 %}
+                        <div class="use_cashback">
+                            {{ payment_form.use_cashback }}
+                            <label for="id_use_cashback">Использовать кэшбек (<b id="cashback">{{request.user.cashback_balance|floatformat:"0"}}</b> тг)</label>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="buy-btn-container">
+                <input type="submit" class="submit_button" value="Купить">
+            </div>
+            <a href="#" class="close"><img src="{% static 'css/details/imgs/mainPage/exit.png' %}" alt=""></a>
+            <p>Оплачивая доступ к этому курсу, вы соглашаетесь с <a href="/courses/privacy-policy/#course_payment">условиями пользовательского</a> соглашения.</p>
+        </div>
+    </form>
+</div>
+<div id="coupon-btn">
+    <form method="post" action="coupon/" id="coupon_form">
+        {% csrf_token %}
+        <div class="coupon-container">
+            <div class="coupon-info">
+                <h2>Введите купон и вы сразу же получите доступ к курсу "{{ course.title }}"</h2>
+                <div id="coupon_form_errors"></div>
+                {{ coupon_form }}
+            </div>
+            <div class="coupon-btn-container">
+                <input type="submit" class="submit_button" value="Активировать">
+            </div>
+            <a href="#" class="close"><img src="{% static 'css/details/imgs/mainPage/exit.png' %}" alt=""></a>
+            <p>Оплачивая доступ к этому курсу, вы соглашаетесь с <a href="/courses/privacy-policy/#get_access_to_course_by_coupon">условиями пользовательского</a> соглашения.</p>
+        </div>
+    </form>
+</div>
+{% endif %}
+
+{% with course_number_of_comments=course.course.get_number_of_comments %}
+{% if course_number_of_comments > 0 %}
+<div class="comments">
+  <hr style="margin: 0; padding:0; height: 1px;">
+  <div class="container3">
+    <div class="commentsAmount">
+      <p>{{ course_number_of_comments }} отзывов</p>
+    </div>
+    <div class="comments_list">
+    </div>
+
+    {% if course_number_of_comments > 10 %}
+    <button id="get_comments">Показать еще отзывы</button>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+{% endwith %}
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'js/get_comments.js' %}"></script>
+<script src="{% static 'js/about_course_page.js' %}"></script>
+{% endblock %}
